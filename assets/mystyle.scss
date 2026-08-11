@@ -1,0 +1,150 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@100;200;300;400;500;600;700;800&display=swap');
+
+$font-family-sans-serif: 'Manrope', sans-serif;
+$presentation-heading-font: 'Manrope', serif;
+
+// everything a little smaller, except slide titles
+$presentation-font-size-root: 28px;
+$presentation-h2-font-size: 1.8em;
+$presentation-title-slide-text-align: left;
+
+// code font
+$font-family-monospace: 'Source Code Pro', monospace !default;
+
+
+/*-- scss:rules --*/
+
+.navbar{
+    background-color: #547c65 !important;
+    border: none;
+}
+/* TOC */
+.sidebar-title>a {
+    color: #547c65 !important;
+}
+.sidebar nav[role=doc-toc] ul>li>a {
+  color: black !important;
+}
+.sidebar nav[role=doc-toc] ul>li>a:hover {
+    background-color:	#c0d4c3 !important;
+}
+.sidebar nav[role=doc-toc] ul>li>a.active {
+    background-color: #547c65 !important;
+    color: white !important;
+    font-weight: bold;
+}
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active{
+    color: white !important;
+}
+.sidebar-link.active{
+    font-weight: bold;
+}
+
+
+.reveal strong {
+  color: $presentation-heading-color;
+}
+
+.reveal pre code {
+  max-height: 1000px;
+}
+
+.reveal .callout.callout-style-default div.callout-body {
+ 	  font-size: var(--r-main-font-size);
+}
+
+.center-xy {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.center-x {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.center-img {
+  margin: 0;
+  position: relative;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.space-above {
+    margin-top: 5% !important;
+}
+
+.noscroll {
+  overflow-x: hidden !important;
+}
+
+.accent {
+  color: $presentation-heading-color;
+}
+
+.nobrk {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.red {
+  color: #ff0000 !important;
+}
+
+.green {
+  color: #00aa00 !important;
+}
+
+.blue {
+  color: #0000ff !important;
+}
+
+.orange {
+  color: #FCa22d !important;
+}
+
+.grey {
+  color: gray !important;
+}
+
+.reveal .caption {
+  text-align: center !important;
+}
+
+#vcenter {
+  vertical-align: middle;
+}
+
+.myblock {
+  background: gray;
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.myyellowblock {
+  background: #fbdcc0;
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.tufte-margin {
+  width: 30%;
+  font-size: 0.75em;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+  color: gray;
+}

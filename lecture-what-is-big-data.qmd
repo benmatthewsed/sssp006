@@ -1,0 +1,196 @@
+---
+title: "What is big data?"
+format:
+  revealjs:
+    output-file: "lecture-what-is-big-data.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+    chalkboard: true
+title-slide-attributes:
+  data-background-color: "#006938"        
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false
+bibliography: social_data_science-bibliography.bib
+---
+
+## Learning outcomes
+
+- Understand what we mean by ‘big data’
+- Have an overview of different theoretical perspectives on what big data is
+
+## Overview
+
+- Before we think about data
+- Types of data
+- Characteristics of ‘Big data’
+
+# Before we think about data {background-image="backgrounds/c-dustin-K-Iog-Bqf8E-unsplash.jpg" smaller=true}
+
+:::{.aside}
+Photo by C Dustin on Unsplash
+:::
+
+
+
+## Before we think about data
+
+- What is your research question?
+- What is the data you need?
+- What limitations are you prepared to live with?
+- What available choices exist for data?
+
+## My rant: We should think more about models and less about data
+
+We are going to be talking a lot about data in this module.
+
+We should never lose sight of the *social science* question behind our analysis.
+
+IMO (you may disagree) data are there to inform model parameters – the model (that is – the thing you want to find out) is always more important than the data.
+
+:::{.aside}
+[@mcelreath2020statistical]
+:::
+
+
+## Classifying data types and activities
+
+
+Photo by Jessica Johnston on Unsplash
+
+## The coming crisis?
+
+- Influential paper by Savage and Burrows (2007)
+- Essentially argues there is a wide range of data which academics don’t generally engage with, but should
+- Largely focused on incorporating big data techniques
+
+## A standard classification of data types
+
+- Primary research data
+- Secondary research data
+- By-product data?
+- Data which exists for non-research purposes
+- Doesn’t really fit into primary or secondary
+- Big data as by-product data
+
+## Big data as the 3 or maybe 6 V’s
+
+- Volume (it’s big)
+- Velocity (updated frequently)
+- Variety (heterogeneous)
+- Validity (probably not much?)
+- Veracity (correctness and accuracy – it depends?)
+- Volatility (very!)
+
+## Primary data
+
+### Advantages
+- Ability to use precisely the questions we want
+- Complete freedom over how constructed
+- (Relative) control over sample size and can identify under-represented groups
+
+### Disadvantages
+- Time-consuming to get access to data
+- Need to construct the actual questionnaire
+- Access to the perfect sample might not be possible
+
+## Secondary data
+
+### Advantages
+- Availability
+- Quality controlled?
+- Usually comes with some measures of representation, including survey weights
+
+### Disadvantages
+- Analyses can become variable-driven
+- Can only analyse what’s there
+- Little idea about response rates or why some (or lots) of data is missing
+
+## By-product data
+
+- Data which exists ‘naturally’ that we want to use for research purposes
+- Administrative data
+- NHS records, linked tax records, school exam results
+- Social media data
+- Tweets, Facebook posts, Instagram posts?
+- Online metadata
+- Internet Movie Database (IMDB) information about films
+
+### Advantages
+- Enables us to access ‘hard-to-reach’ data
+- Cost-effective way of gathering huge amounts of data
+
+## By-product data
+
+### As with Primary Data
+- Time-consuming to get access to data
+- Lots of data cleaning/labelling required
+- Access to the perfect sample might not be possible
+
+### As with Secondary Data
+- Analysis can become variable-driven
+- Limited to only having data on the information available
+- Variables often have limited sophistication
+- Little idea about who isn’t included or why data is missing
+
+## Characteristics of big data
+
+
+
+Photo by Ben Hershey on Unsplash
+
+## By-product data limitations
+
+- ‘Comprehensive’ data is rarely comprehensive
+- People not registered with NHS?
+- X/Twitter feed data will exclude deleted tweets
+- We are given ‘found’ data as it is found
+- Useful social science data is rarely included
+- Often unusual practices in what is preserved
+
+## By-product data limitations (continued)
+
+- Little contextualisation to the data
+- People might have died five years ago
+- Tweets might include irony, or be about a different subject (#BSA)
+- Would text-based analysis work for TikTok?
+
+## Working with by-product data
+
+- Ethnicity selection amongst online daters
+- 200m messages from 9m users of large US dating website (2003-2010 data)
+- Studied focused on 6.7m initial messages, with 8.5% receiving a reply
+- Study found that people with a ‘multiracial’ identity were more likely to receive a response
+
+## Working with by-product data
+
+- Data accessed through a formal contract with the website
+- High quality quantitative data, but required detailed negotiations
+- Able to identify attitudes towards dating people from different ethnic groups
+
+## Types of big data: Administrative data
+
+- Data from government departments made available to researchers
+- Research institutes can link datasets through shared IDs or probabilistically
+- Nice in theory, but tricky in practice
+
+## Types of big data: social media/web data
+
+- From social media sites through APIs
+- Or ‘digital trace’ data scraped from the web
+- Does analysis of social media represent empirical or methodological social science?
+- Much analysis focuses on platform behaviour rather than wider society
+
+## In summary
+
+- We can think of big data as having the three (or six) V’s
+- As being by-product data
+- It shares some features (mostly limitations) with traditional primary and secondary data

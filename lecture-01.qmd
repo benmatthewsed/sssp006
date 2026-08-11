@@ -1,0 +1,53 @@
+---
+title: "Introduction to Social Data Science"
+format:
+  revealjs:
+    output-file: "lecture-01.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+    chalkboard: true
+title-slide-attributes:
+  data-background-color: "#006938"        
+bibliography: social_data_science-bibliography.bib
+---
+
+
+```{r}
+#| include: false
+options(digits = 2)
+```
+
+## Learning outcomes
+- By the end of this session you will
+  - Understand what Social Data Science is
+
+
+## What is data science?
+![@davenport2012data](images/ds-sexiest.png)
+
+## What is data science?
+![@davenportDataScientistStill2022](images/ds-still-sexiest.png)
+
+## What is data science?
+![@conway2013DataScienceVenn](images/ds-venn-diagram.png)
+
+## What is data science?
+![@wickham2023r](images/r4ds-data-science.png)
+
+## What is data science?
+- A a mix of some coding, some data analysis and lots of substantive knowledge?
+- A research workflow that workflow that facilitates the above?
+
+## Workflows all the way down
+![@mcelreath2026LectureA01](images/mcelreath-workflow.png)
+
+## What's the difference
+- The McElreath workflow starts with _thinking about how the data came about_ rather than importing the data into a software program
+- I think this is key for social data science: theorizing about data needs to be a key part of the workflow

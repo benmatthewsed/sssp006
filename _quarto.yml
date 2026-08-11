@@ -1,0 +1,7 @@
+project:
+  type: website
+  render: 
+    - "*.qmd"
+    - "!todo/*"
+    - "!images/notes.qmd"
+  output-dir: docs/

@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "lecture-01.html#learning-outcomes",
+    "href": "lecture-01.html#learning-outcomes",
+    "title": "Introduction to Social Data Science",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nBy the end of this session you will\n\nUnderstand what Social Data Science is"
+  },
+  {
+    "objectID": "lecture-01.html#what-is-data-science",
+    "href": "lecture-01.html#what-is-data-science",
+    "title": "Introduction to Social Data Science",
+    "section": "What is data science?",
+    "text": "What is data science?\n\n(davenport2012data?)"
+  },
+  {
+    "objectID": "lecture-01.html#what-is-data-science-1",
+    "href": "lecture-01.html#what-is-data-science-1",
+    "title": "Introduction to Social Data Science",
+    "section": "What is data science?",
+    "text": "What is data science?\n\n(davenportDataScientistStill2022?)"
+  },
+  {
+    "objectID": "lecture-01.html#what-is-data-science-2",
+    "href": "lecture-01.html#what-is-data-science-2",
+    "title": "Introduction to Social Data Science",
+    "section": "What is data science?",
+    "text": "What is data science?\n\n(wickham2023r?)"
+  },
+  {
+    "objectID": "lecture-01.html#what-is-data-science-3",
+    "href": "lecture-01.html#what-is-data-science-3",
+    "title": "Introduction to Social Data Science",
+    "section": "What is data science?",
+    "text": "What is data science?"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#learning-outcomes",
+    "href": "lecture-what-is-big-data.html#learning-outcomes",
+    "title": "What is big data?",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand what we mean by ‘big data’\nHave an overview of different theoretical perspectives on what big data is"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#overview",
+    "href": "lecture-what-is-big-data.html#overview",
+    "title": "What is big data?",
+    "section": "Overview",
+    "text": "Overview\n\nBefore we think about data\nTypes of data\nCharacteristics of ‘Big data’"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#before-we-think-about-data",
+    "href": "lecture-what-is-big-data.html#before-we-think-about-data",
+    "title": "What is big data?",
+    "section": "Before we think about data",
+    "text": "Before we think about data\nPhoto by C Dustin on Unsplash"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#before-we-think-about-data-1",
+    "href": "lecture-what-is-big-data.html#before-we-think-about-data-1",
+    "title": "What is big data?",
+    "section": "Before we think about data",
+    "text": "Before we think about data\n\nWhat is your research question?\nWhat is the data you need?\nWhat limitations are you prepared to live with?\nWhat available choices exist for data?"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#my-rant-we-should-think-more-about-models-and-less-about-data",
+    "href": "lecture-what-is-big-data.html#my-rant-we-should-think-more-about-models-and-less-about-data",
+    "title": "What is big data?",
+    "section": "My rant: We should think more about models and less about data",
+    "text": "My rant: We should think more about models and less about data\nWe are going to be talking a lot about data in this module.\nWe should never lose sight of the social science question behind our analysis.\nIMO (you may disagree) data are there to inform model parameters – the model (that is – the thing you want to find out) is always more important than the data.\n\n\nMcElreath, R. (2020). Statistical rethinking: A Bayesian course with examples in R and Stan (2e ed.). CRC press Boca Raton, FL."
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#classifying-data-types-and-activities",
+    "href": "lecture-what-is-big-data.html#classifying-data-types-and-activities",
+    "title": "What is big data?",
+    "section": "Classifying data types and activities",
+    "text": "Classifying data types and activities\nPhoto by Jessica Johnston on Unsplash"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#the-coming-crisis",
+    "href": "lecture-what-is-big-data.html#the-coming-crisis",
+    "title": "What is big data?",
+    "section": "The coming crisis?",
+    "text": "The coming crisis?\n\nInfluential paper by Savage and Burrows (2007)\nEssentially argues there is a wide range of data which academics don’t generally engage with, but should\nLargely focused on incorporating big data techniques"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#a-standard-classification-of-data-types",
+    "href": "lecture-what-is-big-data.html#a-standard-classification-of-data-types",
+    "title": "What is big data?",
+    "section": "A standard classification of data types",
+    "text": "A standard classification of data types\n\nPrimary research data\nSecondary research data\nBy-product data?\nData which exists for non-research purposes\nDoesn’t really fit into primary or secondary\nBig data as by-product data"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#big-data-as-the-3-or-maybe-6-vs",
+    "href": "lecture-what-is-big-data.html#big-data-as-the-3-or-maybe-6-vs",
+    "title": "What is big data?",
+    "section": "Big data as the 3 or maybe 6 V’s",
+    "text": "Big data as the 3 or maybe 6 V’s\n\nVolume (it’s big)\nVelocity (updated frequently)\nVariety (heterogeneous)\nValidity (probably not much?)\nVeracity (correctness and accuracy – it depends?)\nVolatility (very!)"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#primary-data",
+    "href": "lecture-what-is-big-data.html#primary-data",
+    "title": "What is big data?",
+    "section": "Primary data",
+    "text": "Primary data\nAdvantages\n\nAbility to use precisely the questions we want\nComplete freedom over how constructed\n(Relative) control over sample size and can identify under-represented groups\n\nDisadvantages\n\nTime-consuming to get access to data\nNeed to construct the actual questionnaire\nAccess to the perfect sample might not be possible"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#secondary-data",
+    "href": "lecture-what-is-big-data.html#secondary-data",
+    "title": "What is big data?",
+    "section": "Secondary data",
+    "text": "Secondary data\nAdvantages\n\nAvailability\nQuality controlled?\nUsually comes with some measures of representation, including survey weights\n\nDisadvantages\n\nAnalyses can become variable-driven\nCan only analyse what’s there\nLittle idea about response rates or why some (or lots) of data is missing"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#by-product-data",
+    "href": "lecture-what-is-big-data.html#by-product-data",
+    "title": "What is big data?",
+    "section": "By-product data",
+    "text": "By-product data\n\nData which exists ‘naturally’ that we want to use for research purposes\nAdministrative data\nNHS records, linked tax records, school exam results\nSocial media data\nTweets, Facebook posts, Instagram posts?\nOnline metadata\nInternet Movie Database (IMDB) information about films\n\nAdvantages\n\nEnables us to access ‘hard-to-reach’ data\nCost-effective way of gathering huge amounts of data"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#by-product-data-1",
+    "href": "lecture-what-is-big-data.html#by-product-data-1",
+    "title": "What is big data?",
+    "section": "By-product data",
+    "text": "By-product data\nAs with Primary Data\n\nTime-consuming to get access to data\nLots of data cleaning/labelling required\nAccess to the perfect sample might not be possible\n\nAs with Secondary Data\n\nAnalysis can become variable-driven\nLimited to only having data on the information available\nVariables often have limited sophistication\nLittle idea about who isn’t included or why data is missing"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#characteristics-of-big-data",
+    "href": "lecture-what-is-big-data.html#characteristics-of-big-data",
+    "title": "What is big data?",
+    "section": "Characteristics of big data",
+    "text": "Characteristics of big data\nPhoto by Ben Hershey on Unsplash"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#by-product-data-limitations",
+    "href": "lecture-what-is-big-data.html#by-product-data-limitations",
+    "title": "What is big data?",
+    "section": "By-product data limitations",
+    "text": "By-product data limitations\n\n‘Comprehensive’ data is rarely comprehensive\nPeople not registered with NHS?\nX/Twitter feed data will exclude deleted tweets\nWe are given ‘found’ data as it is found\nUseful social science data is rarely included\nOften unusual practices in what is preserved"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#by-product-data-limitations-continued",
+    "href": "lecture-what-is-big-data.html#by-product-data-limitations-continued",
+    "title": "What is big data?",
+    "section": "By-product data limitations (continued)",
+    "text": "By-product data limitations (continued)\n\nLittle contextualisation to the data\nPeople might have died five years ago\nTweets might include irony, or be about a different subject (#BSA)\nWould text-based analysis work for TikTok?"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#working-with-by-product-data",
+    "href": "lecture-what-is-big-data.html#working-with-by-product-data",
+    "title": "What is big data?",
+    "section": "Working with by-product data",
+    "text": "Working with by-product data\n\nEthnicity selection amongst online daters\n200m messages from 9m users of large US dating website (2003-2010 data)\nStudied focused on 6.7m initial messages, with 8.5% receiving a reply\nStudy found that people with a ‘multiracial’ identity were more likely to receive a response"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#working-with-by-product-data-1",
+    "href": "lecture-what-is-big-data.html#working-with-by-product-data-1",
+    "title": "What is big data?",
+    "section": "Working with by-product data",
+    "text": "Working with by-product data\n\nData accessed through a formal contract with the website\nHigh quality quantitative data, but required detailed negotiations\nAble to identify attitudes towards dating people from different ethnic groups"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#types-of-big-data-administrative-data",
+    "href": "lecture-what-is-big-data.html#types-of-big-data-administrative-data",
+    "title": "What is big data?",
+    "section": "Types of big data: Administrative data",
+    "text": "Types of big data: Administrative data\n\nData from government departments made available to researchers\nResearch institutes can link datasets through shared IDs or probabilistically\nNice in theory, but tricky in practice"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#types-of-big-data-social-mediaweb-data",
+    "href": "lecture-what-is-big-data.html#types-of-big-data-social-mediaweb-data",
+    "title": "What is big data?",
+    "section": "Types of big data: social media/web data",
+    "text": "Types of big data: social media/web data\n\nFrom social media sites through APIs\nOr ‘digital trace’ data scraped from the web\nDoes analysis of social media represent empirical or methodological social science?\nMuch analysis focuses on platform behaviour rather than wider society"
+  },
+  {
+    "objectID": "lecture-what-is-big-data.html#in-summary",
+    "href": "lecture-what-is-big-data.html#in-summary",
+    "title": "What is big data?",
+    "section": "In summary",
+    "text": "In summary\n\nWe can think of big data as having the three (or six) V’s\nAs being by-product data\nIt shares some features (mostly limitations) with traditional primary and secondary data"
+  }
+]
