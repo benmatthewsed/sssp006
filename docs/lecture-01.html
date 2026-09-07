@@ -27,8 +27,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ee9ab3830bbe7759b42dda8416faf5cd.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-8b70b60aa9e53eb356c72e15373fe1a5.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -146,19 +166,78 @@
 <section id="what-is-data-science" class="slide level2">
 <h2>What is data science?</h2>
 
-<img data-src="images/ds-sexiest.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="davenport2012data">(<a href="" role="doc-biblioref" onclick="return false;"><strong>davenport2012data?</strong></a>)</span></p></section>
+<img data-src="images/ds-sexiest.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="davenport2012data">Thomas H. Davenport and Patil (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span></p></section>
 <section id="what-is-data-science-1" class="slide level2">
 <h2>What is data science?</h2>
 
-<img data-src="images/ds-still-sexiest.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="davenportDataScientistStill2022">(<a href="" role="doc-biblioref" onclick="return false;"><strong>davenportDataScientistStill2022?</strong></a>)</span></p></section>
+<img data-src="images/ds-still-sexiest.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="davenportDataScientistStill2022">Thomas H. Davenport and Patil (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p></section>
 <section id="what-is-data-science-2" class="slide level2">
 <h2>What is data science?</h2>
 
-<img data-src="images/r4ds-data-science.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="wickham2023r">(<a href="" role="doc-biblioref" onclick="return false;"><strong>wickham2023r?</strong></a>)</span></p></section>
+<img data-src="images/ds-venn-diagram.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="conway2013DataScienceVenn">Conway (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></p></section>
 <section id="what-is-data-science-3" class="slide level2">
 <h2>What is data science?</h2>
 
+<img data-src="images/r4ds-data-science.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="wickham2023r">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p></section>
+<section id="what-is-data-science-4" class="slide level2">
+<h2>What is data science?</h2>
+<ul>
+<li>A a mix of some coding, some data analysis and lots of substantive knowledge?</li>
+<li>A research workflow that workflow that facilitates the above?</li>
+</ul>
+</section>
+<section id="workflows-all-the-way-down" class="slide level2">
+<h2>Workflows all the way down</h2>
 
+<img data-src="images/mcelreath-workflow.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="mcelreath2026LectureA01">McElreath (<a href="#/references" role="doc-biblioref" onclick="">n.d.</a>)</span></p></section>
+<section id="whats-the-difference" class="slide level2">
+<h2>What’s the difference</h2>
+<ul>
+<li>The McElreath workflow starts with <em>thinking about how the data came about</em> rather than importing the data into a software program</li>
+<li>I think this is key for <em>social</em> data science: theorizing about data needs to be a key part of the workflow</li>
+</ul>
+</section>
+<section id="a-proposal" class="slide level2">
+<h2>A proposal</h2>
+
+<img data-src="images/hybrid-workflow.png" class="r-stretch quarto-figure-center"><p class="caption">Synthesis</p></section>
+<section id="a-proposal-1" class="slide level2">
+<h2>A proposal</h2>
+
+<img data-src="images/hybrid-workflow-annotated.png" class="r-stretch quarto-figure-center"><p class="caption">Synthesis</p></section>
+<section id="social-data-science" class="slide level2">
+<h2>Social data science</h2>
+<ul>
+<li>Theoretical skills in understanding what social data is, what it can tell us and what it can’t</li>
+<li>Practical skills in
+<ul>
+<li>data manipulation and workflow</li>
+<li>data visualization and communication</li>
+<li>assessing data limitations</li>
+</ul></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-conway2013DataScienceVenn" class="csl-entry" role="listitem">
+Conway, Drew. 2013. <span>“The <span>Data Science Venn Diagram</span>.”</span> http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram.
+</div>
+<div id="ref-davenportDataScientistStill2022" class="csl-entry" role="listitem">
+Davenport, Thomas H., and DJ Patil. 2022. <span>“Is <span>Data Scientist Still</span> the <span>Sexiest Job</span> of the 21st <span>Century</span>?”</span> <em>Harvard Business Review Digital Articles</em>, July, 1–8.
+</div>
+<div id="ref-davenport2012data" class="csl-entry" role="listitem">
+Davenport, Thomas H, and DJ Patil. 2012. <span>“Data Scientist: <span>The</span> Sexiest Job of the 21st Century.”</span> <em>Harvard Business Review</em> 90 (10): 70–76.
+</div>
+<div id="ref-mcelreath2026LectureA01" class="csl-entry" role="listitem">
+McElreath, Richard. n.d. <span>“Lecture <span>A01</span> - <span>Introduction</span> to <span>Bayesian Workflow</span>.”</span> Accessed August 10, 2026.
+</div>
+<div id="ref-wickham2023r" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></em>. 2nd ed. O’Reilly Media.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

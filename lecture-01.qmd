@@ -50,4 +50,19 @@ options(digits = 2)
 
 ## What's the difference
 - The McElreath workflow starts with _thinking about how the data came about_ rather than importing the data into a software program
-- I think this is key for social data science: theorizing about data needs to be a key part of the workflow
+- I think this is key for _social_ data science: theorizing about data needs to be a key part of the workflow
+
+## A proposal
+![Synthesis](images/hybrid-workflow.png)
+
+## A proposal
+![Synthesis](images/hybrid-workflow-annotated.png)
+
+## Social data science
+- Theoretical skills in understanding what social data is, what it can tell us and what it can't
+- Practical skills in 
+  - data manipulation and workflow
+  - data visualization and communication
+  - assessing data limitations
+
+## References
