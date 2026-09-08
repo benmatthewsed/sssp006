@@ -53,3 +53,5 @@ options(digits = 2)
 ## pivoting
 
 ![](images/tidyr-pivoting.gif)
+
+https://github.com/gadenbuie/tidyexplain/blob/main/images/left-join-extra.gif
