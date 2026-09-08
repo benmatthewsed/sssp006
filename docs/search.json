@@ -922,5 +922,47 @@
     "title": "Dplyr verbs",
     "section": "group_by",
     "text": "group_by\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-joins.html#learning-outcomes",
+    "href": "lecture-joins.html#learning-outcomes",
+    "title": "Joining datasets",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nBy the end of this session you will\n\nUnderstand how to stick tables together"
+  },
+  {
+    "objectID": "lecture-joins.html#note",
+    "href": "lecture-joins.html#note",
+    "title": "Joining datasets",
+    "section": "Note",
+    "text": "Note\n\nWe focus on the implementation of these ideas in the tidyverse\nOne thing that the LLMs have done is make translation between languages straightforward\nYou can apply the same concepts to any program/language - the key thing is having the conceptual language to describe what you want to do, rather than the technical implementation"
+  },
+  {
+    "objectID": "lecture-joins.html#left-join",
+    "href": "lecture-joins.html#left-join",
+    "title": "Joining datasets",
+    "section": "left join",
+    "text": "left join"
+  },
+  {
+    "objectID": "lecture-joins.html#left-join-1",
+    "href": "lecture-joins.html#left-join-1",
+    "title": "Joining datasets",
+    "section": "left join",
+    "text": "left join"
+  },
+  {
+    "objectID": "lecture-joins.html#full-join",
+    "href": "lecture-joins.html#full-join",
+    "title": "Joining datasets",
+    "section": "full join",
+    "text": "full join"
+  },
+  {
+    "objectID": "lecture-joins.html#pivoting",
+    "href": "lecture-joins.html#pivoting",
+    "title": "Joining datasets",
+    "section": "pivoting",
+    "text": "pivoting"
   }
 ]

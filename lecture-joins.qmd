@@ -1,0 +1,55 @@
+---
+title: "Joining datasets"
+format:
+  revealjs:
+    output-file: "lecture-joins.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+title-slide-attributes:
+  data-background-color: "#006938"
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false        
+bibliography: social_data_science-bibliography.bib
+---
+
+
+```{r}
+#| include: false
+options(digits = 2)
+```
+
+## Learning outcomes
+- By the end of this session you will
+  - Understand how to stick tables together
+
+---
+
+## Note
+- We focus on the implementation of these ideas in the tidyverse
+- One thing that the LLMs have done is make translation between languages straightforward
+- You can apply the same concepts to any program/language - the key thing is having the conceptual language to describe what you want to do, rather than the technical implementation
+
+## left join
+
+![](images/left-join.gif)
+
+## left join
+
+![](images/left-join-extra.gif)
+
+## full join
+
+![](images/full-join.gif)
+
+## pivoting
+
+![](images/tidyr-pivoting.gif)
