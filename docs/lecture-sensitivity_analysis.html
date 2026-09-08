@@ -27,27 +27,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-8b70b60aa9e53eb356c72e15373fe1a5.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -224,21 +204,27 @@
 <section id="example-one-measurement-error-in-recorded-crime" class="slide level2">
 <h2>Example One: Measurement error in recorded crime</h2>
 <ul>
-<li>From our discussion in Session One, we know that crime data recorded by the police are not a complete record of all crimes experienced in society in a given period - only crimes which are reported and recorded make it into recorded crime data <span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">(<a href="#/references" role="doc-biblioref" onclick="">Pina-Sánchez et al. 2022</a>)</span></li>
+<li>From our discussion in Session One, we know that crime data recorded by the police are not a complete record of all crimes experienced in society in a given period - only crimes which are reported and recorded make it into recorded crime data</li>
 <li>As we have discussed already, not all crimes are reported to the police, not all incidents which are reported are recorded as crimes… and so on</li>
 <li>So if we want to know, for example, how many crimes there were in Scotland in 2023, the number of crimes recorded by police is likely to be an <em>under</em> count</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">Pina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., &amp; Cernat, A. (2022). The <span>Impact</span> of <span>Measurement Error</span> in <span>Regression Models Using Police Recorded Crime Rates</span>. <em>Journal of Quantitative Criminology</em>. <a href="https://doi.org/10.1007/s10940-022-09557-6">https://doi.org/10.1007/s10940-022-09557-6</a></span></p>
+</div></aside></section>
 <section id="measurement-error-in-recorded-crime" class="slide level2">
 <h2>Measurement error in recorded crime</h2>
 <ul>
-<li>Measurement error in recorded crime is a particular structure: it is <em>proportional to the amount of crime</em> <span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">(<a href="#/references" role="doc-biblioref" onclick="">Pina-Sánchez et al. 2022</a>)</span></li>
+<li>Measurement error in recorded crime is a particular structure: it is <em>proportional to the amount of crime</em></li>
 <li>There is a larger gap between the amount of crime recorded and ‘true’ crime levels in areas with large numbers of recorded crimes compared to areas with very low recorded crime
 <ul>
 <li>The count of crimes recorded in Glasgow will be more of an undercount of ‘true’ crime in Glasgow than the count of crimes recorded in Shetland will be an undercount of ‘true’ crime in Shetland</li>
 </ul></li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">Pina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., &amp; Cernat, A. (2022). The <span>Impact</span> of <span>Measurement Error</span> in <span>Regression Models Using Police Recorded Crime Rates</span>. <em>Journal of Quantitative Criminology</em>. <a href="https://doi.org/10.1007/s10940-022-09557-6">https://doi.org/10.1007/s10940-022-09557-6</a></span></p>
+</div></aside></section>
 <section id="measurement-error-in-recorded-crime-1" class="slide level2">
 <h2>Measurement error in recorded crime</h2>
 
@@ -246,22 +232,26 @@
 <section id="rcme" class="slide level2">
 <h2><code>rcme</code></h2>
 <ul>
-<li><span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">Pina-Sánchez et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> propose some solutions for common forms of statistical analysis using recorded crime</li>
+<li><span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">Pina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., &amp; Cernat, A. (2022). The <span>Impact</span> of <span>Measurement Error</span> in <span>Regression Models Using Police Recorded Crime Rates</span>. <em>Journal of Quantitative Criminology</em>. <a href="https://doi.org/10.1007/s10940-022-09557-6">https://doi.org/10.1007/s10940-022-09557-6</a></span> propose some solutions for common forms of statistical analysis using recorded crime</li>
 <li>They also provide an <a href="https://github.com/alex-cernat/rcme"><code>R</code> package <code>rcme</code></a> which implements some of these methods</li>
 <li>If you are interested fitting statitsical models to police recorded crime data I would strongly recommend checking this out</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="pina-sanchezImpactMeasurementError2022">Pina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., &amp; Cernat, A. (2022). The <span>Impact</span> of <span>Measurement Error</span> in <span>Regression Models Using Police Recorded Crime Rates</span>. <em>Journal of Quantitative Criminology</em>. <a href="https://doi.org/10.1007/s10940-022-09557-6">https://doi.org/10.1007/s10940-022-09557-6</a></span></p>
+</div></aside></section>
 <section id="example-two-measurement-error-in-victimizaton-survey-data" class="slide level2">
 <h2>Example Two: Measurement error in victimizaton survey data</h2>
 <ul>
-<li>Historically, national victimization surveys (such as the SCJS and CSEW) capped the number of victim forms that victims could complete:</li>
-<li>In 2019, ONS said</li>
+<li>Historically, national victimization surveys (such as the SCJS and CSEW) capped the number of victim forms that victims could complete. In 2019, ONS said</li>
 </ul>
 <blockquote>
 <p>“Since the survey began in 1981, “repeat” incidents have been limited to a total of 5. Historically, including a maximum of 5 repeat incidents for any individual victim had proven to be an effective way of reducing the effects of sample variability from year to year. This approach enabled the publication of incident rates that were not subject to large fluctuation between survey years. This approach yields a more reliable picture of changes in victimisations over time once high order repeat victimisations were treated in this way.”</p>
 </blockquote>
-<p><span class="citation" data-cites="officefornationalstatisticsImprovingVictimisationEstimates2019">(<a href="#/references" role="doc-biblioref" onclick="">Office for National Statistics 2019</a>)</span></p>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="officefornationalstatisticsImprovingVictimisationEstimates2019">Office for National Statistics. (2019). <em>Improving <span>Victimisation Estimates Derived</span> from the <span>Crime Survey</span> for <span>England</span> and <span>Wales</span></em>.</span></p>
+</div></aside></section>
 <section id="capping-and-time-trends" class="slide level2">
 <h2>Capping and time trends</h2>
 <ul>
@@ -273,12 +263,12 @@
 <h2>Capping and measurement error</h2>
 <ul>
 <li>However, capping also means that people who experienced more than five incidents of a particular ‘series’ crime type did not have their data accurately recorded</li>
-<li>This was particularly important for women’s reporting of violent victimization <span class="citation" data-cites="walbyViolentCrimeIncreasing2016">(<a href="#/references" role="doc-biblioref" onclick="">Walby, Towers, and Francis 2016</a>)</span></li>
+<li>This was particularly important for women’s reporting of violent victimization<sup>1</sup></li>
 <li>Women who experienced domestic violence may well report more than five repeat incidents of victimization in a given year</li>
 <li>ONS <a href="https://www.ons.gov.uk/releases/crimeinenglandandwalesyearendingmarch2023">now caps incident estimates at the 98th percentile of the distribution, rather than at five per series, and makes uncapped data available to estimates volatility over time</a></li>
-<li>After analysis to assess the effect of capping, SCJS retained the cap at five <span class="citation" data-cites="scottishgovernmentMethodologicalNoteCalculating2019">(<a href="#/references" role="doc-biblioref" onclick="">Scottish Government 2019</a>)</span></li>
+<li>After analysis to assess the effect of capping, SCJS retained the cap at five<sup>2</sup></li>
 </ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="walbyViolentCrimeIncreasing2016">Walby, S., Towers, J., &amp; Francis, B. (2016). Is <span>Violent Crime Increasing</span> or <span>Decreasing</span>? A <span>New Methodology</span> to <span>Measure Repeat Attacks Making Visible</span> the <span>Significance</span> of <span>Gender</span> and <span>Domestic Relations</span>. <em>The British Journal of Criminology</em>, <em>56</em>(6), 1203–1234. <a href="https://doi.org/10.1093/bjc/azv131">https://doi.org/10.1093/bjc/azv131</a></span></p></li><li id="fn2"><p><span class="citation" data-cites="scottishgovernmentMethodologicalNoteCalculating2019">Scottish Government. (2019). <em>Methodological <span>Note</span>: <span>Calculating</span> estimates of crime numbers in the <span>Scottish Crime</span> &amp; <span>Justice Survey</span></em>. Justice Analytical Services.</span></p></li></ol></aside></section>
 <section id="adventures-in-measurement-error" class="slide level2">
 <h2>Adventures in measurement error</h2>
 <ul>
@@ -286,10 +276,13 @@
 <li>In general it’s hard to predict the impact measurement error may have on any particular analysis</li>
 <li>If you have error in the outcome variable it may not bias your regression coefficients at all but just impact the precision of your results <a href="https://stats.stackexchange.com/a/129993">(meaning that they are less likely to be statistically significant)</a></li>
 <li>Measurement error in a key independent variable may bias your regression coefficients <em>downwards</em>, meaning that your results are valid and in reality there is a stronger association between predictor and outcome that you have observed <a href="https://en.wikipedia.org/wiki/Regression_dilution">(sometimes called ‘regression dilution’)</a>…</li>
-<li>But if there is more noise in a control than in a key independent variable, measurement error in the control variable may lead to ‘under controlling’ - and finding statistically significant coefficients where there are none <span class="citation" data-cites="fewellImpactResidualUnmeasured2007">(<a href="#/references" role="doc-biblioref" onclick="">Fewell, Davey Smith, and Sterne 2007</a>)</span></li>
+<li>But if there is more noise in a control than in a key independent variable, measurement error in the control variable may lead to ‘under controlling’ - and finding statistically significant coefficients where there are none</li>
 <li>So it’s quite context dependent - so you need to know the likely source of error in your specific dataset</li>
 </ul>
-</section></section>
+
+<aside><div>
+<p><span class="citation" data-cites="fewellImpactResidualUnmeasured2007">Fewell, Z., Davey Smith, G., &amp; Sterne, J. A. C. (2007). The <span>Impact</span> of <span>Residual</span> and <span>Unmeasured Confounding</span> in <span>Epidemiologic Studies</span>: <span>A Simulation Study</span>. <em>American Journal of Epidemiology</em>, <em>166</em>(6), 646–655. <a href="https://doi.org/10.1093/aje/kwm165">https://doi.org/10.1093/aje/kwm165</a></span></p>
+</div></aside></section></section>
 <section>
 <section id="part-two-selection-effects" class="title-slide slide level1 center">
 <h1>Part Two: Selection effects</h1>
@@ -298,12 +291,15 @@
 <section id="selection-effects" class="slide level2">
 <h2>Selection effects</h2>
 <ul>
-<li>Selection effects (or selection bias) arises when there are people who we would have liked to observe in our study but we don’t observe them, and this lack of observation is related to their characteristics <span class="citation" data-cites="greenlandSensitivityAnalysisBias2014">(<a href="#/references" role="doc-biblioref" onclick="">Greenland 2014</a>)</span></li>
+<li>Selection effects (or selection bias) arises when there are people who we would have liked to observe in our study but we don’t observe them, and this lack of observation is related to their characteristics</li>
 <li>It’s a kind of non-representativeness of the data we have, compared to the ‘real world’</li>
 <li>I like to think of this as selection bias affecting the rows of our dataset - there are some rows that are missing that we would like to see</li>
 <li>In this section we’ll focus on an example of identifying selection bias in police data</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="greenlandSensitivityAnalysisBias2014">Greenland, S. (2014). Sensitivity <span>Analysis</span> and <span>Bias Analysis</span>. In W. Ahrens &amp; I. Pigeot (Eds.), <em>Handbook of <span>Epidemiology</span></em> (pp. 685–706). Springer. <a href="https://doi.org/10.1007/978-0-387-09834-0_60">https://doi.org/10.1007/978-0-387-09834-0_60</a></span></p>
+</div></aside></section>
 <section id="selection-effects-1" class="slide level2">
 <h2>Selection effects</h2>
 
@@ -315,42 +311,59 @@
 <section id="example-selection-bias-in-police-administrative-data" class="slide level2">
 <h2>Example: Selection bias in police administrative data</h2>
 <ul>
-<li><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, Lowe, and Mummolo (<a href="#/references" role="doc-biblioref" onclick="">2020a</a>)</span> wanted to assess whether police were biased in their interactions with the public based on the ethnicity of the person they were interacting with</li>
+<li><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span> wanted to assess whether police were biased in their interactions with the public based on the ethnicity of the person they were interacting with</li>
 <li>They had data on people who had been stopped by the police - but they can’t just fit a statistical model to these data to see if people from minority ethnic backgrounds were more likely to be stopped</li>
-<li>The problem is we can’t just rely on data about police stops - “if police racially discriminate when choosing whom to investigate, analyses using administrative records to estimate racial discrimination in police behavior are statistically biased” <span class="citation" data-cites="knoxAdministrativeRecordsMask2020">(<a href="#/references" role="doc-biblioref" onclick="">Knox, Lowe, and Mummolo 2020a</a>)</span></li>
+<li>The problem is we can’t just rely on data about police stops - “if police racially discriminate when choosing whom to investigate, analyses using administrative records to estimate racial discrimination in police behavior are statistically biased”</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span></p>
+</div></aside></section>
 <section id="example-selection-bias-in-police-administrative-data-1" class="slide level2">
 <h2>Example: Selection bias in police administrative data</h2>
 <ul>
-<li>To just rely on the observed data, <span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, Lowe, and Mummolo (<a href="#/references" role="doc-biblioref" onclick="">2020a</a>)</span> would need to know the numbers of people <em>who were observed by police but not stopped</em>, in order to calculate the probabilities of selection into the stop dataset</li>
+<li>To just rely on the observed data, <span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span> would need to know the numbers of people <em>who were observed by police but not stopped</em>, in order to calculate the probabilities of selection into the stop dataset</li>
 <li>If you only analyse data that are the result of police stops then your results will be biased. To analyse data on police stops to estimate racial bias, you also need to know the total number of encounters (for each ethnic group) – that is, including encounters that did not lead to a stop</li>
 <li>However, we don’t know this - and it is hard to imagine a scenario where an analyst of an police administrative dataset <em>would</em> know this</li>
-<li>“when there is any racial discrimination in the decision to detain civilians—a decision that determines which encounters appear in police administrative data at all—then estimates of the effect of civilian race on subsequent police behavior are biased absent additional data and/or strong and untestable assumptions.” <span class="citation" data-cites="knoxAdministrativeRecordsMask2020">(<a href="#/references" role="doc-biblioref" onclick="">Knox, Lowe, and Mummolo 2020a</a>)</span></li>
+<li>“when there is any racial discrimination in the decision to detain civilians—a decision that determines which encounters appear in police administrative data at all—then estimates of the effect of civilian race on subsequent police behavior are biased absent additional data and/or strong and untestable assumptions.”</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span></p>
+</div></aside></section>
 <section id="uh-oh" class="slide level2">
 <h2>Uh oh</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://static.cambridge.org/binary/version/id/urn:cambridge.org:id:binary:20200730201026963-0363:S0003055420000039:S0003055420000039_fig2.png" style="width:90.0%" alt="Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters. Notes: The figure displays the four principal strata that comprise police–civilian encounters based on how the mediator M (whether a civilian is stopped by police) responds to treatment D (whether the civilian is a racial minority). Minorities in the “always stop” and anti-minority racial stop strata, highlighted in red, are stopped by police and, thus, appear in police administrative data. Likewise, white civilians in the “always-stop” and anti-white racial stop strata, highlighted in blue, appear in police data. “Never stop” encounters are unobserved. Because white and nonwhite encounters are drawn from different principal strata, the two groups are incomparable and estimates of causal quantities using observed encounters will be statistically biased absent additional assumptions."></p>
+<figcaption>Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters</figcaption>
+</figure>
+</div>
 
-<img data-src="https://static.cambridge.org/binary/version/id/urn:cambridge.org:id:binary:20200730201026963-0363:S0003055420000039:S0003055420000039_fig2.png" style="width:90.0%" alt="Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters. Notes: The figure displays the four principal strata that comprise police–civilian encounters based on how the mediator M (whether a civilian is stopped by police) responds to treatment D (whether the civilian is a racial minority). Minorities in the “always stop” and anti-minority racial stop strata, highlighted in red, are stopped by police and, thus, appear in police administrative data. Likewise, white civilians in the “always-stop” and anti-white racial stop strata, highlighted in blue, appear in police data. “Never stop” encounters are unobserved. Because white and nonwhite encounters are drawn from different principal strata, the two groups are incomparable and estimates of causal quantities using observed encounters will be statistically biased absent additional assumptions." class="r-stretch quarto-figure-center"><p class="caption">Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters</p></section>
+<aside><div>
+<p><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span></p>
+</div></aside></section>
 <section id="what-can-we-do" class="slide level2">
 <h2>What can we do?</h2>
 <ul>
-<li><span class="citation" data-cites="knoxAdministrativeRecordsMask2020a">Knox, Lowe, and Mummolo (<a href="#/references" role="doc-biblioref" onclick="">2020b</a>)</span> suggest some technical fixes in their specific case, but emphasise that <em>there is no general solution</em> that can guarantee that coefficients in a regression model will have valid causal interpretations based on administrative data derived from police records</li>
+<li>Knox and colleagues suggest some technical fixes in their specific case, but emphasise that <em>there is no general solution</em> that can guarantee that coefficients in a regression model will have valid causal interpretations based on administrative data derived from police records</li>
 <li>The key thing is thinking through the process by which the dataset was constructed, and conveying this to your reader</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="knoxAdministrativeRecordsMask2020">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>.</span></p>
+</div></aside></section>
 <section id="what-can-we-do-1" class="slide level2">
 <h2>What can we do?</h2>
 <ul>
-<li>Another possibility suggested by <span class="citation" data-cites="gaeblerCausalFrameworkObservational2022">Gaebler et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> is that it may be possible to identify some aspects of discrimination in administrative data</li>
+<li>Another possibility suggested by Gaebler et al.&nbsp;(2022) is that it may be possible to identify some aspects of discrimination in administrative data</li>
 <li>This would be discrimination at some point in the process, not total discrimination. It’s really important to be clear about what it is you want to know – do you care about total discrimination, or discrimination in a particular part of the process (e.g.&nbsp;court sentencing and not policing?)</li>
 <li>This basically involves changing the question you are asking - which might be fine, but is not a very satisfactory solution</li>
 </ul>
-</section>
-<section class="slide level2">
 
-</section></section>
+<aside><div>
+<p><span class="citation" data-cites="gaeblerCausalFrameworkObservational2022">Gaebler, J., Cai, W., Basse, G., Shroff, R., Goel, S., &amp; Hill, J. (2022). A <span>Causal Framework</span> for <span>Observational Studies</span> of <span>Discrimination</span>. <em>Statistics and Public Policy</em>, <em>9</em>(1), 26–48. <a href="https://doi.org/10.1080/2330443X.2021.2024778">https://doi.org/10.1080/2330443X.2021.2024778</a></span></p>
+</div></aside></section></section>
 <section>
 <section id="part-three-confounding" class="title-slide slide level1 center">
 <h1>Part Three: Confounding</h1>
@@ -361,9 +374,12 @@
 <ul>
 <li>Confounding describes a situation where there’s something that we know affects the outcome we’re interested in and/or our independent variables, but we <em>don’t have a measure for this in our data</em></li>
 <li>I like to think of this as affecting the <em>columns</em> of our dataset: there are variables we wish we had, but in practice we don’t</li>
-<li>This issue is more commonly discussed in epidemiology and health fields as opposed to social sciences <span class="citation" data-cites="dingFirstCourseCausal2023">(<a href="#/references" role="doc-biblioref" onclick="">Ding 2023</a>)</span></li>
+<li>This issue is more commonly discussed in epidemiology and health fields as opposed to social sciences</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="dingFirstCourseCausal2023">Ding, P. (2023). <em>A <span>First Course</span> in <span>Causal Inference</span></em> (arXiv:2305.18793). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.18793">https://doi.org/10.48550/arXiv.2305.18793</a></span></p>
+</div></aside></section>
 <section id="unmeasured-confounding-1" class="slide level2">
 <h2>Unmeasured confounding</h2>
 
@@ -377,46 +393,58 @@
 <ul>
 <li>Famous example of smoking and lung cancer
 <ul>
-<li>RA Fisher argued that the strong association between smoking and lung cancer “could both be influenced by a [unmeasured confounder, such as] constitutional make-up, perhaps genetic in origin, which predisposes individuals to both of them” <span class="citation" data-cites="daveysmithSmokingLungCancer2009">(<a href="#/references" role="doc-biblioref" onclick="">Davey Smith 2009</a>)</span></li>
+<li>RA Fisher argued that the strong association between smoking and lung cancer “could both be influenced by a [unmeasured confounder, such as] constitutional make-up, perhaps genetic in origin, which predisposes individuals to both of them”</li>
 <li>Cornfield and colleagues demonstrated that such a confounder would have to be implausibly large to produce the observed association, and so was implausible</li>
 </ul></li>
 <li>(This matters most if you are using your analysis to make a causal claim)</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="daveysmithSmokingLungCancer2009">Davey Smith, G. (2009). Smoking and lung cancer: Causality, <span>Cornfield</span> and an early observational meta-analysis. <em>International Journal of Epidemiology</em>, <em>38</em>(5), 1169–1171. <a href="https://doi.org/10.1093/ije/dyp317">https://doi.org/10.1093/ije/dyp317</a></span></p>
+</div></aside></section>
 <section id="a-sort-of-criminological-example" class="slide level2">
 <h2>A sort-of criminological example</h2>
 <ul>
-<li>As per <span class="citation" data-cites="dingFirstCourseCausal2023">Ding (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> in general I haven’t come across that many criminological papers which discuss unmeasured confounding (if you have done, please let me know!)</li>
+<li>As per <span class="citation" data-cites="dingFirstCourseCausal2023">Ding, P. (2023). <em>A <span>First Course</span> in <span>Causal Inference</span></em> (arXiv:2305.18793). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.18793">https://doi.org/10.48550/arXiv.2305.18793</a></span> in general I haven’t come across that many criminological papers which discuss unmeasured confounding (if you have done, please let me know!)</li>
 <li>One informal approach to unmeasured confounding is just to claim that the measures you <em>do</em> have are sufficient…</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="dingFirstCourseCausal2023">Ding, P. (2023). <em>A <span>First Course</span> in <span>Causal Inference</span></em> (arXiv:2305.18793). arXiv. <a href="https://doi.org/10.48550/arXiv.2305.18793">https://doi.org/10.48550/arXiv.2305.18793</a></span></p>
+</div></aside></section>
 <section id="talking-about-residual-confounding" class="slide level2">
 <h2>Talking about residual confounding</h2>
 <ul>
-<li><span class="citation" data-cites="sampsonDoesMarriageReduce2006">Sampson, Laub, and Wimer (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span> wanted to assess the causal effect of marriage on crime - does getting married reduce a person’s propensity to commit crime?</li>
+<li><span class="citation" data-cites="sampsonDoesMarriageReduce2006">Sampson, R. J., Laub, J. H., &amp; Wimer, C. (2006). Does marriage reduce crime? <span>A</span> counterfactual approach to within-individual causal effects. <em>Criminology: An Interdisciplinary Journal</em>, <em>44</em>(3), 465–508. <a href="https://doi.org/10.1111/j.1745-9125.2006.00055.x">https://doi.org/10.1111/j.1745-9125.2006.00055.x</a></span> wanted to assess the causal effect of marriage on crime - does getting married reduce a person’s propensity to commit crime?</li>
 <li>They carry out some sophisticated statistical modelling, and conclude that yes marriage does reduce offending</li>
 <li>In caveating their analysis they say that:</li>
 </ul>
 <blockquote>
 <p>Probably the biggest limitation of our study is that the … modeling approach we adopted assumes no <em>unmeasured covariates linked to both treatment and outcome</em> [emphasis added]. In practice, the criterion of having no unobserved confounding is impossible to verify… however, we tried to counteract this limitation by exploiting … [rich] data … It is hard to imagine what the missing time-stable or time-invariant covariates are that would overcome the magnitude and robustness of results.</p>
 </blockquote>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="sampsonDoesMarriageReduce2006">Sampson, R. J., Laub, J. H., &amp; Wimer, C. (2006). Does marriage reduce crime? <span>A</span> counterfactual approach to within-individual causal effects. <em>Criminology: An Interdisciplinary Journal</em>, <em>44</em>(3), 465–508. <a href="https://doi.org/10.1111/j.1745-9125.2006.00055.x">https://doi.org/10.1111/j.1745-9125.2006.00055.x</a></span></p>
+</div></aside></section>
 <section id="talking-about-residual-confounding-1" class="slide level2">
 <h2>Talking about residual confounding</h2>
 <blockquote>
 <p>We thus argue that omitted confounders would have to be implausibly large to overturn the basic results</p>
 </blockquote>
-<p>And they continue in a footnote that formally assessing the possibility of bias from omitted confounders was “beyond the scope of the current paper” and would require assumptions about the magnitude, direction, and functional form of potential biases that ultimately raise more questions than they answer” <span class="citation" data-cites="sampsonDoesMarriageReduce2006">(<a href="#/references" role="doc-biblioref" onclick="">Sampson, Laub, and Wimer 2006, p499</a>)</span></p>
+<p>And they continue in a footnote that formally assessing the possibility of bias from omitted confounders was “beyond the scope of the current paper” and would require assumptions about the magnitude, direction, and functional form of potential biases that ultimately raise more questions than they answer” <span class="citation" data-cites="sampsonDoesMarriageReduce2006">Sampson, R. J., Laub, J. H., &amp; Wimer, C. (2006). Does marriage reduce crime? <span>A</span> counterfactual approach to within-individual causal effects. <em>Criminology: An Interdisciplinary Journal</em>, <em>44</em>(3), 465–508. <a href="https://doi.org/10.1111/j.1745-9125.2006.00055.x">https://doi.org/10.1111/j.1745-9125.2006.00055.x</a></span></p>
 </section>
 <section id="is-this-a-good-justification" class="slide level2">
 <h2>Is this a good justification?</h2>
 <ul>
 <li>There is disagreement about whether this justification is sufficient:</li>
-<li>“However, increasing the number of covariates is hardly a persuasive approach to ruling out potentially important confounders, as it is unlikely that one can adequately measure all such confounders” <span class="citation" data-cites="skardhamarDoesMarriageReduce2015">(<a href="#/references" role="doc-biblioref" onclick="">Skardhamar et al. 2015</a>)</span></li>
+<li>“However, increasing the number of covariates is hardly a persuasive approach to ruling out potentially important confounders, as it is unlikely that one can adequately measure all such confounders” <span class="citation" data-cites="skardhamarDoesMarriageReduce2015">Skardhamar, T., Savolainen, J., Aase, K. N., &amp; Lyngstad, T. H. (2015). Does <span>Marriage Reduce Crime</span>? <em>Crime and Justice</em>, <em>44</em>, 385–446. <a href="https://doi.org/10.1086/681557">https://doi.org/10.1086/681557</a></span></li>
 <li>It’s true that you have to make assumptions about the unmeasured confounding to know the impact on your results, and so it’s necessarily speculative</li>
 <li>It may be possible to identify any such confounders in your particular study though</li>
 </ul>
-</section>
+
+<aside><div>
+<p><span class="citation" data-cites="skardhamarDoesMarriageReduce2015">Skardhamar, T., Savolainen, J., Aase, K. N., &amp; Lyngstad, T. H. (2015). Does <span>Marriage Reduce Crime</span>? <em>Crime and Justice</em>, <em>44</em>, 385–446. <a href="https://doi.org/10.1086/681557">https://doi.org/10.1086/681557</a></span></p>
+</div></aside></section>
 <section id="methods-for-measurement-error-selection-and-confounding" class="slide level2">
 <h2>Methods for measurement error, selection and confounding</h2>
 <ul>
@@ -429,12 +457,12 @@
 <h2>So I should do a quantitative bias analysis?</h2>
 <ul>
 <li>After all this discussion… maybe not!</li>
-<li>Epidemiologists who work in this area suggest you only need to conduct a full quantitative bias analysis if you ‘claim to offer near-definitive conclusions’ based on your study <span class="citation" data-cites="greenlandSensitivityAnalysisBias2014">(<a href="#/references" role="doc-biblioref" onclick="">Greenland 2014</a>)</span></li>
+<li>Epidemiologists who work in this area suggest you only need to conduct a full quantitative bias analysis if you ‘claim to offer near-definitive conclusions’ based on your study<sup>1</sup></li>
 <li>I think the key thing is how we talk about our models and results - it is <em>us</em> that moves between the stories in the ‘small world’ of our model to the ‘large world’</li>
 <li>We should have humility when describing our results, and draw readers’ attention to the possible limitations of factors like those we have described</li>
-<li>For any particular problem technical fixes maybe be possible, the specifics will depend on the problem you are interested in, the data you have and the provenance of that data <span class="citation" data-cites="knoxAdministrativeRecordsMask2020a">(<a href="#/references" role="doc-biblioref" onclick="">Knox, Lowe, and Mummolo 2020b</a>)</span></li>
+<li>For any particular problem technical fixes maybe be possible, the specifics will depend on the problem you are interested in, the data you have and the provenance of that data<sup>2</sup></li>
 </ul>
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p><span class="citation" data-cites="greenlandSensitivityAnalysisBias2014">Greenland, S. (2014). Sensitivity <span>Analysis</span> and <span>Bias Analysis</span>. In W. Ahrens &amp; I. Pigeot (Eds.), <em>Handbook of <span>Epidemiology</span></em> (pp. 685–706). Springer. <a href="https://doi.org/10.1007/978-0-387-09834-0_60">https://doi.org/10.1007/978-0-387-09834-0_60</a></span></p></li><li id="fn4"><p><span class="citation" data-cites="knoxAdministrativeRecordsMask2020a">Knox, D., Lowe, W., &amp; Mummolo, J. (2020). Administrative <span>Records Mask Racially Biased Policing</span>. <em>American Political Science Review</em>, <em>114</em>(3), 619–637. <a href="https://doi.org/10.1017/S0003055420000039">https://doi.org/10.1017/S0003055420000039</a></span></p></li></ol></aside></section></section>
 <section>
 <section id="recap" class="title-slide slide level1 center" data-background-color="#006938">
 <h1>Recap</h1>
@@ -469,53 +497,10 @@
 </ul></li>
 </ul>
 <p>Are you concerned about all these? Some more than others? Are there obvious steps you could take to address them?</p>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-daveysmithSmokingLungCancer2009" class="csl-entry" role="listitem">
-Davey Smith, George. 2009. <span>“Smoking and Lung Cancer: Causality, <span>Cornfield</span> and an Early Observational Meta-Analysis.”</span> <em>International Journal of Epidemiology</em> 38 (5): 1169–71. <a href="https://doi.org/10.1093/ije/dyp317">https://doi.org/10.1093/ije/dyp317</a>.
-</div>
-<div id="ref-dingFirstCourseCausal2023" class="csl-entry" role="listitem">
-Ding, Peng. 2023. <span>“A <span>First Course</span> in <span>Causal Inference</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2305.18793">https://doi.org/10.48550/arXiv.2305.18793</a>.
-</div>
-<div id="ref-fewellImpactResidualUnmeasured2007" class="csl-entry" role="listitem">
-Fewell, Zoe, George Davey Smith, and Jonathan A. C. Sterne. 2007. <span>“The <span>Impact</span> of <span>Residual</span> and <span>Unmeasured Confounding</span> in <span>Epidemiologic Studies</span>: <span>A Simulation Study</span>.”</span> <em>American Journal of Epidemiology</em> 166 (6): 646–55. <a href="https://doi.org/10.1093/aje/kwm165">https://doi.org/10.1093/aje/kwm165</a>.
-</div>
-<div id="ref-gaeblerCausalFrameworkObservational2022" class="csl-entry" role="listitem">
-Gaebler, Johann, William Cai, Guillaume Basse, Ravi Shroff, Sharad Goel, and Jennifer Hill. 2022. <span>“A <span>Causal Framework</span> for <span>Observational Studies</span> of <span>Discrimination</span>.”</span> <em>Statistics and Public Policy</em> 9 (1): 26–48. <a href="https://doi.org/10.1080/2330443X.2021.2024778">https://doi.org/10.1080/2330443X.2021.2024778</a>.
-</div>
-<div id="ref-greenlandSensitivityAnalysisBias2014" class="csl-entry" role="listitem">
-Greenland, Sander. 2014. <span>“Sensitivity <span>Analysis</span> and <span>Bias Analysis</span>.”</span> In <em>Handbook of <span>Epidemiology</span></em>, edited by Wolfgang Ahrens and Iris Pigeot, 685–706. New York, NY: Springer. <a href="https://doi.org/10.1007/978-0-387-09834-0_60">https://doi.org/10.1007/978-0-387-09834-0_60</a>.
-</div>
-<div id="ref-knoxAdministrativeRecordsMask2020" class="csl-entry" role="listitem">
-Knox, Dean, Will Lowe, and Jonathan Mummolo. 2020a. <span>“Administrative <span>Records Mask Racially Biased Policing</span>.”</span> <em>American Political Science Review</em>.
-</div>
-<div id="ref-knoxAdministrativeRecordsMask2020a" class="csl-entry" role="listitem">
-———. 2020b. <span>“Administrative <span>Records Mask Racially Biased Policing</span>.”</span> <em>American Political Science Review</em> 114 (3): 619–37. <a href="https://doi.org/10.1017/S0003055420000039">https://doi.org/10.1017/S0003055420000039</a>.
-</div>
-<div id="ref-officefornationalstatisticsImprovingVictimisationEstimates2019" class="csl-entry" role="listitem">
-Office for National Statistics. 2019. <span>“Improving <span>Victimisation Estimates Derived</span> from the <span>Crime Survey</span> for <span>England</span> and <span>Wales</span>.”</span>
-</div>
-<div id="ref-pina-sanchezImpactMeasurementError2022" class="csl-entry" role="listitem">
-Pina-Sánchez, Jose, David Buil-Gil, Ian Brunton-Smith, and Alexandru Cernat. 2022. <span>“The <span>Impact</span> of <span>Measurement Error</span> in <span>Regression Models Using Police Recorded Crime Rates</span>.”</span> <em>Journal of Quantitative Criminology</em>, August. <a href="https://doi.org/10.1007/s10940-022-09557-6">https://doi.org/10.1007/s10940-022-09557-6</a>.
-</div>
-<div id="ref-sampsonDoesMarriageReduce2006" class="csl-entry" role="listitem">
-Sampson, Robert J., John H. Laub, and Christopher Wimer. 2006. <span>“Does Marriage Reduce Crime? <span>A</span> Counterfactual Approach to Within-Individual Causal Effects.”</span> <em>Criminology: An Interdisciplinary Journal</em> 44 (3): 465–508. <a href="https://doi.org/10.1111/j.1745-9125.2006.00055.x">https://doi.org/10.1111/j.1745-9125.2006.00055.x</a>.
-</div>
-<div id="ref-scottishgovernmentMethodologicalNoteCalculating2019" class="csl-entry" role="listitem">
-Scottish Government. 2019. <span>“Methodological <span>Note</span>: <span>Calculating</span> Estimates of Crime Numbers in the <span>Scottish Crime</span> &amp; <span>Justice Survey</span>.”</span> Justice Analytical Services.
-</div>
-<div id="ref-skardhamarDoesMarriageReduce2015" class="csl-entry" role="listitem">
-Skardhamar, Torbjørn, Jukka Savolainen, Kjersti N. Aase, and Torkild H. Lyngstad. 2015. <span>“Does <span>Marriage Reduce Crime</span>?”</span> <em>Crime and Justice</em> 44 (September): 385–446. <a href="https://doi.org/10.1086/681557">https://doi.org/10.1086/681557</a>.
-</div>
-<div id="ref-walbyViolentCrimeIncreasing2016" class="csl-entry" role="listitem">
-Walby, Sylvia, Jude Towers, and Brian Francis. 2016. <span>“Is <span>Violent Crime Increasing</span> or <span>Decreasing</span>? A <span>New Methodology</span> to <span>Measure Repeat Attacks Making Visible</span> the <span>Significance</span> of <span>Gender</span> and <span>Domestic Relations</span>.”</span> <em>The British Journal of Criminology</em> 56 (6): 1203–34. <a href="https://doi.org/10.1093/bjc/azv131">https://doi.org/10.1093/bjc/azv131</a>.
-</div>
-</div>
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -1089,43 +1074,6 @@ Walby, Sylvia, Jude Towers, and Brian Francis. 2016. <span>“Is <span>Violent C
               };
               window.tippy(annoteTarget, config); 
             }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
-            }
-          } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
-            });
-          }
-        }
       });
       </script>
     

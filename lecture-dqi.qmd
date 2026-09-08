@@ -1,0 +1,756 @@
+---
+title: "Presenting results"
+format:
+  revealjs:
+    output-file: "lecture-dqi.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+title-slide-attributes:
+  data-background-color: "#006938"
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false        
+bibliography: social_data_science-bibliography.bib
+---
+
+
+```{r}
+#| include: false
+options(digits = 2)
+```
+
+## Learning outcomes
+- By the end of this session you will
+  - Understand the challenges of data you don't have on analysing the data you do have
+
+---
+
+
+## Update
+- This should be... three? Sessions of
+- Calculate a prediction
+- Calculate uncertainty in a prediction
+- Calculate something that isn't a prediction (and uncertainty)
+
+
+## Making coefficients useful
+
+- In this session we are going to focus on how we can turn model coefficients into more meaningful and informative quantities
+- This is a great way to make results more informative and accessible [@kingMakingMostStatistical2000]
+
+
+
+## Regression coefficients: a referesher
+
+- In simple (linear) models you read off a coefficient directly as the quantities that we are interested in
+- In more complex models, such as generalized linear models, we often want to convert the coefficients to express results in a more interpretable way
+- In poisson regression the model coefficients are also commonly expressed as rate ratios, by exponentiating the coefficients (we discussed this in Session Two)
+
+
+## Translating coefficients: challenges
+
+- However, approaches don't scale well with more complicated models, or complicated transformations [@mcelreathStatisticalRethinkingBayesian2020; @gelmanAveragePredictiveComparisons2007]
+- A common way to translate model coefficients into more meaningful quantities is to use all the coefficients in the model to calculate predicted values of the outcome
+- These are often called ['marginal effects'](https://marginaleffects.com/) (although this terminology is confusing)
+- The terminology is confusing in part because there are [lots of related but subtly different quantities people call marginal effects](https://marginaleffects.com/vignettes/get_started.html)
+- As a result, I like Gelman and Pardoe's terminology of 'adjusted predictive comparisons'
+
+
+
+## Calculating a predicted values from models
+
+- In the second practical we fit a GLM describing the relationship between violent crime and deprivation which gave us the results
+  - Intercept = `2.4573632`
+  - simd 2020 rank = `-0.0003029`
+
+- Using our GLM formula, we know that the $log()$ of the expected violent crime count for a data zone with an SIMD rank of `0` is `2.4573632`
+- (NB no such datazone will exist by definition, but that's okay!)
+- We can calculate the expected violent crime incidents for this datazone with SIMD rank `0` by $exp()$-ing the intercept, giving us `11.674` violent crimes
+- To an expected violent crime in the most deprived datazone in Scotland, we just add `1 * -0.0003029` (the coefficient for SIMD) to `2.4573632`, and then $exp()$ = `11.670`
+- To calculate violent crime in the least deprived datazone in Scotland, we add `6976 * -0.0003029` (the coefficient for SIMD) to `2.4573632`, and then exponentiate =  `1.41`
+
+## Calculating predictions
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+
+```{r preds_again}
+library(ggplot2)
+
+data.frame(
+  simd = seq(1, 6976)
+) |> 
+  mutate(pred_vio = exp(2.4573632 + simd * -0.0003029)) |> 
+  ggplot(aes(x = simd, y = pred_vio)) +
+  geom_line()
+
+
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+In fact, we can calculate these predictions across the whole range of SIMD.
+
+This gives a much more useful summary of the results compared to just the model coefficients.
+
+:::
+
+::::
+
+
+
+## Uncertainty
+- A key challenge is propagating the appropriate uncertainty in our results - especially in more complicated models when predictions might be a function of multiple parameters
+- We can use simulation to propagate this uncertainty - and we can apply this approach to any generalized linear model and any Derived Quantity of Interest (DQI) - be it a marginal effect or something else
+- The simulation process is described by @kingMakingMostStatistical2000 and implemented in the R package [clarify](https://github.com/iqss/clarify)
+- This approach propagates both the uncertainty in the model's coefficients, and the correlations between the coefficients (for technical reasons that are beyond me, this is important [@gayleUsingQuasivarianceCommunicate2007])
+
+
+
+# But first {background-color="#006938"}
+
+
+---
+
+## Simulating random variables: a brief introduction
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r rnorm_sim_v1}
+library(tibble)
+library(ggplot2)
+
+var1 <- 
+rnorm(
+  n = 10000, # simulate 10000 values
+  mean = 0, # with mean zero
+  sd = 1 # and standard deviation 1
+)
+
+tibble(                   # these lines
+  var1 = var1,            # of the resulting
+) |>                      # simulated values
+  ggplot(aes(x = var1)) +
+  geom_histogram()
+
+```
+
+:::
+
+::: {.column width="34%"}
+`rnorm()` lets you simulate normally-distributed random variables.
+
+Here we simulate a normally distributed random variable and plot its distribution
+:::
+
+::::
+
+
+## Simulating random variables: a brief introduction
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r rnorm_sim_coef}
+library(tibble)
+library(ggplot2)
+
+coef_draws <- 
+data.frame(
+  coef_sim  = rnorm(
+  n = 10000,
+  mean = -0.000303, # model coefficient
+  sd = 0.0000106 # coefficient standard error
+  )
+)
+
+coef_draws |> 
+  reframe(coef = quantile(coef_sim,
+                     c(0.025, 0.975)), # these are 95% confidence intervals
+            interval = c("lower", "upper")) |> 
+  mutate(exp_coef = exp(coef)) # we calculate the exponent
+
+```
+
+:::
+
+::: {.column width="34%"}
+If we plug in the coefficient for SIMD and the standard error of that coefficient, we can calculate confidence intervals for the coefficient.
+
+The confidence intervals we calculated in the practical were $(0.9997178, 0.9996763)$
+
+Our simulated intervals are the same to six decimal places.
+
+:::
+
+::::
+
+
+
+---
+
+## Back to our example
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+``` {r clarify}
+
+simd <- readRDS(url("https://github.com/benmatthewsed/statistical-methods-criminology-slides/raw/master/resources/simd_crime_sim.rds"))
+
+
+mod_vio_simd_qp <- glm(vio_integer_sim ~ simd2020_rank, 
+                      family = "quasipoisson",
+                      data = simd)
+
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+If we fit the model from the second practical again...
+:::
+
+::::
+
+## Calculating predictions
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+
+```{r preds}
+library(ggplot2)
+
+data.frame(
+  simd = seq(1, 6976)
+) |> 
+  mutate(pred_vio = exp(2.4573632 + simd * -0.0003029)) |> 
+  ggplot(aes(x = simd, y = pred_vio)) +
+  geom_line()
+
+
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+When we visualized the results from this model before we only got a point estimate for the expected number of violent crimes at each level of SIMD.
+
+This doesn't express the uncertainty in these results as described by the model's standard errors.
+
+:::
+
+::::
+
+
+## Back to our example
+
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+
+``` {r clarify2}
+
+library(clarify)
+
+sims <- sim(mod_vio_simd_qp, n = 1000) 
+
+sim_res <- sim_setx(sims, x = list(simd2020_rank = seq(1:6976)))
+
+plot(sim_res)
+
+
+```
+
+:::
+
+::: {.column width="34%"}
+But by using the `clarify` package we can get confidence intervals around our predictions.
+
+As it turns out in this case the confidence bands are quite small, and don't change our interpretation much - but we would not know this without calculating them.
+
+The benefit of this simulation approach can also be used when we want to look at the effects of multiple variables, and where we want to describe more complex transformations of coefficients...
+:::
+
+::::
+
+
+---
+
+## An advanced example: victimization divides
+
+- @hunterEquityJusticeCrime2016 wanted to describe how victimization inequality had changed over time
+- They used the results of a fitted regression model to calculate a measure they call 'Victimization Divide'
+- This measure is defined as:
+
+$$
+\frac{\left(\text{ratio of victimization rates in year 2} - 1\right) - \left(\text{ratio of victimization rates in year 2} - 1\right)}{\text{ratio of victimization rates in year 1} - 1}
+$$
+- This is analogous to exploring the percentage change in victimization inequality between two comparison years
+
+
+## Victimization divides
+
+- To calculate the ratio of victimization rates in years 1 and 2, @hunterEquityJusticeCrime2016 fit a GLM to predict the number of burglary victimization incidents experienced by households in England and Wales in 1993 compared to 2008/9
+- They use the coefficients from these models as inputs into the Victimization Divide formula
+- This is a nice example of translating model coefficients into a more more theoretically interesting quantity
+
+
+## Victimization divides
+
+- @hunterEquityJusticeCrime2016 conclude that burglary victimization inequality had increased for:
+  -   single adult households compared to other households
+  -   social renters compared to owner occupiers
+  -   households without a car compared to those with one car
+  -   households leaving their home unoccupied any amount of time on a typical weekday compared to those never leaving the home
+  -   households in areas without neighbourhood watch compared to those with the scheme
+  -   households earning at least £50,000 per annum compared to those on a £10,000–£29,999 annual income
+  -   inner city residents compared to households in rural areas
+
+## Victimization divides
+
+- But @hunterEquityJusticeCrime2016's analysis used data from the [Crime Survey for England and Wales](https://www.crimesurvey.co.uk/en/index.html)
+- So, in line with the story of these data, we should assess the uncertainty in these estimates which come from projecting from sample to population
+- Just calculating victimization divides based on the point estimates of the model's coefficients doesn't account for this uncertainty
+- We can do this with the @kingMakingMostStatistical2000 simulation approach
+
+# But first...
+
+## Simulating correlated variables
+
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+
+```{r mvtnorm_sim}
+cor_data <- MASS::mvrnorm(
+  n = 10000,
+  mu = c(0, 0), # mu instead of mean
+  Sigma = matrix(c(1, 0.9, 0.9, 1), nrow = 2, ncol = 2) # Sigma instead of sd
+) |> 
+  as.data.frame()
+
+cor_data |> 
+  tidyr::pivot_longer(cols = c(V1, V2),
+                      names_to = "variable",
+               values_to = "value") |> 
+  ggplot(aes(x = value)) +
+  facet_wrap(~ variable) +
+  geom_histogram()
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+As we said before, we need to account for the correlation between model coefficients when simulating parameters from regression models.
+
+If we use `mvrnorm()` the resulting simulations can be correlated. Here I set a correlation of 0.9.
+
+`V1` and `V2` are both normally distributed...
+:::
+
+::::
+
+---
+
+## Simulating correlated variables
+
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r cor_graph_2}
+cor_data |> 
+  ggplot(aes(x = V1, y = V2)) +
+  geom_point() +
+  geom_density_2d()
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+... but highly correlated. 
+:::
+
+::::
+
+
+## Simulating Victimization Divides
+
+- To illustrate the process of simulating victimization divides we will work through this by hand
+- In the exercises (and I would recommend in your own practice) we will use an `R` package written for this purpose
+- First we fit the GLM
+- Then we simulate a set of coefficient values from the regression model's variance-covariance matrix (usually at least 1000 draws)
+- We calculate the Victimization Divide for each one these simulated coefficient draws
+- This gives us a distribution of Victimization Dividess
+
+
+---
+
+## Simulating DQIs: worked example
+
+:::: {.columns}
+
+::: {.column width="66%"}
+```{r vid_fn, fig.show = 'hide'}
+#| echo: true
+
+victim_divide <- function(base_y1, base_y2){
+  ((base_y2 - 1) - (base_y1 - 1)) / (base_y1 - 1)
+}
+
+```
+:::
+
+::: {.column width="34%"}
+This is what the Victimization Divide formula looks like in `R`
+:::
+
+::::
+
+---
+
+## Simulating DQIs: Getting ready
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_prep}
+#| echo: true
+
+# load packages
+
+library(MASS)
+library(tidyverse)
+
+# reading in data
+
+dat <-
+  tribble(
+    ~prev, ~year, ~sex, ~n,
+    0.167, "2015", "men", 15030,
+    0.153, "2015", "women", 18320,
+    0.197, "2020", "men", 15505,
+    0.189, "2020", "women", 18230
+  )
+
+# calculate the number of victims
+dat <-
+  dat |> 
+  mutate(vict = as.integer(n * prev))
+
+```
+:::
+
+::: {.column width="34%"}
+These are data from the Crime Survey for England and Wales showing victimization for men and women in 2015 and 2020. You can find more info on the data and approach [here](https://osf.io/k8j9e/)
+:::
+
+::::
+
+---
+
+## Calculating Victimization Dividess
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_models}
+#| echo: true
+
+model2020 <- 
+  glm(cbind(vict, n - vict) ~ fct_rev(sex),
+family = "binomial",
+data = filter(dat, year == "2020"))
+
+
+model2015 <- 
+  glm(cbind(vict, n - vict) ~ fct_rev(sex),
+family = "binomial",
+data = filter(dat, year == "2015"))
+```
+
+:::
+
+::: {.column width="34%"}
+We can fit a [$Binomial$ GLM](https://r.qcbs.ca/workshop06/book-en/binomial-glm.html) to calculate the log-odds of being a victim for men and women. This is like fitting a logistic regression to data we have already aggregated[^9]
+
+In this example I fit a separate model for 2015 and 2020.
+
+[^9]: Except in how the [residual degrees of freedom are calculated](https://stats.stackexchange.com/a/518934)
+
+:::
+
+::::
+
+--- 
+
+## Calculating Victimization Divides
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+Model1 :
+```{r vd_ests_2015}
+#| echo: true
+results_2015 <- 
+broom::tidy(model2015) |> 
+  mutate(est = exp(estimate))
+
+results_2015
+```
+
+Model 2:
+```{r vd_ests_2020}
+#| echo: true
+
+results_2020 <- 
+broom::tidy(model2020) |> 
+  mutate(est = exp(estimate))
+
+results_2020
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+With a binomial model we can exponentiate the model coefficients to calculate the [Odds Ratio](https://en.wikipedia.org/wiki/Odds_ratio) of being a victim for men and women.
+
+Model 1 shows a statistically significant difference for men (compared to women) in 2015, with men having __11%__ greater odds of being a victim of crime. In contrast, Model 2 finds that men had a __5%__ greater odds of being a victim of crime than women in 2020 - however this difference does not meet the 95% threshold for statistical significance.
+:::
+
+::::
+
+---
+
+## How much has victimization inequality changed?
+
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_calc}
+#| echo: true
+victim_divide(
+  base_y1 = results_2015$est[[2]],
+  base_y2 = results_2020$est[[2]]
+  )
+```
+
+
+:::
+
+::: {.column width="34%"}
+Calculating the Victimization Divide for these two results, based just on the odds ratios from the two models, shows that victimization inequality decreased by _52%_ between the two years. 
+
+From the models' point estimates, we would conclude that victimization inequality between men and women fell by more than half between 2015 and 2020... but this doesn't factor in the uncertainty in the models' coefficients.
+:::
+
+::::
+
+---
+
+## How much has victimization inequality changed?
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_sim}
+#| echo: true
+# set seed
+set.seed(nchar("vict divide") ^ 4)
+
+n_sims <- 1e4
+
+draws_2020 <-
+  MASS::mvrnorm(
+    n = n_sims,
+    mu = coef(model2020),
+    Sigma = vcov(model2020)
+  )
+
+draws_2015 <-
+  MASS::mvrnorm(
+    n = n_sims,
+    mu = coef(model2015),
+    Sigma = vcov(model2015)
+  )
+```
+
+:::
+
+::: {.column width="34%"}
+We can pass the models' coefficients and variance-covariance matrices to `mvrnorm` from the `{MASS}` library. 
+
+This gives us a set of 10,000 coefficients for each model which are consistent with the uncertainty in the models' results.
+:::
+
+::::
+
+
+---
+
+## How much has victimization inequality changed?
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_sim_calc}
+#| echo: true
+draws_2015 <-
+  draws_2015 |>
+  as.data.frame() |>
+  as_tibble() |>
+  mutate(est = exp(`fct_rev(sex)men`))
+
+draws_2020 <-
+  draws_2020 |>
+  as.data.frame() |>
+  as_tibble() |>
+  mutate(est = exp(`fct_rev(sex)men`))
+
+# combine the results
+sim_dat <-
+  tibble(
+    vd = victim_divide(base_y1 = draws_2015$est,
+                       base_y2 = draws_2020$est)
+  )
+
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+Once we tidy the results up a bit, we can pass these simulated draws to our `victim_divide()` function to get a distribution of Victimization Divides.
+
+From these we can calculate confidence intervals to see how sure we can be that victimization inequality between men and women fell by 52%.
+:::
+
+::::
+
+---
+
+## How much has victimization inequality changed?
+
+:::: {.columns}
+
+::: {.column width="66%"}
+
+```{r vd_sim_res}
+#| echo: true
+sim_dat |> 
+  reframe(
+    vds = quantile(vd, c(0.025, 0.5, 0.975)),
+    centile = c("2.5%", "50%", "97.5%")
+    )
+
+
+sim_dat |> 
+  ggplot(aes(x = vd)) +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(limits = c(-2, 2)) +
+  geom_vline(aes(xintercept = 0))
+
+```
+
+
+:::
+
+::: {.column width="34%"}
+We can see the 2.5 and 97.5 percentiles of the simulated Victimization Divides, as well as the histogram of their distribution. 
+
+We can use these intervals to approximate a statistical significance test - if the interval includes zero the coefficient is not 'statistically significant' at the standard level.
+
+These intervals include zero, so the apparent 52% reduction in victimization inequality would not be 'statistically significant' at the standard level.
+:::
+
+::::
+
+---
+
+## Simulation is great!
+
+- The beauty of this simulation approach is that it generalizes to _any DQI_ that is a function of the model's parameters, such as Victimization Divide, and to _any GLM_ [@kingMakingMostStatistical2000]
+- This can help us match how we present our results to how our data was generated (in this case, by a sample survey)
+- Say that instead of the Victimziation Divides were interested in the absolute difference in predicted victimization rates after controlling for other factors (like a marginal effect)
+- Or maybe we have fitted a count model and we want to know the number of people reporting 2 or more victimization incidents - we can calculate this from our simulations whilst incorporating the model's uncertainty into our estimates
+  - This would involve the extra step of simulating from the $Poisson$ distribution to map the simulated coefficients back into counts (a step we don't cover here)
+
+
+---
+
+## Simulation in practice
+
+- In the second example we did the simulation by hand. This is useful as a way to understand the method, but whilst it's good to know how this works, in practice there are R packages which can do this for us. 
+- One good option is [clarify](https://cran.r-project.org/web/packages/clarify/index.html), as used in the first example. It's likely that professionally developed and maintained software will be less error-prone and more efficient than writing your own!
+- You also need to run enough simulation draws to get a good estimate of the uncertainty. The default for clarify is 1000 draws.
+- Simulations can be very time consuming! Especially if your model is complicated and you are making predictions for a lot of cases
+  - More simulations are always better, but will take longer - so there is a pragmatic aspect to how much time and computer resource you have to run simulations.
+
+
+---
+
+## Practical limitations and alternatives
+- There is inherent uncertainty in simulation results, so it's crucial to set the seed for the random number generator so you get the same results every time. 
+- There are also some subtleties in how you use the simulated results [@raineyCarefulConsiderationCLARIFY2024]
+- There are also other ways to do describe this uncertainty:
+  - The ['delta method'](https://marginaleffects.com/vignettes/uncertainty.html#delta-method) uses calculation, not simulation, but relies on a [Normal approximation which may not hold](https://iqss.github.io/clarify/#introduction). This is the default method used by the [marginaleffects](https://marginaleffects.com/) `R` package
+
+---
+
+## Conceptual limitations
+
+- More broadly, we need to remember that simulation expresses the uncertainty captured _by our model parameters_
+- But remember that our model may be wrong [@greenlandIntervalEstimationSimulation2004] - we spent all of Session Three discussing this!
+- Our model still makes a load of assumptions - basically that we've fit the right model and that we had the right data - that are baked into our simulations
+- It is possible to incorporate both bias analysis and simulation into the same analysis [@greenlandIntervalEstimationSimulation2004, @foxSASCodeProbabilistic2023], although this is far from common practice
+
+
+## Recap
+
+- Model coefficients can be difficult to interpret
+- Combining coefficients to make predictions of the outcome is a powerful way to express quantitative results more meaningfully
+- Simulation, such as using the `clarify` package, offers a powerful and flexible way to describe the uncertainty in these predictions that can be applied to any GLM
+- ... but our simulations are only as good as the underlying model (and so open to all the criticisms we covered in Session Three)

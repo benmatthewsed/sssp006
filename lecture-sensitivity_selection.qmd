@@ -1,0 +1,101 @@
+---
+title: "Analysing data you don't have"
+format:
+  revealjs:
+    output-file: "lecture-selection_effects.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+title-slide-attributes:
+  data-background-color: "#006938"
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false        
+bibliography: social_data_science-bibliography.bib
+---
+
+
+```{r}
+#| include: false
+options(digits = 2)
+```
+
+## Learning outcomes
+- By the end of this session you will
+  - Understand the challenges of data you don't have on analysing the data you do have
+
+# Part Two: Selection effects
+
+## Selection effects
+
+- Selection effects (or selection bias) arises when there are people who we would have liked to observe in our study but we don't observe them, and this lack of observation is related to their characteristics 
+- It's a kind of non-representativeness of the data we have, compared to the 'real world'
+- I like to think of this as selection bias affecting the rows of our dataset - there are some rows that are missing that we would like to see
+- In this section we'll focus on an example of identifying selection bias in police data
+
+:::{.aside}
+[@greenlandSensitivityAnalysisBias2014]
+:::
+
+
+## Selection effects
+
+![](images/fake-data.jpg)
+
+## Selection effects
+
+![](images/selection-bias.jpg)
+
+## Example: Selection bias in police administrative data
+
+- @knoxAdministrativeRecordsMask2020 wanted to assess whether police were biased in their interactions with the public based on the ethnicity of the person they were interacting with
+- They had data on people who had been stopped by the police - but they can't just fit a statistical model to these data to see if people from minority ethnic backgrounds were more likely to be stopped
+- The problem is we can’t just rely on data about police stops - “if police racially discriminate when choosing whom to investigate, analyses using administrative records to estimate racial discrimination in police behavior are statistically biased” 
+
+:::{.aside}
+[@knoxAdministrativeRecordsMask2020]
+:::
+
+## Example: Selection bias in police administrative data
+
+- To just rely on the observed data, @knoxAdministrativeRecordsMask2020 would need to know the numbers of people _who were observed by police but not stopped_, in order to calculate the probabilities of selection into the stop dataset
+- If you only analyse data that are the result of police stops then your results will be biased. To analyse data on police stops to estimate racial bias, you also need to know the total number of encounters (for each ethnic group) – that is, including encounters that did not lead to a stop
+- However, we don't know this - and it is hard to imagine a scenario where an analyst of an police administrative dataset *would* know this
+- “when there is any racial discrimination in the decision to detain civilians—a decision that determines which encounters appear in police administrative data at all—then estimates of the effect of civilian race on subsequent police behavior are biased absent additional data and/or strong and untestable assumptions.” 
+
+:::{.aside}
+[@knoxAdministrativeRecordsMask2020]
+:::
+
+## Uh oh
+
+![Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters](https://static.cambridge.org/binary/version/id/urn:cambridge.org:id:binary:20200730201026963-0363:S0003055420000039:S0003055420000039_fig2.png){width=90% fig-alt="Knox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters. Notes: The figure displays the four principal strata that comprise police–civilian encounters based on how the mediator M (whether a civilian is stopped by police) responds to treatment D (whether the civilian is a racial minority). Minorities in the “always stop” and anti-minority racial stop strata, highlighted in red, are stopped by police and, thus, appear in police administrative data. Likewise, white civilians in the “always-stop” and anti-white racial stop strata, highlighted in blue, appear in police data. “Never stop” encounters are unobserved. Because white and nonwhite encounters are drawn from different principal strata, the two groups are incomparable and estimates of causal quantities using observed encounters will be statistically biased absent additional assumptions."}
+
+:::{.aside}
+[@knoxAdministrativeRecordsMask2020]
+:::
+
+## What can we do?
+
+- Knox and colleagues suggest some technical fixes in their specific case, but emphasise that *there is no general solution* that can guarantee that coefficients in a regression model will have valid causal interpretations based on administrative data derived from police records
+- The key thing is thinking through the process by which the dataset was constructed, and conveying this to your reader
+
+:::{.aside}
+[@knoxAdministrativeRecordsMask2020]
+:::
+
+## What can we do?
+- Another possibility suggested by Gaebler et al. (2022) is that it may be possible to identify some aspects of discrimination in administrative data
+- This would be discrimination at some point in the process, not total discrimination. It’s really important to be clear about what it is you want to know – do you care about total discrimination, or discrimination in a particular part of the process (e.g. court sentencing and not policing?)
+- This basically involves changing the question you are asking - which might be fine, but is not a very satisfactory solution
+
+:::{.aside}
+[@gaeblerCausalFrameworkObservational2022]
+:::

@@ -515,14 +515,14 @@
     "href": "lecture-sensitivity_analysis.html#example-one-measurement-error-in-recorded-crime",
     "title": "Analysing data you don’t have",
     "section": "Example One: Measurement error in recorded crime",
-    "text": "Example One: Measurement error in recorded crime\n\nFrom our discussion in Session One, we know that crime data recorded by the police are not a complete record of all crimes experienced in society in a given period - only crimes which are reported and recorded make it into recorded crime data (Pina-Sánchez et al. 2022)\nAs we have discussed already, not all crimes are reported to the police, not all incidents which are reported are recorded as crimes… and so on\nSo if we want to know, for example, how many crimes there were in Scotland in 2023, the number of crimes recorded by police is likely to be an under count"
+    "text": "Example One: Measurement error in recorded crime\n\nFrom our discussion in Session One, we know that crime data recorded by the police are not a complete record of all crimes experienced in society in a given period - only crimes which are reported and recorded make it into recorded crime data\nAs we have discussed already, not all crimes are reported to the police, not all incidents which are reported are recorded as crimes… and so on\nSo if we want to know, for example, how many crimes there were in Scotland in 2023, the number of crimes recorded by police is likely to be an under count\n\n\n\nPina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., & Cernat, A. (2022). The Impact of Measurement Error in Regression Models Using Police Recorded Crime Rates. Journal of Quantitative Criminology. https://doi.org/10.1007/s10940-022-09557-6"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#measurement-error-in-recorded-crime",
     "href": "lecture-sensitivity_analysis.html#measurement-error-in-recorded-crime",
     "title": "Analysing data you don’t have",
     "section": "Measurement error in recorded crime",
-    "text": "Measurement error in recorded crime\n\nMeasurement error in recorded crime is a particular structure: it is proportional to the amount of crime (Pina-Sánchez et al. 2022)\nThere is a larger gap between the amount of crime recorded and ‘true’ crime levels in areas with large numbers of recorded crimes compared to areas with very low recorded crime\n\nThe count of crimes recorded in Glasgow will be more of an undercount of ‘true’ crime in Glasgow than the count of crimes recorded in Shetland will be an undercount of ‘true’ crime in Shetland"
+    "text": "Measurement error in recorded crime\n\nMeasurement error in recorded crime is a particular structure: it is proportional to the amount of crime\nThere is a larger gap between the amount of crime recorded and ‘true’ crime levels in areas with large numbers of recorded crimes compared to areas with very low recorded crime\n\nThe count of crimes recorded in Glasgow will be more of an undercount of ‘true’ crime in Glasgow than the count of crimes recorded in Shetland will be an undercount of ‘true’ crime in Shetland\n\n\n\n\nPina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., & Cernat, A. (2022). The Impact of Measurement Error in Regression Models Using Police Recorded Crime Rates. Journal of Quantitative Criminology. https://doi.org/10.1007/s10940-022-09557-6"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#measurement-error-in-recorded-crime-1",
@@ -536,14 +536,14 @@
     "href": "lecture-sensitivity_analysis.html#rcme",
     "title": "Analysing data you don’t have",
     "section": "rcme",
-    "text": "rcme\n\nPina-Sánchez et al. (2022) propose some solutions for common forms of statistical analysis using recorded crime\nThey also provide an R package rcme which implements some of these methods\nIf you are interested fitting statitsical models to police recorded crime data I would strongly recommend checking this out"
+    "text": "rcme\n\nPina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., & Cernat, A. (2022). The Impact of Measurement Error in Regression Models Using Police Recorded Crime Rates. Journal of Quantitative Criminology. https://doi.org/10.1007/s10940-022-09557-6 propose some solutions for common forms of statistical analysis using recorded crime\nThey also provide an R package rcme which implements some of these methods\nIf you are interested fitting statitsical models to police recorded crime data I would strongly recommend checking this out\n\n\n\nPina-Sánchez, J., Buil-Gil, D., Brunton-Smith, I., & Cernat, A. (2022). The Impact of Measurement Error in Regression Models Using Police Recorded Crime Rates. Journal of Quantitative Criminology. https://doi.org/10.1007/s10940-022-09557-6"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#example-two-measurement-error-in-victimizaton-survey-data",
     "href": "lecture-sensitivity_analysis.html#example-two-measurement-error-in-victimizaton-survey-data",
     "title": "Analysing data you don’t have",
     "section": "Example Two: Measurement error in victimizaton survey data",
-    "text": "Example Two: Measurement error in victimizaton survey data\n\nHistorically, national victimization surveys (such as the SCJS and CSEW) capped the number of victim forms that victims could complete:\nIn 2019, ONS said\n\n\n“Since the survey began in 1981, “repeat” incidents have been limited to a total of 5. Historically, including a maximum of 5 repeat incidents for any individual victim had proven to be an effective way of reducing the effects of sample variability from year to year. This approach enabled the publication of incident rates that were not subject to large fluctuation between survey years. This approach yields a more reliable picture of changes in victimisations over time once high order repeat victimisations were treated in this way.”\n\n(Office for National Statistics 2019)"
+    "text": "Example Two: Measurement error in victimizaton survey data\n\nHistorically, national victimization surveys (such as the SCJS and CSEW) capped the number of victim forms that victims could complete. In 2019, ONS said\n\n\n“Since the survey began in 1981, “repeat” incidents have been limited to a total of 5. Historically, including a maximum of 5 repeat incidents for any individual victim had proven to be an effective way of reducing the effects of sample variability from year to year. This approach enabled the publication of incident rates that were not subject to large fluctuation between survey years. This approach yields a more reliable picture of changes in victimisations over time once high order repeat victimisations were treated in this way.”\n\n\n\nOffice for National Statistics. (2019). Improving Victimisation Estimates Derived from the Crime Survey for England and Wales."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#capping-and-time-trends",
@@ -557,21 +557,21 @@
     "href": "lecture-sensitivity_analysis.html#capping-and-measurement-error",
     "title": "Analysing data you don’t have",
     "section": "Capping and measurement error",
-    "text": "Capping and measurement error\n\nHowever, capping also means that people who experienced more than five incidents of a particular ‘series’ crime type did not have their data accurately recorded\nThis was particularly important for women’s reporting of violent victimization (Walby, Towers, and Francis 2016)\nWomen who experienced domestic violence may well report more than five repeat incidents of victimization in a given year\nONS now caps incident estimates at the 98th percentile of the distribution, rather than at five per series, and makes uncapped data available to estimates volatility over time\nAfter analysis to assess the effect of capping, SCJS retained the cap at five (Scottish Government 2019)"
+    "text": "Capping and measurement error\n\nHowever, capping also means that people who experienced more than five incidents of a particular ‘series’ crime type did not have their data accurately recorded\nThis was particularly important for women’s reporting of violent victimization1\nWomen who experienced domestic violence may well report more than five repeat incidents of victimization in a given year\nONS now caps incident estimates at the 98th percentile of the distribution, rather than at five per series, and makes uncapped data available to estimates volatility over time\nAfter analysis to assess the effect of capping, SCJS retained the cap at five2\n\nWalby, S., Towers, J., & Francis, B. (2016). Is Violent Crime Increasing or Decreasing? A New Methodology to Measure Repeat Attacks Making Visible the Significance of Gender and Domestic Relations. The British Journal of Criminology, 56(6), 1203–1234. https://doi.org/10.1093/bjc/azv131Scottish Government. (2019). Methodological Note: Calculating estimates of crime numbers in the Scottish Crime & Justice Survey. Justice Analytical Services."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#adventures-in-measurement-error",
     "href": "lecture-sensitivity_analysis.html#adventures-in-measurement-error",
     "title": "Analysing data you don’t have",
     "section": "Adventures in measurement error",
-    "text": "Adventures in measurement error\n\nThe two examples we’ve looked at have focused on measurement error in two specific applications\nIn general it’s hard to predict the impact measurement error may have on any particular analysis\nIf you have error in the outcome variable it may not bias your regression coefficients at all but just impact the precision of your results (meaning that they are less likely to be statistically significant)\nMeasurement error in a key independent variable may bias your regression coefficients downwards, meaning that your results are valid and in reality there is a stronger association between predictor and outcome that you have observed (sometimes called ‘regression dilution’)…\nBut if there is more noise in a control than in a key independent variable, measurement error in the control variable may lead to ‘under controlling’ - and finding statistically significant coefficients where there are none (Fewell, Davey Smith, and Sterne 2007)\nSo it’s quite context dependent - so you need to know the likely source of error in your specific dataset"
+    "text": "Adventures in measurement error\n\nThe two examples we’ve looked at have focused on measurement error in two specific applications\nIn general it’s hard to predict the impact measurement error may have on any particular analysis\nIf you have error in the outcome variable it may not bias your regression coefficients at all but just impact the precision of your results (meaning that they are less likely to be statistically significant)\nMeasurement error in a key independent variable may bias your regression coefficients downwards, meaning that your results are valid and in reality there is a stronger association between predictor and outcome that you have observed (sometimes called ‘regression dilution’)…\nBut if there is more noise in a control than in a key independent variable, measurement error in the control variable may lead to ‘under controlling’ - and finding statistically significant coefficients where there are none\nSo it’s quite context dependent - so you need to know the likely source of error in your specific dataset\n\n\n\nFewell, Z., Davey Smith, G., & Sterne, J. A. C. (2007). The Impact of Residual and Unmeasured Confounding in Epidemiologic Studies: A Simulation Study. American Journal of Epidemiology, 166(6), 646–655. https://doi.org/10.1093/aje/kwm165"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#selection-effects",
     "href": "lecture-sensitivity_analysis.html#selection-effects",
     "title": "Analysing data you don’t have",
     "section": "Selection effects",
-    "text": "Selection effects\n\nSelection effects (or selection bias) arises when there are people who we would have liked to observe in our study but we don’t observe them, and this lack of observation is related to their characteristics (Greenland 2014)\nIt’s a kind of non-representativeness of the data we have, compared to the ‘real world’\nI like to think of this as selection bias affecting the rows of our dataset - there are some rows that are missing that we would like to see\nIn this section we’ll focus on an example of identifying selection bias in police data"
+    "text": "Selection effects\n\nSelection effects (or selection bias) arises when there are people who we would have liked to observe in our study but we don’t observe them, and this lack of observation is related to their characteristics\nIt’s a kind of non-representativeness of the data we have, compared to the ‘real world’\nI like to think of this as selection bias affecting the rows of our dataset - there are some rows that are missing that we would like to see\nIn this section we’ll focus on an example of identifying selection bias in police data\n\n\n\nGreenland, S. (2014). Sensitivity Analysis and Bias Analysis. In W. Ahrens & I. Pigeot (Eds.), Handbook of Epidemiology (pp. 685–706). Springer. https://doi.org/10.1007/978-0-387-09834-0_60"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#selection-effects-1",
@@ -592,42 +592,42 @@
     "href": "lecture-sensitivity_analysis.html#example-selection-bias-in-police-administrative-data",
     "title": "Analysing data you don’t have",
     "section": "Example: Selection bias in police administrative data",
-    "text": "Example: Selection bias in police administrative data\n\nKnox, Lowe, and Mummolo (2020a) wanted to assess whether police were biased in their interactions with the public based on the ethnicity of the person they were interacting with\nThey had data on people who had been stopped by the police - but they can’t just fit a statistical model to these data to see if people from minority ethnic backgrounds were more likely to be stopped\nThe problem is we can’t just rely on data about police stops - “if police racially discriminate when choosing whom to investigate, analyses using administrative records to estimate racial discrimination in police behavior are statistically biased” (Knox, Lowe, and Mummolo 2020a)"
+    "text": "Example: Selection bias in police administrative data\n\nKnox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review. wanted to assess whether police were biased in their interactions with the public based on the ethnicity of the person they were interacting with\nThey had data on people who had been stopped by the police - but they can’t just fit a statistical model to these data to see if people from minority ethnic backgrounds were more likely to be stopped\nThe problem is we can’t just rely on data about police stops - “if police racially discriminate when choosing whom to investigate, analyses using administrative records to estimate racial discrimination in police behavior are statistically biased”\n\n\n\nKnox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#example-selection-bias-in-police-administrative-data-1",
     "href": "lecture-sensitivity_analysis.html#example-selection-bias-in-police-administrative-data-1",
     "title": "Analysing data you don’t have",
     "section": "Example: Selection bias in police administrative data",
-    "text": "Example: Selection bias in police administrative data\n\nTo just rely on the observed data, Knox, Lowe, and Mummolo (2020a) would need to know the numbers of people who were observed by police but not stopped, in order to calculate the probabilities of selection into the stop dataset\nIf you only analyse data that are the result of police stops then your results will be biased. To analyse data on police stops to estimate racial bias, you also need to know the total number of encounters (for each ethnic group) – that is, including encounters that did not lead to a stop\nHowever, we don’t know this - and it is hard to imagine a scenario where an analyst of an police administrative dataset would know this\n“when there is any racial discrimination in the decision to detain civilians—a decision that determines which encounters appear in police administrative data at all—then estimates of the effect of civilian race on subsequent police behavior are biased absent additional data and/or strong and untestable assumptions.” (Knox, Lowe, and Mummolo 2020a)"
+    "text": "Example: Selection bias in police administrative data\n\nTo just rely on the observed data, Knox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review. would need to know the numbers of people who were observed by police but not stopped, in order to calculate the probabilities of selection into the stop dataset\nIf you only analyse data that are the result of police stops then your results will be biased. To analyse data on police stops to estimate racial bias, you also need to know the total number of encounters (for each ethnic group) – that is, including encounters that did not lead to a stop\nHowever, we don’t know this - and it is hard to imagine a scenario where an analyst of an police administrative dataset would know this\n“when there is any racial discrimination in the decision to detain civilians—a decision that determines which encounters appear in police administrative data at all—then estimates of the effect of civilian race on subsequent police behavior are biased absent additional data and/or strong and untestable assumptions.”\n\n\n\nKnox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#uh-oh",
     "href": "lecture-sensitivity_analysis.html#uh-oh",
     "title": "Analysing data you don’t have",
     "section": "Uh oh",
-    "text": "Uh oh\n\nKnox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters"
+    "text": "Uh oh\n\n\n\nKnox et al (2020) FIGURE 2. Principal Strata and Observed Police–Civilian Encounters\n\n\n\n\nKnox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#what-can-we-do",
     "href": "lecture-sensitivity_analysis.html#what-can-we-do",
     "title": "Analysing data you don’t have",
     "section": "What can we do?",
-    "text": "What can we do?\n\nKnox, Lowe, and Mummolo (2020b) suggest some technical fixes in their specific case, but emphasise that there is no general solution that can guarantee that coefficients in a regression model will have valid causal interpretations based on administrative data derived from police records\nThe key thing is thinking through the process by which the dataset was constructed, and conveying this to your reader"
+    "text": "What can we do?\n\nKnox and colleagues suggest some technical fixes in their specific case, but emphasise that there is no general solution that can guarantee that coefficients in a regression model will have valid causal interpretations based on administrative data derived from police records\nThe key thing is thinking through the process by which the dataset was constructed, and conveying this to your reader\n\n\n\nKnox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review."
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#what-can-we-do-1",
     "href": "lecture-sensitivity_analysis.html#what-can-we-do-1",
     "title": "Analysing data you don’t have",
     "section": "What can we do?",
-    "text": "What can we do?\n\nAnother possibility suggested by Gaebler et al. (2022) is that it may be possible to identify some aspects of discrimination in administrative data\nThis would be discrimination at some point in the process, not total discrimination. It’s really important to be clear about what it is you want to know – do you care about total discrimination, or discrimination in a particular part of the process (e.g. court sentencing and not policing?)\nThis basically involves changing the question you are asking - which might be fine, but is not a very satisfactory solution"
+    "text": "What can we do?\n\nAnother possibility suggested by Gaebler et al. (2022) is that it may be possible to identify some aspects of discrimination in administrative data\nThis would be discrimination at some point in the process, not total discrimination. It’s really important to be clear about what it is you want to know – do you care about total discrimination, or discrimination in a particular part of the process (e.g. court sentencing and not policing?)\nThis basically involves changing the question you are asking - which might be fine, but is not a very satisfactory solution\n\n\n\nGaebler, J., Cai, W., Basse, G., Shroff, R., Goel, S., & Hill, J. (2022). A Causal Framework for Observational Studies of Discrimination. Statistics and Public Policy, 9(1), 26–48. https://doi.org/10.1080/2330443X.2021.2024778"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#unmeasured-confounding",
     "href": "lecture-sensitivity_analysis.html#unmeasured-confounding",
     "title": "Analysing data you don’t have",
     "section": "Unmeasured confounding",
-    "text": "Unmeasured confounding\n\nConfounding describes a situation where there’s something that we know affects the outcome we’re interested in and/or our independent variables, but we don’t have a measure for this in our data\nI like to think of this as affecting the columns of our dataset: there are variables we wish we had, but in practice we don’t\nThis issue is more commonly discussed in epidemiology and health fields as opposed to social sciences (Ding 2023)"
+    "text": "Unmeasured confounding\n\nConfounding describes a situation where there’s something that we know affects the outcome we’re interested in and/or our independent variables, but we don’t have a measure for this in our data\nI like to think of this as affecting the columns of our dataset: there are variables we wish we had, but in practice we don’t\nThis issue is more commonly discussed in epidemiology and health fields as opposed to social sciences\n\n\n\nDing, P. (2023). A First Course in Causal Inference (arXiv:2305.18793). arXiv. https://doi.org/10.48550/arXiv.2305.18793"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#unmeasured-confounding-1",
@@ -648,35 +648,35 @@
     "href": "lecture-sensitivity_analysis.html#an-example-of-unmeasured-confounding",
     "title": "Analysing data you don’t have",
     "section": "An example of unmeasured confounding",
-    "text": "An example of unmeasured confounding\n\nFamous example of smoking and lung cancer\n\nRA Fisher argued that the strong association between smoking and lung cancer “could both be influenced by a [unmeasured confounder, such as] constitutional make-up, perhaps genetic in origin, which predisposes individuals to both of them” (Davey Smith 2009)\nCornfield and colleagues demonstrated that such a confounder would have to be implausibly large to produce the observed association, and so was implausible\n\n(This matters most if you are using your analysis to make a causal claim)"
+    "text": "An example of unmeasured confounding\n\nFamous example of smoking and lung cancer\n\nRA Fisher argued that the strong association between smoking and lung cancer “could both be influenced by a [unmeasured confounder, such as] constitutional make-up, perhaps genetic in origin, which predisposes individuals to both of them”\nCornfield and colleagues demonstrated that such a confounder would have to be implausibly large to produce the observed association, and so was implausible\n\n(This matters most if you are using your analysis to make a causal claim)\n\n\n\nDavey Smith, G. (2009). Smoking and lung cancer: Causality, Cornfield and an early observational meta-analysis. International Journal of Epidemiology, 38(5), 1169–1171. https://doi.org/10.1093/ije/dyp317"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#a-sort-of-criminological-example",
     "href": "lecture-sensitivity_analysis.html#a-sort-of-criminological-example",
     "title": "Analysing data you don’t have",
     "section": "A sort-of criminological example",
-    "text": "A sort-of criminological example\n\nAs per Ding (2023) in general I haven’t come across that many criminological papers which discuss unmeasured confounding (if you have done, please let me know!)\nOne informal approach to unmeasured confounding is just to claim that the measures you do have are sufficient…"
+    "text": "A sort-of criminological example\n\nAs per Ding, P. (2023). A First Course in Causal Inference (arXiv:2305.18793). arXiv. https://doi.org/10.48550/arXiv.2305.18793 in general I haven’t come across that many criminological papers which discuss unmeasured confounding (if you have done, please let me know!)\nOne informal approach to unmeasured confounding is just to claim that the measures you do have are sufficient…\n\n\n\nDing, P. (2023). A First Course in Causal Inference (arXiv:2305.18793). arXiv. https://doi.org/10.48550/arXiv.2305.18793"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#talking-about-residual-confounding",
     "href": "lecture-sensitivity_analysis.html#talking-about-residual-confounding",
     "title": "Analysing data you don’t have",
     "section": "Talking about residual confounding",
-    "text": "Talking about residual confounding\n\nSampson, Laub, and Wimer (2006) wanted to assess the causal effect of marriage on crime - does getting married reduce a person’s propensity to commit crime?\nThey carry out some sophisticated statistical modelling, and conclude that yes marriage does reduce offending\nIn caveating their analysis they say that:\n\n\nProbably the biggest limitation of our study is that the … modeling approach we adopted assumes no unmeasured covariates linked to both treatment and outcome [emphasis added]. In practice, the criterion of having no unobserved confounding is impossible to verify… however, we tried to counteract this limitation by exploiting … [rich] data … It is hard to imagine what the missing time-stable or time-invariant covariates are that would overcome the magnitude and robustness of results."
+    "text": "Talking about residual confounding\n\nSampson, R. J., Laub, J. H., & Wimer, C. (2006). Does marriage reduce crime? A counterfactual approach to within-individual causal effects. Criminology: An Interdisciplinary Journal, 44(3), 465–508. https://doi.org/10.1111/j.1745-9125.2006.00055.x wanted to assess the causal effect of marriage on crime - does getting married reduce a person’s propensity to commit crime?\nThey carry out some sophisticated statistical modelling, and conclude that yes marriage does reduce offending\nIn caveating their analysis they say that:\n\n\nProbably the biggest limitation of our study is that the … modeling approach we adopted assumes no unmeasured covariates linked to both treatment and outcome [emphasis added]. In practice, the criterion of having no unobserved confounding is impossible to verify… however, we tried to counteract this limitation by exploiting … [rich] data … It is hard to imagine what the missing time-stable or time-invariant covariates are that would overcome the magnitude and robustness of results.\n\n\n\nSampson, R. J., Laub, J. H., & Wimer, C. (2006). Does marriage reduce crime? A counterfactual approach to within-individual causal effects. Criminology: An Interdisciplinary Journal, 44(3), 465–508. https://doi.org/10.1111/j.1745-9125.2006.00055.x"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#talking-about-residual-confounding-1",
     "href": "lecture-sensitivity_analysis.html#talking-about-residual-confounding-1",
     "title": "Analysing data you don’t have",
     "section": "Talking about residual confounding",
-    "text": "Talking about residual confounding\n\nWe thus argue that omitted confounders would have to be implausibly large to overturn the basic results\n\nAnd they continue in a footnote that formally assessing the possibility of bias from omitted confounders was “beyond the scope of the current paper” and would require assumptions about the magnitude, direction, and functional form of potential biases that ultimately raise more questions than they answer” (Sampson, Laub, and Wimer 2006, p499)"
+    "text": "Talking about residual confounding\n\nWe thus argue that omitted confounders would have to be implausibly large to overturn the basic results\n\nAnd they continue in a footnote that formally assessing the possibility of bias from omitted confounders was “beyond the scope of the current paper” and would require assumptions about the magnitude, direction, and functional form of potential biases that ultimately raise more questions than they answer” Sampson, R. J., Laub, J. H., & Wimer, C. (2006). Does marriage reduce crime? A counterfactual approach to within-individual causal effects. Criminology: An Interdisciplinary Journal, 44(3), 465–508. https://doi.org/10.1111/j.1745-9125.2006.00055.x"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#is-this-a-good-justification",
     "href": "lecture-sensitivity_analysis.html#is-this-a-good-justification",
     "title": "Analysing data you don’t have",
     "section": "Is this a good justification?",
-    "text": "Is this a good justification?\n\nThere is disagreement about whether this justification is sufficient:\n“However, increasing the number of covariates is hardly a persuasive approach to ruling out potentially important confounders, as it is unlikely that one can adequately measure all such confounders” (Skardhamar et al. 2015)\nIt’s true that you have to make assumptions about the unmeasured confounding to know the impact on your results, and so it’s necessarily speculative\nIt may be possible to identify any such confounders in your particular study though"
+    "text": "Is this a good justification?\n\nThere is disagreement about whether this justification is sufficient:\n“However, increasing the number of covariates is hardly a persuasive approach to ruling out potentially important confounders, as it is unlikely that one can adequately measure all such confounders” Skardhamar, T., Savolainen, J., Aase, K. N., & Lyngstad, T. H. (2015). Does Marriage Reduce Crime? Crime and Justice, 44, 385–446. https://doi.org/10.1086/681557\nIt’s true that you have to make assumptions about the unmeasured confounding to know the impact on your results, and so it’s necessarily speculative\nIt may be possible to identify any such confounders in your particular study though\n\n\n\nSkardhamar, T., Savolainen, J., Aase, K. N., & Lyngstad, T. H. (2015). Does Marriage Reduce Crime? Crime and Justice, 44, 385–446. https://doi.org/10.1086/681557"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#methods-for-measurement-error-selection-and-confounding",
@@ -690,7 +690,7 @@
     "href": "lecture-sensitivity_analysis.html#so-i-should-do-a-quantitative-bias-analysis",
     "title": "Analysing data you don’t have",
     "section": "So I should do a quantitative bias analysis?",
-    "text": "So I should do a quantitative bias analysis?\n\nAfter all this discussion… maybe not!\nEpidemiologists who work in this area suggest you only need to conduct a full quantitative bias analysis if you ‘claim to offer near-definitive conclusions’ based on your study (Greenland 2014)\nI think the key thing is how we talk about our models and results - it is us that moves between the stories in the ‘small world’ of our model to the ‘large world’\nWe should have humility when describing our results, and draw readers’ attention to the possible limitations of factors like those we have described\nFor any particular problem technical fixes maybe be possible, the specifics will depend on the problem you are interested in, the data you have and the provenance of that data (Knox, Lowe, and Mummolo 2020b)"
+    "text": "So I should do a quantitative bias analysis?\n\nAfter all this discussion… maybe not!\nEpidemiologists who work in this area suggest you only need to conduct a full quantitative bias analysis if you ‘claim to offer near-definitive conclusions’ based on your study1\nI think the key thing is how we talk about our models and results - it is us that moves between the stories in the ‘small world’ of our model to the ‘large world’\nWe should have humility when describing our results, and draw readers’ attention to the possible limitations of factors like those we have described\nFor any particular problem technical fixes maybe be possible, the specifics will depend on the problem you are interested in, the data you have and the provenance of that data2\n\nGreenland, S. (2014). Sensitivity Analysis and Bias Analysis. In W. Ahrens & I. Pigeot (Eds.), Handbook of Epidemiology (pp. 685–706). Springer. https://doi.org/10.1007/978-0-387-09834-0_60Knox, D., Lowe, W., & Mummolo, J. (2020). Administrative Records Mask Racially Biased Policing. American Political Science Review, 114(3), 619–637. https://doi.org/10.1017/S0003055420000039"
   },
   {
     "objectID": "lecture-sensitivity_analysis.html#recap-1",
@@ -711,7 +711,7 @@
     "href": "lecture-sensitivity_analysis.html#references",
     "title": "Analysing data you don’t have",
     "section": "References",
-    "text": "References\n\n\n\n\nDavey Smith, George. 2009. “Smoking and Lung Cancer: Causality, Cornfield and an Early Observational Meta-Analysis.” International Journal of Epidemiology 38 (5): 1169–71. https://doi.org/10.1093/ije/dyp317.\n\n\nDing, Peng. 2023. “A First Course in Causal Inference.” arXiv. https://doi.org/10.48550/arXiv.2305.18793.\n\n\nFewell, Zoe, George Davey Smith, and Jonathan A. C. Sterne. 2007. “The Impact of Residual and Unmeasured Confounding in Epidemiologic Studies: A Simulation Study.” American Journal of Epidemiology 166 (6): 646–55. https://doi.org/10.1093/aje/kwm165.\n\n\nGaebler, Johann, William Cai, Guillaume Basse, Ravi Shroff, Sharad Goel, and Jennifer Hill. 2022. “A Causal Framework for Observational Studies of Discrimination.” Statistics and Public Policy 9 (1): 26–48. https://doi.org/10.1080/2330443X.2021.2024778.\n\n\nGreenland, Sander. 2014. “Sensitivity Analysis and Bias Analysis.” In Handbook of Epidemiology, edited by Wolfgang Ahrens and Iris Pigeot, 685–706. New York, NY: Springer. https://doi.org/10.1007/978-0-387-09834-0_60.\n\n\nKnox, Dean, Will Lowe, and Jonathan Mummolo. 2020a. “Administrative Records Mask Racially Biased Policing.” American Political Science Review.\n\n\n———. 2020b. “Administrative Records Mask Racially Biased Policing.” American Political Science Review 114 (3): 619–37. https://doi.org/10.1017/S0003055420000039.\n\n\nOffice for National Statistics. 2019. “Improving Victimisation Estimates Derived from the Crime Survey for England and Wales.”\n\n\nPina-Sánchez, Jose, David Buil-Gil, Ian Brunton-Smith, and Alexandru Cernat. 2022. “The Impact of Measurement Error in Regression Models Using Police Recorded Crime Rates.” Journal of Quantitative Criminology, August. https://doi.org/10.1007/s10940-022-09557-6.\n\n\nSampson, Robert J., John H. Laub, and Christopher Wimer. 2006. “Does Marriage Reduce Crime? A Counterfactual Approach to Within-Individual Causal Effects.” Criminology: An Interdisciplinary Journal 44 (3): 465–508. https://doi.org/10.1111/j.1745-9125.2006.00055.x.\n\n\nScottish Government. 2019. “Methodological Note: Calculating Estimates of Crime Numbers in the Scottish Crime & Justice Survey.” Justice Analytical Services.\n\n\nSkardhamar, Torbjørn, Jukka Savolainen, Kjersti N. Aase, and Torkild H. Lyngstad. 2015. “Does Marriage Reduce Crime?” Crime and Justice 44 (September): 385–446. https://doi.org/10.1086/681557.\n\n\nWalby, Sylvia, Jude Towers, and Brian Francis. 2016. “Is Violent Crime Increasing or Decreasing? A New Methodology to Measure Repeat Attacks Making Visible the Significance of Gender and Domestic Relations.” The British Journal of Criminology 56 (6): 1203–34. https://doi.org/10.1093/bjc/azv131."
+    "text": "References"
   },
   {
     "objectID": "lecture-01.html#social-data-science",
@@ -719,5 +719,208 @@
     "title": "Introduction to Social Data Science",
     "section": "Social data science",
     "text": "Social data science\n\nTheoretical skills in understanding what social data is, what it can tell us and what it can’t\nPractical skills in\n\ndata manipulation and workflow\ndata visualization and communication\nassessing data limitations"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#learning-outcomes",
+    "href": "lecture-dplyr_verbs.html#learning-outcomes",
+    "title": "Dplyr verbs",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nBy the end of this session you will\n\nUnderstand the six key dplyr verbs"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#note",
+    "href": "lecture-dplyr_verbs.html#note",
+    "title": "Dplyr verbs",
+    "section": "Note",
+    "text": "Note\n\nWe focus on the implementation of these ideas in dplyr\nOne thing that the LLMs have done is make translation between languages straightforward\nYou can apply the same concepts to any program/language - the key thing is having the conceptual language to describe what you want to do, rather than the technical implementation"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#what-is-dplyr",
+    "href": "lecture-dplyr_verbs.html#what-is-dplyr",
+    "title": "Dplyr verbs",
+    "section": "What is dplyr",
+    "text": "What is dplyr\n\ndplyr is a popular R package for data manipulation\npart of the tidyverse\nthe same operations are included in other R packages (base; data.table) and programs (python; Stata; SQL; SPSS)"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#operations-on-rows",
+    "href": "lecture-dplyr_verbs.html#operations-on-rows",
+    "title": "Dplyr verbs",
+    "section": "Operations on rows",
+    "text": "Operations on rows\n\nfilter\narrange\ndistinct"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#operations-on-columns",
+    "href": "lecture-dplyr_verbs.html#operations-on-columns",
+    "title": "Dplyr verbs",
+    "section": "Operations on columns",
+    "text": "Operations on columns\n\nmutate\nselect\nrename"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#mutate",
+    "href": "lecture-dplyr_verbs.html#mutate",
+    "title": "Dplyr verbs",
+    "section": "Mutate",
+    "text": "Mutate\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#operations-on-groups",
+    "href": "lecture-dplyr_verbs.html#operations-on-groups",
+    "title": "Dplyr verbs",
+    "section": "Operations on groups",
+    "text": "Operations on groups\n\nsummarise\ngroup_by"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#summarise.smallertrue",
+    "href": "lecture-dplyr_verbs.html#summarise.smallertrue",
+    "title": "Dplyr verbs",
+    "section": "Summarise{.smaller=true}",
+    "text": "Summarise{.smaller=true}\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#summarise",
+    "href": "lecture-dplyr_verbs.html#summarise",
+    "title": "Dplyr verbs",
+    "section": "Summarise",
+    "text": "Summarise\n\ndf |&gt; \n  summarise(\n    avg = mean(x),\n    total = sum(x),\n    n = n()\n  )\n\n# A tibble: 1 × 3\n    avg total     n\n  &lt;dbl&gt; &lt;int&gt; &lt;int&gt;\n1     5    45     9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#filter",
+    "href": "lecture-dplyr_verbs.html#filter",
+    "title": "Dplyr verbs",
+    "section": "filter",
+    "text": "filter\n\ndf\n\n# A tibble: 9 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 a     j         1\n2 a     j         2\n3 a     k         3\n4 b     j         4\n5 b     k         5\n6 b     k         6\n7 c     j         7\n8 c     j         8\n9 c     k         9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#filter-1",
+    "href": "lecture-dplyr_verbs.html#filter-1",
+    "title": "Dplyr verbs",
+    "section": "filter",
+    "text": "filter\n\ndf |&gt; \n  filter(cat1 == \"a\")\n\n# A tibble: 3 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 a     j         1\n2 a     j         2\n3 a     k         3"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#filter-2",
+    "href": "lecture-dplyr_verbs.html#filter-2",
+    "title": "Dplyr verbs",
+    "section": "filter",
+    "text": "filter\n\ndf |&gt; \n  filter(cat1 == \"b\")\n\n# A tibble: 3 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 b     j         4\n2 b     k         5\n3 b     k         6"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#arrange",
+    "href": "lecture-dplyr_verbs.html#arrange",
+    "title": "Dplyr verbs",
+    "section": "arrange",
+    "text": "arrange\n\ndf |&gt; \n  arrange(cat2)\n\n# A tibble: 9 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 a     j         1\n2 a     j         2\n3 b     j         4\n4 c     j         7\n5 c     j         8\n6 a     k         3\n7 b     k         5\n8 b     k         6\n9 c     k         9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#arrange-1",
+    "href": "lecture-dplyr_verbs.html#arrange-1",
+    "title": "Dplyr verbs",
+    "section": "arrange",
+    "text": "arrange\n\ndf |&gt; \n  arrange(desc(cat2))\n\n# A tibble: 9 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 a     k         3\n2 b     k         5\n3 b     k         6\n4 c     k         9\n5 a     j         1\n6 a     j         2\n7 b     j         4\n8 c     j         7\n9 c     j         8"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#distinct",
+    "href": "lecture-dplyr_verbs.html#distinct",
+    "title": "Dplyr verbs",
+    "section": "distinct",
+    "text": "distinct\n\ndf |&gt; \n  distinct(cat1)\n\n# A tibble: 3 × 1\n  cat1 \n  &lt;chr&gt;\n1 a    \n2 b    \n3 c"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#distinct-1",
+    "href": "lecture-dplyr_verbs.html#distinct-1",
+    "title": "Dplyr verbs",
+    "section": "distinct",
+    "text": "distinct\n\ndf |&gt; \n  distinct(cat2)\n\n# A tibble: 2 × 1\n  cat2 \n  &lt;chr&gt;\n1 j    \n2 k"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#distinct-2",
+    "href": "lecture-dplyr_verbs.html#distinct-2",
+    "title": "Dplyr verbs",
+    "section": "distinct",
+    "text": "distinct\n\ndf |&gt; \n  distinct(cat1, cat2)\n\n# A tibble: 6 × 2\n  cat1  cat2 \n  &lt;chr&gt; &lt;chr&gt;\n1 a     j    \n2 a     k    \n3 b     j    \n4 b     k    \n5 c     j    \n6 c     k"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#filter-3",
+    "href": "lecture-dplyr_verbs.html#filter-3",
+    "title": "Dplyr verbs",
+    "section": "filter",
+    "text": "filter\n\ndf |&gt; \n  filter(cat1 != \"b\")\n\n# A tibble: 6 × 3\n  cat1  cat2      x\n  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;\n1 a     j         1\n2 a     j         2\n3 a     k         3\n4 c     j         7\n5 c     j         8\n6 c     k         9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#select",
+    "href": "lecture-dplyr_verbs.html#select",
+    "title": "Dplyr verbs",
+    "section": "select",
+    "text": "select\n\ndf |&gt; \n  select(cat1)\n\n# A tibble: 9 × 1\n  cat1 \n  &lt;chr&gt;\n1 a    \n2 a    \n3 a    \n4 b    \n5 b    \n6 b    \n7 c    \n8 c    \n9 c"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#select-1",
+    "href": "lecture-dplyr_verbs.html#select-1",
+    "title": "Dplyr verbs",
+    "section": "select",
+    "text": "select\n\ndf |&gt; \n  select(cat1, x)\n\n# A tibble: 9 × 2\n  cat1      x\n  &lt;chr&gt; &lt;int&gt;\n1 a         1\n2 a         2\n3 a         3\n4 b         4\n5 b         5\n6 b         6\n7 c         7\n8 c         8\n9 c         9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#select-2",
+    "href": "lecture-dplyr_verbs.html#select-2",
+    "title": "Dplyr verbs",
+    "section": "select",
+    "text": "select\n\ndf |&gt; \n  select(contains(\"cat\")) # note the \"\"!\n\n# A tibble: 9 × 2\n  cat1  cat2 \n  &lt;chr&gt; &lt;chr&gt;\n1 a     j    \n2 a     j    \n3 a     k    \n4 b     j    \n5 b     k    \n6 b     k    \n7 c     j    \n8 c     j    \n9 c     k"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#rename",
+    "href": "lecture-dplyr_verbs.html#rename",
+    "title": "Dplyr verbs",
+    "section": "rename",
+    "text": "rename\n\ndf |&gt; \n  rename(category_1 = cat1) # new name comes first\n\n# A tibble: 9 × 3\n  category_1 cat2      x\n  &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;\n1 a          j         1\n2 a          j         2\n3 a          k         3\n4 b          j         4\n5 b          k         5\n6 b          k         6\n7 c          j         7\n8 c          j         8\n9 c          k         9"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#summarise-1",
+    "href": "lecture-dplyr_verbs.html#summarise-1",
+    "title": "Dplyr verbs",
+    "section": "Summarise",
+    "text": "Summarise\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by",
+    "href": "lecture-dplyr_verbs.html#group_by",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\ndf |&gt; \n  group_by(cat1) |&gt; \n  summarise(\n    avg = mean(x),\n    total = sum(x),\n    n = n()\n  )\n\n# A tibble: 3 × 4\n  cat1    avg total     n\n  &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;\n1 a         2     6     3\n2 b         5    15     3\n3 c         8    24     3"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by-1",
+    "href": "lecture-dplyr_verbs.html#group_by-1",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by-2",
+    "href": "lecture-dplyr_verbs.html#group_by-2",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\ndf |&gt; \n  group_by(cat2) |&gt; \n  summarise(\n    avg = mean(x),\n    total = sum(x),\n    n = n()\n  )\n\n# A tibble: 2 × 4\n  cat2    avg total     n\n  &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;\n1 j      4.4     22     5\n2 k      5.75    23     4"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by-3",
+    "href": "lecture-dplyr_verbs.html#group_by-3",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by-4",
+    "href": "lecture-dplyr_verbs.html#group_by-4",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\ndf |&gt; \n  group_by(cat1, cat2) |&gt; \n  summarise(\n    avg = mean(x),\n    total = sum(x),\n    n = n()\n  )\n\n# A tibble: 6 × 5\n# Groups:   cat1 [3]\n  cat1  cat2    avg total     n\n  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;\n1 a     j       1.5     3     2\n2 a     k       3       3     1\n3 b     j       4       4     1\n4 b     k       5.5    11     2\n5 c     j       7.5    15     2\n6 c     k       9       9     1"
+  },
+  {
+    "objectID": "lecture-dplyr_verbs.html#group_by-5",
+    "href": "lecture-dplyr_verbs.html#group_by-5",
+    "title": "Dplyr verbs",
+    "section": "group_by",
+    "text": "group_by\n\nHeiss, A. (2024). Visualizing dplyr’s mutate(), summarize(), group_by(), and ungroup() with animations. https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/. https://doi.org/10.59350/d2sz4-w4e25"
   }
 ]

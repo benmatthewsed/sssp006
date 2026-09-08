@@ -1,0 +1,283 @@
+---
+title: "Dplyr verbs"
+format:
+  revealjs:
+    output-file: "lecture-dplyr_verbs.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+title-slide-attributes:
+  data-background-color: "#006938"
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false        
+bibliography: social_data_science-bibliography.bib
+---
+
+
+```{r}
+#| include: false
+options(digits = 2)
+```
+
+## Learning outcomes
+- By the end of this session you will
+  - Understand the six key dplyr verbs
+
+---
+
+## Note
+- We focus on the implementation of these ideas in dplyr
+- One thing that the LLMs have done is make translation between languages straightforward
+- You can apply the same concepts to any program/language - the key thing is having the conceptual language to describe what you want to do, rather than the technical implementation
+
+## What is dplyr
+- dplyr is a popular R package for data manipulation
+- part of the tidyverse
+- the same operations are included in other R packages (base; data.table) and programs (python; Stata; SQL; SPSS)
+
+
+
+```{r}
+
+library(tibble)
+library(dplyr)
+
+df <- tibble(
+  cat1 = c(rep("a", 3), rep("b", 3), rep("c", 3)),
+  cat2 = c("j", "j", "k", "j", "k", "k", "j", "j", "k"),
+  x = 1:9
+)
+
+```
+
+## Operations on rows
+- `filter`
+- `arrange`
+- `distinct`
+
+## filter
+
+```{r}
+#| echo: true
+df
+
+```
+
+## filter
+
+```{r}
+#| echo: true
+df |> 
+  filter(cat1 == "a")
+
+```
+
+## filter
+
+```{r}
+#| echo: true
+df |> 
+  filter(cat1 == "b")
+
+```
+
+## filter
+
+```{r}
+#| echo: true
+df |> 
+  filter(cat1 != "b")
+
+```
+
+## arrange
+
+```{r}
+#| echo: true
+df |> 
+  arrange(cat2)
+
+```
+
+## arrange
+
+```{r}
+#| echo: true
+df |> 
+  arrange(desc(cat2))
+
+```
+
+
+## distinct
+
+```{r}
+#| echo: true
+df |> 
+  distinct(cat1)
+
+```
+
+## distinct
+
+```{r}
+#| echo: true
+df |> 
+  distinct(cat2)
+
+```
+
+## distinct
+
+```{r}
+#| echo: true
+df |> 
+  distinct(cat1, cat2)
+
+```
+
+
+## Operations on columns
+
+- `mutate`
+- `select`
+- `rename`
+
+
+## Mutate {.smaller}
+
+{{< video images/mutate.mp4 >}}
+
+[@heiss2024]
+
+## select
+
+```{r}
+#| echo: true
+df |> 
+  select(cat1)
+
+```
+
+## select
+```{r}
+#| echo: true
+df |> 
+  select(cat1, x)
+
+```
+
+## select
+```{r}
+#| echo: true
+df |> 
+  select(contains("cat")) # note the ""!
+
+```
+
+## rename
+```{r}
+#| echo: true
+df |> 
+  rename(category_1 = cat1) # new name comes first
+
+```
+
+
+## Operations on groups
+
+- `summarise`
+- `group_by`
+
+## Summarise
+
+```{r}
+#| echo: true
+df |> 
+  summarise(
+    avg = mean(x),
+    total = sum(x),
+    n = n()
+  )
+
+```
+
+
+## Summarise {.smaller}
+
+{{< video images/grp-summarize-00.mp4 >}}
+
+[@heiss2024]
+
+## group_by 
+
+```{r}
+#| echo: true
+df |> 
+  group_by(cat1) |> 
+  summarise(
+    avg = mean(x),
+    total = sum(x),
+    n = n()
+  )
+
+```
+
+
+## group_by {.smaller}
+
+{{< video images/grp-summarize-01.mp4 >}}
+
+[@heiss2024]
+
+
+## group_by 
+
+```{r}
+#| echo: true
+df |> 
+  group_by(cat2) |> 
+  summarise(
+    avg = mean(x),
+    total = sum(x),
+    n = n()
+  )
+
+```
+
+
+## group_by {.smaller}
+
+{{< video images/grp-summarize-02.mp4 >}}
+
+[@heiss2024]
+
+
+## group_by 
+
+```{r}
+#| echo: true
+df |> 
+  group_by(cat1, cat2) |> 
+  summarise(
+    avg = mean(x),
+    total = sum(x),
+    n = n()
+  )
+
+```
+
+
+## group_by {.smaller}
+
+{{< video images/grp-summarize-03.mp4 >}}
+
+[@heiss2024]
