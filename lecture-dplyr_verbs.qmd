@@ -1,5 +1,5 @@
 ---
-title: "Dplyr verbs"
+title: "dplyr verbs"
 format:
   revealjs:
     output-file: "lecture-dplyr_verbs.html"

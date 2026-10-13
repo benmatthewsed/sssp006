@@ -963,6 +963,349 @@
     "href": "lecture-joins.html#pivoting",
     "title": "Joining datasets",
     "section": "pivoting",
-    "text": "pivoting"
+    "text": "pivoting\n\nhttps://github.com/gadenbuie/tidyexplain/blob/main/images/left-join-extra.gif"
+  },
+  {
+    "objectID": "lecture-data_visualization.html",
+    "href": "lecture-data_visualization.html",
+    "title": "What is ggplot2?",
+    "section": "",
+    "text": "title: “dplyr verbs” format: revealjs: output-file: “lecture-data_vis_ggplot2.html” theme: [default, assets/mystyle.scss] transition: fade slide-number: true preview-links: auto callout-appearance: simple code-line-numbers: false code-overflow: wrap code-annotations: hover code-copy: hover title-slide-attributes: data-background-color: “#006938” csl: apa-cv.csl suppress-bibliography: true link-citations: false citations-hover: false\nbibliography: social_data_science-bibliography.bib"
+  },
+  {
+    "objectID": "lecture-data_visualization.html#perception",
+    "href": "lecture-data_visualization.html#perception",
+    "title": "What is ggplot2?",
+    "section": "Perception",
+    "text": "Perception\n\nLearning ggplot2 will help you understand how data visualization works, how to figure out what you want your plots to look like and describe this to the computer.\nThis is because it’s declarative. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole blog post about why this is a good thing!\nSo by using ggplot2 you learn how to make better graphs, not just how to make graphs."
+  },
+  {
+    "objectID": "lecture-data_visualization.html#its-powerful",
+    "href": "lecture-data_visualization.html#its-powerful",
+    "title": "What is ggplot2?",
+    "section": "It’s Powerful",
+    "text": "It’s Powerful\n\nBecause it’s declarative it’s also flexible\nYou can make pretty pretty much any type of (static) graph you want! (No fancy interactive web graphics though, sorry)\nThis is very powerful! You can make publication (or Twitter) quality graphs"
+  },
+  {
+    "objectID": "lecture-data_visualization.html#its-popular",
+    "href": "lecture-data_visualization.html#its-popular",
+    "title": "What is ggplot2?",
+    "section": "It’s popular",
+    "text": "It’s popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users!"
+  },
+  {
+    "objectID": "lecture-data_visualization.html#ggplot2-is-powerful-and-fallible",
+    "href": "lecture-data_visualization.html#ggplot2-is-powerful-and-fallible",
+    "title": "What is ggplot2?",
+    "section": "ggplot2 is powerful and fallible",
+    "text": "ggplot2 is powerful and fallible\n\nggplot2 is a world unto itself (technically, it’s a domain specific language)\nIt’s also a world with quirks\n.. so when learning how to use ggplot2, mistakes are gonna happen - even for existing R users - and that’s fine! r emo::ji(\"thumbsup\")\nEvery error is a learning opportunity - we’re all building up better mental models of how ggplot2 works, and finding things that don’t work as expected (or at all!) help us do this too r emo::ji(\"tada\")\nWe’ll talk about common ‘gotchas’ later on"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#perception",
+    "href": "lecture-data_vis_ggplot2.html#perception",
+    "title": "dplyr verbs",
+    "section": "Perception",
+    "text": "Perception\n\nLearning ggplot2 will help you understand how data visualization works, how to figure out what you want your plots to look like and describe this to the computer.\nThis is because it’s declarative. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole blog post about why this is a good thing!\nSo by using ggplot2 you learn how to make better graphs, not just how to make graphs."
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#its-powerful",
+    "href": "lecture-data_vis_ggplot2.html#its-powerful",
+    "title": "dplyr verbs",
+    "section": "It’s Powerful",
+    "text": "It’s Powerful\n\nBecause it’s declarative it’s also flexible\nYou can make pretty pretty much any type of (static) graph you want! (No fancy interactive web graphics though, sorry)\nThis is very powerful! You can make publication (or Twitter) quality graphs"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#its-popular",
+    "href": "lecture-data_vis_ggplot2.html#its-popular",
+    "title": "dplyr verbs",
+    "section": "It’s popular",
+    "text": "It’s popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users!"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful-and-fallible",
+    "href": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful-and-fallible",
+    "title": "dplyr verbs",
+    "section": "ggplot2 is powerful and fallible",
+    "text": "ggplot2 is powerful and fallible\n\nggplot2 is a world unto itself (technically, it’s a domain specific language)\nIt’s also a world with quirks\n.. so when learning how to use ggplot2, mistakes are gonna happen - even for existing R users - and that’s fine!\nEvery error is a learning opportunity - we’re all building up better mental models of how ggplot2 works, and finding things that don’t work as expected (or at all!) help us do this too\nWe’ll talk about common ‘gotchas’ later on"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#learning-outcomes",
+    "href": "lecture-data_vis_ggplot2.html#learning-outcomes",
+    "title": "dplyr verbs",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand (some) basic principles of data visualization\nBe able to visualize data with ggplot2; scatterplots, bar charts, fitted lines"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#what-is-ggplot2",
+    "href": "lecture-data_vis_ggplot2.html#what-is-ggplot2",
+    "title": "dplyr verbs",
+    "section": "What is ggplot2?",
+    "text": "What is ggplot2?\n\nIt’s an R package that draws graphs, developed by Hadley Wickham\nFrom the tidyverse website: “ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what [visual marks to use to represent data points], and it takes care of the details.”\n… and what’s the Grammar of Graphics? Our ggplot2 cheat sheet says this is “the idea that you can build every graph from the same components: a data set, a coordinate system, and geoms—visual marks that represent data points.”"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#its-powerful-1",
+    "href": "lecture-data_vis_ggplot2.html#its-powerful-1",
+    "title": "dplyr verbs",
+    "section": "It’s Powerful",
+    "text": "It’s Powerful\n\nBecause it’s declarative it’s also flexible\nYou can make pretty pretty much any type of (static) graph you want! (No fancy interactive web graphics though, sorry)\nThis is very powerful! You can make publication (or social media ) quality graphs"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#its-popular-1",
+    "href": "lecture-data_vis_ggplot2.html#its-popular-1",
+    "title": "dplyr verbs",
+    "section": "It’s popular",
+    "text": "It’s popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users!"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#error-each-group-consists-of-only-one-observation.-do-you-need-to-adjust-the-group-aesthetic",
+    "href": "lecture-data_vis_ggplot2.html#error-each-group-consists-of-only-one-observation.-do-you-need-to-adjust-the-group-aesthetic",
+    "title": "dplyr verbs",
+    "section": "Error: Each group consists of only one observation. Do you need to adjust the group aesthetic?",
+    "text": "Error: Each group consists of only one observation. Do you need to adjust the group aesthetic?\n\nDiagnosis: This happens when you try to plot a line using a factor as one of the position scales. ggplot then ‘guesses’ that you want the x variable to be the grouping variable\nData types, and particularly factors matter to ggplot!\nPrescription: Adjust the group aesthetic! Explicitly tell ggplot what variable you want to group by in the call to aes() using the group = parameter"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#error-stat_count-can-only-have-an-x-or-y-aesthetic",
+    "href": "lecture-data_vis_ggplot2.html#error-stat_count-can-only-have-an-x-or-y-aesthetic",
+    "title": "dplyr verbs",
+    "section": "Error: stat_count() can only have an x or y aesthetic",
+    "text": "Error: stat_count() can only have an x or y aesthetic\n\nDiagnosis: This happens with summary geoms (usually geom_bar) which want to calculate a summary for you but you’ve already summarised the data outside of ggplot2\nPrescription: You can tell geom_bar that you’ve summarised the data already by specifying geom_bar(stat = \"identity\") (here identity just means “use the numbers that I gave you please and don’t calculate anything with them”)"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#error-cannot-use-.gg-with-a-single-argument.-did-you-accidentally-put-on-a-new-line",
+    "href": "lecture-data_vis_ggplot2.html#error-cannot-use-.gg-with-a-single-argument.-did-you-accidentally-put-on-a-new-line",
+    "title": "dplyr verbs",
+    "section": "Error: Cannot use +.gg() with a single argument. Did you accidentally put + on a new line?",
+    "text": "Error: Cannot use +.gg() with a single argument. Did you accidentally put + on a new line?\n\nDiagnosis: For technical reasons I don’t understand this isn’t valid R code. So you can’t do it!\nPrescription: Move the + to the end of the previous line from the start of the new line"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#error-in-funxi-...-object-blah-not-found",
+    "href": "lecture-data_vis_ggplot2.html#error-in-funxi-...-object-blah-not-found",
+    "title": "dplyr verbs",
+    "section": "Error in FUN(X[[i]], ...) : object 'blah' not found",
+    "text": "Error in FUN(X[[i]], ...) : object 'blah' not found\n\nDiagnosis: ggplot is looking for something in your dataset but there are no variables with that name\n\nSee our discussion on concepts in the grammar of graphics about what goes inside the call to aes and what goes outside\n\nPrescription: Make sure there aren’t any typos, and that what you’ve specified exists in your dataset\n\nIf you’re trying to set a colour you might have to move this outside the call to aes()"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#why-plot-in-the-first-place",
+    "href": "lecture-data_vis_ggplot2.html#why-plot-in-the-first-place",
+    "title": "dplyr verbs",
+    "section": "Why plot in the first place?",
+    "text": "Why plot in the first place?\n\nIt’s a key part of any data analysis\nRelying on summary statistics can be misleading:\n\n\nThe datasaurus – Matejka and Fitzmaurice"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#why-plot-with-ggplot2",
+    "href": "lecture-data_vis_ggplot2.html#why-plot-with-ggplot2",
+    "title": "dplyr verbs",
+    "section": "Why plot with ggplot2?",
+    "text": "Why plot with ggplot2?\n\nAids perception 💡\nIt’s powerful 💪\nIt’s popular 😎"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#ggplot2-aids-perception",
+    "href": "lecture-data_vis_ggplot2.html#ggplot2-aids-perception",
+    "title": "dplyr verbs",
+    "section": "ggplot2 aids perception",
+    "text": "ggplot2 aids perception\n\nLearning ggplot2 will help you understand how data visualization works, how to figure out what you want your plots to look like and describe this to the computer.\nThis is because it’s declarative. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole blog post about why this is a good thing!\nSo by using ggplot2 you learn how to make better graphs, not just how to make graphs."
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful",
+    "href": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful",
+    "title": "dplyr verbs",
+    "section": "ggplot2 is powerful",
+    "text": "ggplot2 is powerful\n\nBecause it’s declarative it’s also flexible\nYou can make pretty pretty much any type of (static) graph you want! (No fancy interactive web graphics though, sorry)\nThis is very powerful! You can make publication (or social media) quality graphs"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#ggplot2-is-popular",
+    "href": "lecture-data_vis_ggplot2.html#ggplot2-is-popular",
+    "title": "dplyr verbs",
+    "section": "ggplot2 is popular",
+    "text": "ggplot2 is popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users!"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#learning-outcomes",
+    "href": "lecture-data_vis_principles.html#learning-outcomes",
+    "title": "Principles of data visualization",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand (some) basic principles of data visualization"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#why-plot-in-the-first-place",
+    "href": "lecture-data_vis_principles.html#why-plot-in-the-first-place",
+    "title": "Principles of data visualization",
+    "section": "Why plot in the first place?",
+    "text": "Why plot in the first place?\n\n“Visualizations give you answers to questions you didn’t know you had” —\n\nBen Shneiderman"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#why-plot-in-the-first-place-1",
+    "href": "lecture-data_vis_principles.html#why-plot-in-the-first-place-1",
+    "title": "Principles of data visualization",
+    "section": "Why plot in the first place?",
+    "text": "Why plot in the first place?\n\nIt’s a key part of any data analysis\nRelying on summary statistics can be misleading\n\n\nMatejka, J., & Fitzmaurice, G. (2017). Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing. Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems, CHI ’17, 1290–1294. https://doi.org/10.1145/3025453.3025912"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#audience",
+    "href": "lecture-data_vis_principles.html#audience",
+    "title": "Principles of data visualization",
+    "section": "Audience",
+    "text": "Audience\n\nAs with all communication, audience is key!\nAre you doing ‘infovis’ or statistical graphics?\n\n\n\nGelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. Journal of Computational and Graphical Statistics, 22(1), 2–28. https://doi.org/10.1080/10618600.2012.761137"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#infovis",
+    "href": "lecture-data_vis_principles.html#infovis",
+    "title": "Principles of data visualization",
+    "section": "Infovis",
+    "text": "Infovis\n\n“grabbing the readers’ attention and telling them a story”\n“draw attention to [the] graphics and thus to the subject matter”\n\n\n\nGelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. Journal of Computational and Graphical Statistics, 22(1), 2–28. https://doi.org/10.1080/10618600.2012.761137"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#infovis-1",
+    "href": "lecture-data_vis_principles.html#infovis-1",
+    "title": "Principles of data visualization",
+    "section": "Infovis",
+    "text": "Infovis\n\nImage by Mona Chalabi"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#statistical-graphics",
+    "href": "lecture-data_vis_principles.html#statistical-graphics",
+    "title": "Principles of data visualization",
+    "section": "Statistical graphics",
+    "text": "Statistical graphics\n\nInterested in “what can be got out of the available data”\n“finding effective and precise ways of representing data, whether raw data, statistics, or model analyses”\nthe “right compariso[n] is important [because] numbers on their own make little sense”\nExact end result may differ based on whether you are producing ‘presentation’ graphics (a “small number of graphs, which may be viewed by thousands”) or exploratory graphs (“thousands of graphs, which are viewed by one person, yourself”)\n\n\n\nGelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. Journal of Computational and Graphical Statistics, 22(1), 2–28. https://doi.org/10.1080/10618600.2012.761137"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#principles-of-data-visualization",
+    "href": "lecture-data_vis_principles.html#principles-of-data-visualization",
+    "title": "Principles of data visualization",
+    "section": "Principles of data visualization",
+    "text": "Principles of data visualization\n\nHow we read graphs\nPrinciples of chart design\nAn example"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#principles-of-chart-design-1",
+    "href": "lecture-data_vis_principles.html#principles-of-chart-design-1",
+    "title": "Principles of data visualization",
+    "section": "Principles of chart design",
+    "text": "Principles of chart design\n\nMatch perceptual and data topology\nDual coding\nColour accessibility"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nSome aesthetic mappings have implicit orders (like position and size), others are unordered (like shape)\n\nIf you’re using a graphical element to show relative size of quantities make larger size = larger quantity"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-1",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-1",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-2",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-2",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-3",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-3",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-4",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-4",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-5",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-5",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-6",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-6",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-7",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-7",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#perceptual-and-data-topology-8",
+    "href": "lecture-data_vis_principles.html#perceptual-and-data-topology-8",
+    "title": "Principles of data visualization",
+    "section": "Perceptual and data topology",
+    "text": "Perceptual and data topology\n\nFrom Hadley Wickham’s excellent slides on data-viz:"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#dual-coding",
+    "href": "lecture-data_vis_principles.html#dual-coding",
+    "title": "Principles of data visualization",
+    "section": "Dual coding",
+    "text": "Dual coding\n\nYou can encode the same variables to multiple aesthetic parameters (easily in ggplot2) to aid comprehension\nThis can also aid accessibility by reducing reliance on e.g. colour to distinguish variables"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#dual-coding-1",
+    "href": "lecture-data_vis_principles.html#dual-coding-1",
+    "title": "Principles of data visualization",
+    "section": "Dual coding",
+    "text": "Dual coding\n\nYou can encode the same variables to multiple aesthetic parameters (easily in ggplot2) to aid comprehension\nThis can also aid accessibility by reducing reliance on e.g. colour to distinguish variables"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#colour-accessibility",
+    "href": "lecture-data_vis_principles.html#colour-accessibility",
+    "title": "Principles of data visualization",
+    "section": "Colour accessibility",
+    "text": "Colour accessibility\n\nYou can use colour scales designed to have good perceptual properties for different kinds of colour-blindness (ggplot2 defaults aren’t so good for this)"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#a-statistical-graphic",
+    "href": "lecture-data_vis_principles.html#a-statistical-graphic",
+    "title": "Principles of data visualization",
+    "section": "A statistical graphic",
+    "text": "A statistical graphic"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#learning-outcomes-1",
+    "href": "lecture-data_vis_principles.html#learning-outcomes-1",
+    "title": "Principles of data visualization",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand (some) basic principles of data visualization"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#how-we-read-graphs",
+    "href": "lecture-data_vis_principles.html#how-we-read-graphs",
+    "title": "Principles of data visualization",
+    "section": "How we read graphs",
+    "text": "How we read graphs\n\n\n\nSome visual comparisons are easier to make than others\n\nEasiest\n\nPosition along a common scale\nPosition along identical, non-aligned scales\nLength\nAngle or slope\nArea\nVolume\nColour hue / saturation\n\nHardest\n\n\n\n\nCleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. Journal of the American Statistical Association, 79(387), 531–554. https://www.jstor.org/stable/2288400"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#how-we-read-graphs-2",
+    "href": "lecture-data_vis_principles.html#how-we-read-graphs-2",
+    "title": "Principles of data visualization",
+    "section": "How we read graphs (2)",
+    "text": "How we read graphs (2)\n\n\n\nProximity: “objects or shapes that are close to one another appear to form groups… place items to compare close together, and less important comparisons further apart”\n\n… so think about how your mapping of variables to aesthetics and facets highlights some comparisons and not others\n\n\n\n\n\n\nVanderplas, S., Cook, D., & Hofmann, H. (2020). Testing Statistical Charts: What Makes a Good Graph? Annual Review of Statistics and Its Application, 7, 61–88. https://doi.org/10.1146/annurev-statistics-031219-041252"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#overview",
+    "href": "lecture-data_vis_principles.html#overview",
+    "title": "Principles of data visualization",
+    "section": "Overview",
+    "text": "Overview\n\nWhy plot?\nInfovis versus statistical graphics\nThree principles of data visualization"
+  },
+  {
+    "objectID": "lecture-data_vis_principles.html#principles-of-data-visualization-1",
+    "href": "lecture-data_vis_principles.html#principles-of-data-visualization-1",
+    "title": "Principles of data visualization",
+    "section": "Principles of data visualization",
+    "text": "Principles of data visualization\n\nHow we read graphs\nPrinciples of chart design\nAn example"
   }
 ]

@@ -25,6 +25,7 @@ bibliography: social_data_science-bibliography.bib
 ```{r}
 #| include: false
 options(digits = 2)
+library(tidyverse)
 ```
 
 ## Learning outcomes

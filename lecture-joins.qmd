@@ -25,20 +25,33 @@ bibliography: social_data_science-bibliography.bib
 ```{r}
 #| include: false
 options(digits = 2)
+
+library(deckroadmap)
+
+use_roadmap(
+  c("Intro", "Problem", "Analysis", "Recommendation", "Next Steps"),
+  style = "minimal"
+)
+
+preview_roadmap(
+  c("Intro", "Problem", "Analysis", "Recommendation", "Next Steps"),
+  style = "minimal"
+)
+
 ```
 
-## Learning outcomes
+## Learning outcomes {data-roadmap="Intro"}
 - By the end of this session you will
   - Understand how to stick tables together
 
 ---
 
-## Note
+## Note {data-roadmap="Intro"}
 - We focus on the implementation of these ideas in the tidyverse
 - One thing that the LLMs have done is make translation between languages straightforward
 - You can apply the same concepts to any program/language - the key thing is having the conceptual language to describe what you want to do, rather than the technical implementation
 
-## left join
+## left join {data-roadmap="Problem"}
 
 ![](images/left-join.gif)
 

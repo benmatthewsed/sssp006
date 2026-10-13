@@ -146,3 +146,5 @@ And they continue in a footnote that formally assessing the possibility of bias 
 
 [^3]: [@greenlandSensitivityAnalysisBias2014]
 [^4]: [@knoxAdministrativeRecordsMask2020a]
+
+## References
