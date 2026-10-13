@@ -1026,14 +1026,14 @@
     "href": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful-and-fallible",
     "title": "dplyr verbs",
     "section": "ggplot2 is powerful and fallible",
-    "text": "ggplot2 is powerful and fallible\n\nggplot2 is a world unto itself (technically, it’s a domain specific language)\nIt’s also a world with quirks\n.. so when learning how to use ggplot2, mistakes are gonna happen - even for existing R users - and that’s fine!\nEvery error is a learning opportunity - we’re all building up better mental models of how ggplot2 works, and finding things that don’t work as expected (or at all!) help us do this too\nWe’ll talk about common ‘gotchas’ later on"
+    "text": "ggplot2 is powerful and fallible\n\nggplot2 is a world unto itself (technically, it’s a domain specific language)\nIt’s also a world with quirks\n.. so when learning how to use ggplot2, mistakes are gonna happen - even for existing R users - and that’s fine!\nEvery error is a learning opportunity - we’re all building up better mental models of how ggplot2 works, and finding things that don’t work as expected (or at all!) help us do this too"
   },
   {
     "objectID": "lecture-data_vis_ggplot2.html#learning-outcomes",
     "href": "lecture-data_vis_ggplot2.html#learning-outcomes",
     "title": "dplyr verbs",
     "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nUnderstand (some) basic principles of data visualization\nBe able to visualize data with ggplot2; scatterplots, bar charts, fitted lines"
+    "text": "Learning outcomes\n\nUnderstand key strengths of plotting with ggplot2\nUnderstand key concepts of mapping aesthetics and layering geoms\nUnderstand the main types of geoms (plotting data points versus plotting summaries)"
   },
   {
     "objectID": "lecture-data_vis_ggplot2.html#what-is-ggplot2",
@@ -1103,7 +1103,7 @@
     "href": "lecture-data_vis_ggplot2.html#ggplot2-aids-perception",
     "title": "dplyr verbs",
     "section": "ggplot2 aids perception",
-    "text": "ggplot2 aids perception\n\nLearning ggplot2 will help you understand how data visualization works, how to figure out what you want your plots to look like and describe this to the computer.\nThis is because it’s declarative. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole blog post about why this is a good thing!\nSo by using ggplot2 you learn how to make better graphs, not just how to make graphs."
+    "text": "ggplot2 aids perception\n\nLearning ggplot2 will help you understand how data visualization works, how to figure out what you want your plots to look like and describe this to the computer.\nThis is because it’s declarative. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu of options). You can read a whole blog post about why this is a good thing!\nSo by using ggplot2 you learn how to make better graphs, not just how to make graphs."
   },
   {
     "objectID": "lecture-data_vis_ggplot2.html#ggplot2-is-powerful",
@@ -1117,7 +1117,7 @@
     "href": "lecture-data_vis_ggplot2.html#ggplot2-is-popular",
     "title": "dplyr verbs",
     "section": "ggplot2 is popular",
-    "text": "ggplot2 is popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users!"
+    "text": "ggplot2 is popular\n\nThere is a large community of users who use ggplot2 to communicate with very different audiences\nggplot2 is used by data journalists at major outlets BBC and Financial Times\nAs well as technical users who have extended ggplot2’s core functions for specific use cases\nYou can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often post their code online you learn from these many users (for example, the online community around the #TidyTuesday weekly challenges)\nTake advantage of Ctrl + C & Ctrl + V"
   },
   {
     "objectID": "lecture-data_vis_principles.html#learning-outcomes",
@@ -1307,5 +1307,82 @@
     "title": "Principles of data visualization",
     "section": "Principles of data visualization",
     "text": "Principles of data visualization\n\nHow we read graphs\nPrinciples of chart design\nAn example"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#concepts-in-the-grammar-of-graphics",
+    "href": "lecture-data_vis_ggplot2.html#concepts-in-the-grammar-of-graphics",
+    "title": "dplyr verbs",
+    "section": "Concepts in the grammar of graphics",
+    "text": "Concepts in the grammar of graphics\nDataset +\nmapping variables in the dataset to aesthetics +\nLayers of geoms (symbols to represent data) =\nPlot"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#mapping-variables-to-aesthetics",
+    "href": "lecture-data_vis_ggplot2.html#mapping-variables-to-aesthetics",
+    "title": "dplyr verbs",
+    "section": "Mapping variables to aes()thetics",
+    "text": "Mapping variables to aes()thetics\n\nWhich variables in your dataset you want to represent in the plot and how\nMost of the time you’ll want at least x and y (these are position aesthetics)\nIncludes other visual encodings like: colour/fill, shape, linetype, alpha (transparency), size…\nKey point - if you want ggplot know about something inside your dataset you have to reference it within aes!"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#mapping-helps-thinking",
+    "href": "lecture-data_vis_ggplot2.html#mapping-helps-thinking",
+    "title": "dplyr verbs",
+    "section": "Mapping helps thinking",
+    "text": "Mapping helps thinking\n\nThis is part of what makes ggplot so helpful for thinking about data visualization - you get to choose how you want to map variables to aesthetics and how to represent them in layers in a declarative way.\nDecide what to emphasise in your plot based on what you’re interested in; the same data mapped to different aes()thetics can have different emphasis\n(Obviously you can do this with other plotting programs too, but I think it’s more explicit in ggplot)"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#geometric-symbols-to-represent-data",
+    "href": "lecture-data_vis_ggplot2.html#geometric-symbols-to-represent-data",
+    "title": "dplyr verbs",
+    "section": "geometric symbols to represent data",
+    "text": "geometric symbols to represent data\n\nWhat symbols you want ggplot to draw to represent the data; lines, points, errorbars, ribbons, contours…\nYou add these to the plot in layers\nYou can have exactly the same mapping of variables to aesthetics, but different geoms"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#layers-and-geoms",
+    "href": "lecture-data_vis_ggplot2.html#layers-and-geoms",
+    "title": "dplyr verbs",
+    "section": "Layers and geoms",
+    "text": "Layers and geoms\n\nggplot2 builds plots out of layers\nThis makes it super flexible - you can just stack layers on top of each other!\ngeoms only add one layer at a time\nAdd layers together_ with + operator\nOrder matters!"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#geoms-and-aesthetics",
+    "href": "lecture-data_vis_ggplot2.html#geoms-and-aesthetics",
+    "title": "dplyr verbs",
+    "section": "geoms and aesthetics",
+    "text": "geoms and aesthetics\n\nEvery geom needs a dataset and a mapping of variables to aesthetics\nLayers (silently!) inherit data and aes mappings that you set for the whole plot…\n… but you can set data and aesthetics for whole plot and for each layer separately, so you can override this default behaviour\nThis is often very helpful but also a big source of pain - THERE BE DRAGONS 🐉\nAgain, if you want a layer to reference something in your dataset you need to tell it with aes"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#three-types-of-geom",
+    "href": "lecture-data_vis_ggplot2.html#three-types-of-geom",
+    "title": "dplyr verbs",
+    "section": "Three types of geom",
+    "text": "Three types of geom\n\nI like to think of geoms as being one of three types:\ngeoms that plot each datum for you\ngeoms that plot summaries of your dataset for you\ngeoms that plot things that aren’t in your dataset (like reference lines and such). We won’t discuss these"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#plot-my-data-please",
+    "href": "lecture-data_vis_ggplot2.html#plot-my-data-please",
+    "title": "dplyr verbs",
+    "section": "Plot my data please",
+    "text": "Plot my data please\n\ngeom_point\ngeom_line\ngeom_bar (sort of)\ngeom_errorbar (sort of)\ngeom_tile"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#plot-a-summary-of-my-data",
+    "href": "lecture-data_vis_ggplot2.html#plot-a-summary-of-my-data",
+    "title": "dplyr verbs",
+    "section": "Plot a summary of my data",
+    "text": "Plot a summary of my data\n\nUnivariate/distributions:\n\ngeom_histogram\ngeom_density\ngeom_violin\n\nBivariate:\n\ngeom_smooth\ngeom_contour"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#show-the-data",
+    "href": "lecture-data_vis_ggplot2.html#show-the-data",
+    "title": "dplyr verbs",
+    "section": "Show the data",
+    "text": "Show the data\n\nYou should always plot the data before a summary of the data\nAnd it’s good practice to plot summaries on the scale of the original data too"
+  },
+  {
+    "objectID": "lecture-data_vis_ggplot2.html#learning-outcomes-1",
+    "href": "lecture-data_vis_ggplot2.html#learning-outcomes-1",
+    "title": "dplyr verbs",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand key strengths of plotting with ggplot2\nUnderstand key concepts of mapping aesthetics and layering geoms\nUnderstand the main types of geoms (plotting data points versus plotting summaries)"
   }
 ]

@@ -1,0 +1,1436 @@
+---
+title: "Going further with ggplot2"
+format:
+  revealjs:
+    output-file: "lecture-data_vis_further_ggplot2.html"
+    theme: [default, assets/mystyle.scss]
+    transition: fade
+    slide-number: true
+    preview-links: auto
+    callout-appearance: simple
+    code-line-numbers: false
+    code-overflow: wrap
+    code-annotations: hover
+    code-copy: hover
+title-slide-attributes:
+  data-background-color: "#006938"
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false        
+bibliography: social_data_science-bibliography.bib
+---
+
+```{r}
+#| include: false
+options(digits = 2)
+library(tidyverse)
+```
+
+## Learning outcomes
+
+- Facets
+
+
+## ... facets?
+
+- From the [`ggplot2` book](https://ggplot2-book.org/getting-started.html#qplot-facetting): "Facetting creates _tables of graphics_ by splitting the data into subsets and displaying the _same graph for each subset_"
+- Just add a `facet_wrap()` layer to a `ggplot` call
+- Tell `ggplot` _which variable(s)_ to facet using a call to `vars()` (this acts like `aes()` but for `facet`s)
+- `ggplot` then makes a long string of plots - one for each level of the facetting variable - which it _wraps_ into a table
+- Why can't we just use `aes()` here too? Apparently `vars()` can [handle more complicated expressions than `aes()`](https://ggplot2.tidyverse.org/reference/vars.html), which lets you tweak your facets in some helpful ways. I (Ben) only learned this writing the course!
+
+---
+
+## An example of facetting
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: facet
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_line() +
+  geom_point(
+    aes(colour = cyl)
+    ) +
+  facet_wrap(
+    facets = vars(cyl)
+    )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: facet
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+## An example of facetting
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+You can facet by multiple variables
+
+```{r}
+#| label: facet_2
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_line() +
+  geom_point(
+    aes(colour = cyl)
+    ) +
+  facet_wrap(
+    facets = vars(am, cyl)
+    )
+
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: facet_2
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Adjusting the scales
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+You can change how the _axes_ are displayed by setting `scales = `. This focuses on the trends _within_ the plot and makes it harder to see trends _between_ plots.
+
+```{r}
+#| label: facet_grid
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_line() +
+  geom_point(
+    aes(colour = cyl)
+    ) +
+  facet_wrap(
+    facets = vars(am, cyl),
+    scales = "free_y"
+    )
+
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: facet_grid
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+
+## Going further with `facets`
+
+- The `ggplot` book has a [whole section](https://ggplot2-book.org/facet.html#facet-wrap) on facetting
+- You can allow facets to have _different scales_ using the `scales = ` argument. By default all the facets have the same scale, but you can allow each axis to vary by setting `scales = "free_y"`, `scales = "free_x"` or `scales = "free"`
+
+
+
+
+
+## Set `geom` parameters with `aes` or with a fixed value?
+
+- You use `geom`s to visually represent values of the _variables in your dataset_
+- But sometimes you also want to change how a `geom` looks to a _fixed value_ (i.e. one that _doesn't_ come from a variable) in your dataset - like making all the points in a scatterplot red
+- If it's within the call to `aes`, `ggplot2` will look for it in your dataset
+- If it's outside the call to `aes`, `ggplot2` will apply the value you supply directly
+- size = 2, colour = "red"
+- `aes(size = 2, colour = "red")`
+- For technical reasons we won't go into now _quotation marks matter_ here (if you want you can read all about why [here](https://adv-r.hadley.nz/metaprogramming.html))
+- This was a common source of errors for me when learning `ggplot2` (and still is!) and my own mental model of when and why to use quote marks is pretty crude even now. So it's natural that this feels weird or arbitrary right now
+
+
+## Colour scales
+
+## `ggplot`'s default colour scales
+
+- _Data types_ really matter for colour scales
+- Specifically, whether data are _continuous_ or _categorical_
+
+---
+
+## `ggplot`'s default continuous scale
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: default_colour_c
+#| fig.show: hide
+
+# continuous variable colour
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = qsec)
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: default_colour_c
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## `ggplot`'s default discrete scale
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: default_colour_d
+#| fig.show: hide
+
+# discrete variable colour
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = factor(cyl))
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: default_colour_d
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Other colour options: viridis
+
+- From their [website](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#introduction):
+   - _Colo[u]rful_, spanning as wide a palette as possible so as to make differences easy to see
+   - _Perceptually uniform_, meaning that values close to each other have similar-appearing colours and values far away from each other have more different-appearing colours, consistently across the range of values,
+   - _Robust to colourblindness_, so that the above properties hold true for people with common forms of colourblindness, as well as in grey scale printing
+- Has both _discrete_ and _continuous_ options: `scale_colour_viridis_d` and `scale_colour_viridis_c` respectively
+- See also the [`colorblindr` package](https://github.com/clauswilke/colorblindr) for more resources on making figures work better for people with different kinds of colourblindness
+
+
+---
+
+## Continuous scale
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: viridis_c
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = qsec)
+  ) +
+  scale_colour_viridis_c()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: viridis_c
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Discrete scale
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: viridis_d
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = factor(cyl))
+  ) +
+  scale_colour_viridis_d()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: viridis_d
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Different viridis palettes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- There are _four_ scales in viridis you can set with `option = `: `"plasma"`, `"magma"`, `"inferno"` and `"viridis"` (the default)
+
+```{r}
+#| label: plasma_d
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = factor(cyl))
+  ) +
+  scale_colour_viridis_d(option = "plasma")
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: plasma_d
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## A common error
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- If you use `scale_colour_viridis_d` with a continuous variable mapped to colour you'll get an error!
+
+```{r}
+#| label: plasma_d_error
+#| fig.show: hide
+#| error: true
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = qsec)
+  ) +
+  scale_colour_viridis_d(option = "plasma")
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: plasma_d_error
+#| echo: false
+#| error: true
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Other options: greyscale
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Might be sensible if you want to print in _greyscale_ (although `viridis` palettes also have [good perceptual properties in greyscale](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#introduction))
+- Works well for _discrete_ variables...
+
+```{r}
+#| label: grey_d
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = factor(cyl))
+  ) +
+  scale_colour_grey()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: grey_d
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+## Other options: greyscale
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- ... but doesn't for _continuous_ variables 😭
+
+```{r}
+#| label: grey_c_error
+#| fig.show: hide
+#| error: true
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = cyl)
+  ) +
+  scale_colour_grey()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: grey_c_error
+#| echo: false
+#| error: true
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+## Other options: greyscale
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- But we can _make our own_ with `scale_colour_gradient` if we really want to map use greyscale with a continuous variable
+
+```{r}
+#| label: grey_manual
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = cyl)
+  ) +
+  scale_colour_gradient(
+    low = "white", 
+    high = "black"
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: grey_manual
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Advanced - custom colours
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- If you want to set colour to a single value, you can use `colour = "#123456"` using the colour [hex-code](https://www.color-hex.com/) or the [name of one of the colours `R` recognises](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+- For example, the main colour in the  [Understanding Inequalities](https://www.understanding-inequalities.ac.uk/) logo is `#009dc6`, so I often make plots like
+
+```{r}
+#| label: colour_ui
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    colour = "#009dc6"
+  ) +
+  geom_smooth(
+    colour = "#009dc6"
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: colour_ui
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Advanced - custom colours
+
+- You can _[make your own_ discrete colour scale](https://ggplot2.tidyverse.org/reference/scale_manual.html#examples) with `scale_colour_manual()`
+- If you want to be really fancy and come up with _your own colour scale_ see this [blog post](https://www.garrickadenbuie.com/blog/custom-discrete-color-scales-for-ggplot2/) about doing just that
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- To use some other colours [complementary](https://www.sessions.edu/color-calculator-results/?colors=009dc6,c69e00,c6004f) to Understanding Inequalities blue
+
+```{r}
+#| label: colour_ui_2
+#| fig.show: hide
+
+# hex codes have to be in a call to c()
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = factor(cyl))
+  ) +
+  scale_colour_manual(
+    values = c("#009dc6", "#c69e00", "#c6004f")
+  )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: colour_ui_2
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+
+## Adding titles with `labs()`
+
+- You can adjust _plot labels_, including titles, with `labs()`, using the `title`, `subtitle` and `captions` arguments
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: subtitle
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  labs(
+    title = "An informative title",
+    subtitle = "With even more information here"
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: subtitle
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Adding titles with `labs()`
+
+- You can adjust _plot labels_, including titles, with `labs()`, using the `title`, `subtitle` and `captions` arguments
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: caption
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  labs(
+    title = "An informative title",
+    subtitle = "With even more information here",
+    caption = "With some extra information here"
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: caption
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Adding changing plot labels with `labs()`
+
+- Can also rename your _axes_ here
+- As well as any _other `aes`thetic mappings_ like colour, fill, shape, size...
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: guides
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = cyl)
+  ) +
+  labs(
+    x = "Engine displacement",
+    y = "Rear axle ratio",
+    colour = "Number\nof cylinders"
+    # \n means 'new line'
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: guides
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+## Publication-ready plots {#publication-plots .center .inverse background-color="#272822"}
+
+---
+
+## {.center .inverse background-color="#272822"}
+
+### Changing the theme
+### Tweaking elements of the theme
+
+
+---
+
+## Changing the theme
+
+- You can change the `ggplot` theme just by adding a `theme_*` layer to the plot!
+- See the [full list of themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#details)
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: theme_classic
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: theme_classic
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Changing the theme
+
+- You can change the `ggplot` theme just by adding a `theme_*` layer to the plot!
+- See the [full list of themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#details)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: theme_bw
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  theme_bw()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: theme_bw
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Changing the theme
+
+- You can change the `ggplot` theme just by adding a `theme_*` layer to the plot!
+- See the [full list of themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#details)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: theme_minimal
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  theme_minimal()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: theme_minimal
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+
+---
+
+## Tweaking themes
+
+- As well as specifying a new theme for a plot with `theme_*` you can tweak specific elements of your plot with `theme()`
+- Importantly, if you want to change the theme with `theme_*` _AND_ adjust properties settings with `theme()` the call to `theme_*` _must come first!_
+
+
+
+---
+
+## `theme()`
+
+- There are [lots of theme components](https://ggplot2.tidyverse.org/reference/theme.html) that you can adjust
+- I forget what the settings are all the time! So don't worry if this is confusing 👍
+- There are _some important ones_ we _won't_ talk about today, [like changing _text size_](https://ggplot2.tidyverse.org/reference/theme.html)
+- The ones I use the _most_ are...
+
+---
+
+## Moving the legend
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- For example, moving the legend from the right of the plot to the bottom
+with `legend.position = "bottom"`
+
+```{r}
+#| label: legend_bottom
+#| fig.show: hide
+
+
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = disp)
+  ) +
+  theme(
+    legend.position = "bottom"
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: legend_bottom
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Rotating axis labels
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Rotating axis labels if you have overlapping `x`-labels with `axis.text.x = element_text(angle = 45, hjust = 1)`
+
+```{r}
+#| label: rotate_text
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = disp)
+  ) +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: rotate_text
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## What about changing the theme now?
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+🔥🔥🔥
+
+```{r}
+#| label: rotate_text_fail
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = disp)
+  ) +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  ) +
+  theme_minimal()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: rotate_text_fail
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Order matters!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- The call to `theme_minimal` overrides the adjustments made in `theme`!
+- Need to call `theme_minimal` _first_
+
+```{r}
+#| label: rotate_text_bw
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = disp)
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: rotate_text_bw
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+## Can I adjust `theme_minimal` directly?
+
+- _NO_
+- `theme_*`s are [complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) - you have to use `theme` to [modify theme components](https://ggplot2.tidyverse.org/reference/theme.html)
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: rotate_text_error
+#| fig.show: hide
+#| error: true
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point(
+    mapping = aes(colour = disp)
+  ) +
+  theme_minimal(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: rotate_text_error
+#| echo: false
+#| error: true
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Scales
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Sometimes you want to transform one (or both) of your axes if you have _skewed data_
+- We can do this with `scale_*` functions
+- For example, changing the `x` axis to a _log_ scale
+
+```{r}
+#| label: scales
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point()
+  
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: scales
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Scales
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Sometimes you want to transform one (or both) of your axes if you have _skewed data_
+- We can do this with `scale_*` functions
+- For example, changing the `x` axis to a _log_ scale
+
+```{r}
+#| label: scales_ln
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  scale_x_log10()
+  
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: scales_ln
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Formatting the scales
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- You can use the `labels = ` option to format how the axis labels are displayed...
+- My most common uses are with _dates and times_, but there are [lots of different options](https://scales.r-lib.org/reference/index.html)
+- (NB we use `scales::label_scientific()` because it's the [recommended](https://github.com/r-lib/scales/) way to call a function from the `{scales}` package)
+
+```{r}
+#| label: scales_ln_sci
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  scale_x_log10(
+    labels = scales::label_scientific()
+    )
+  
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: scales_ln_sci
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+---
+
+
+## Formatting the scales
+
+- ... and the `breaks =` argument to set how many axis marks you want...
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: scales_ln_breaks
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  scale_x_log10(
+    labels = scales::label_scientific(),
+    breaks = c(100, 200, 300, 400, 500)
+    )
+  
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: scales_ln_breaks
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+
+## Formatting the scales
+
+- ... and the `limits =` argument to control the range of the axes
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: scales_ln_lim
+#| fig.show: hide
+
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point() +
+  scale_x_log10(
+    labels = scales::label_scientific(),
+    breaks = c(100, 200, 300, 400, 500),
+    limits = c(10, 1000)
+    )
+  
+  
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: scales_ln_lim
+#| echo: false
+#| fig.retina: 1.25
+```
+:::
+
+::::
+
+
+---
+
+## Saving the plot
+
+- Throughout the session we've just let plots _print_ out in the plots pane
+- Not so convenient if you want to _show someone else your work_!
+- We can use `ggsave()` to save a plot to disk
+- This needs the arguments `filepath`, to know _where_ to save your figure, and `plot` to know _what_ to save
+
+
+---
+
+## Saving the plot
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- First we should save the plot object by _assigning_ it to a name with `<-`
+- Then call `ggsave()`
+- For [technical reasons I don't understand](https://www.jumpingrivers.com/blog/r-graphics-cairo-png-pdf-saving/) it's best to using the option `type = "cairo-png"` when saving your plot to make it look nice
+
+```{r}
+#| label: save_plot
+#| fig.show: hide
+
+disp_drat_plot <- 
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point()
+  
+ggsave(
+  filename = file.path("figures", 
+                       "disp_drat_plot.png"),
+  plot = disp_drat_plot,
+  type = "cairo-png"
+)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.retina: 1.25
+
+knitr::include_graphics(
+  "https://raw.githubusercontent.com/benmatthewsed/ui-data-visualization-course/master/figures/disp_drat_plot.png"
+)
+
+```
+:::
+
+::::
+
+
+
+---
+
+## Saving the plot
+
+- We can change the size of the output file with `height = ` and `width = `
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| label: save_plot_big
+#| fig.show: hide
+#| eval: false
+
+disp_drat_plot <- 
+ggplot(
+  data = mtcars,
+  mapping = aes(x = disp, y = drat)
+) +
+  geom_point()
+  
+ggsave(
+  filename = file.path("figures", 
+                       "disp_drat_plot_big.png"),
+  plot = disp_drat_plot,
+  type = "cairo-png",
+  height = 2,
+  width = 9
+)
+
+```
+:::
+
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.retina: 1.25
+
+knitr::include_graphics(
+  "https://raw.githubusercontent.com/benmatthewsed/ui-data-visualization-course/master/figures/disp_drat_plot_big.png"
+)
+
+```
+:::
+
+::::
+
+
+
+
+# Common problems with `ggplot2`
+
+# 1. "Sawtooth" lines
+
+.pull-left[
+
+- [From R For Data Science](https://ggplot2-book.org/collective-geoms.html):
+
+```{r bad_plot, out.width = '85%', echo = FALSE}
+ knitr::include_graphics("https://ggplot2-book.org/collective-geoms_files/figure-html/oxboys-line-bad-1.png")
+```
+
+]
+
+.pull-right[
+
+- _Diagnosis_: ["This vis problem often means there is some grouping characteristic missing from the graphic"](https://www.njtierney.com/post/2020/06/14/jq-sawtooth/)
+- _Prescription_: Check the data for any more grouping variables you might've missed (e.g. if your dataset is values for multiple years and you haven't included year in the plot)
+
+]
+
+
+## `Error: Each group consists of only one observation. Do you need to adjust the group aesthetic?`
+
+- _Diagnosis_: This happens when you try to plot a _line_ using a factor as one of the position scales. `ggplot` then 'guesses' that you want the `x` variable to be the grouping variable
+- Data types, and particularly [factors](https://r4ds.had.co.nz/factors.html) matter to `ggplot`!
+
+- _Prescription_: Adjust the group aesthetic! Explicitly tell `ggplot` what variable you want to group by in the call to `aes()` using the `group = ` parameter
+
+
+## `Error: stat_count() can only have an x or y aesthetic`
+
+- _Diagnosis_: This happens with summary `geom`s (usually `geom_bar`) which want to calculate a summary for you but you've already summarised the data outside of ggplot2
+
+- _Prescription_: You can tell `geom_bar` that you've summarised the data already by [specifying `geom_bar(stat = "identity")`](https://stackoverflow.com/a/39679104/10791377) (here `identity` just means "use the numbers that I gave you please and don't calculate anything with them")
+
+
+
+## `Error: Cannot use +.gg() with a single argument. Did you accidentally put + on a new line?`
+
+- _Diagnosis_: For [technical reasons I don't understand](https://community.rstudio.com/t/why-put-and-at-the-end-of-lines/1831) this isn't valid R code. So you can't do it!
+
+- _Prescription_: Move the `+` to the end of the previous line from the start of the new line
+
+
+
+## `Error in FUN(X[[i]], ...) : object 'blah' not found`
+
+- _Diagnosis_: `ggplot` is looking for something in your dataset but there are _no variables with that name_
+    - See our discussion on concepts in the grammar of graphics about what goes inside the call to `aes` and what goes outside
+- _Prescription_: Make sure there aren't any _typos_, and that what you've specified _exists in your dataset_
+    - If you're trying to set a colour you might have to move this outside the call to `aes()`

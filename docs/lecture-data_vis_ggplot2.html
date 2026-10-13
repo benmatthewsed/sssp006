@@ -135,25 +135,17 @@
 <section id="learning-outcomes" class="slide level2">
 <h2>Learning outcomes</h2>
 <ul>
-<li>Understand (some) basic principles of <strong>data visualization</strong></li>
-<li>Be able to visualize data with <code>ggplot2</code>; scatterplots, bar charts, fitted lines</li>
+<li>Understand key strengths of plotting with ggplot2</li>
+<li>Understand key concepts of mapping aesthetics and layering geoms</li>
+<li>Understand the main types of geoms (plotting data points versus plotting summaries)</li>
 </ul>
-</section>
-<section id="why-plot-in-the-first-place" class="slide level2">
-<h2>Why plot in the first place?</h2>
-<ul>
-<li>It’s a key part of <strong>any data analysis</strong></li>
-<li>Relying on <strong>summary statistics can be misleading</strong>:</li>
-</ul>
-
-<img data-src="https://d2f99xq7vri1nk.cloudfront.net/DinoSequentialSmaller.gif" class="quarto-figure quarto-figure-center r-stretch"><p>The <strong>datasaurus</strong> – <a href="https://www.autodeskresearch.com/publications/samestats">Matejka and Fitzmaurice</a></p>
 </section>
 <section id="what-is-ggplot2" class="slide level2">
 <h2>What is <code>ggplot2</code>?</h2>
 <ul>
 <li><p>It’s an <code>R</code> package that draws graphs, developed by <a href="http://hadley.nz/">Hadley Wickham</a></p></li>
-<li><p>From the <a href="https://ggplot2.tidyverse.org/">tidyverse website</a>: “<code>ggplot2</code> is a system for <strong>declaratively</strong> creating graphics, based on The Grammar of Graphics. You provide the data, tell <code>ggplot2</code> how to map variables to aesthetics, what [visual marks to use to represent data points], and it takes care of the details.”</p></li>
-<li><p>… and what’s the Grammar of Graphics? Our <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">cheat sheet</a> says this is “the idea that you can <strong>build every graph from the same components</strong>: a data set, a coordinate system, and <code>geom</code>s—visual marks that represent data points.”</p></li>
+<li><p>From the <a href="https://ggplot2.tidyverse.org/">tidyverse website</a>: “<code>ggplot2</code> is a system for <em>declaratively</em> creating graphics, based on The Grammar of Graphics. You provide the data, tell <code>ggplot2</code> how to map variables to aesthetics, what [visual marks to use to represent data points], and it takes care of the details.”</p></li>
+<li><p>… and what’s the Grammar of Graphics? Our <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">cheat sheet</a> says this is “the idea that you can <em>build every graph from the same components</em>: a data set, a coordinate system, and <code>geom</code>s—visual marks that represent data points.”</p></li>
 </ul>
 </section>
 <section id="why-plot-with-ggplot2" class="slide level2">
@@ -167,17 +159,17 @@
 <section id="ggplot2-aids-perception" class="slide level2">
 <h2><code>ggplot2</code> aids perception</h2>
 <ul>
-<li>Learning <code>ggplot2</code> will help you <strong>understand how data visualization works</strong>, how to figure out what you want your plots to look like and describe this to the computer.</li>
-<li>This is because it’s <strong>declarative</strong>. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole <a href="http://varianceexplained.org/r/why-I-use-ggplot2/">blog post about</a> why this is a good thing!</li>
-<li>So by using <code>ggplot2</code> you learn how to make <strong>better</strong> graphs, not just how to make graphs.</li>
+<li>Learning <code>ggplot2</code> will help you <em>understand how data visualization works</em>, how to figure out what you want your plots to look like and describe this to the computer.</li>
+<li>This is because it’s <em>declarative</em>. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu of options). You can read a whole <a href="http://varianceexplained.org/r/why-I-use-ggplot2/">blog post about</a> why this is a good thing!</li>
+<li>So by using <code>ggplot2</code> you learn how to make <em>better</em> graphs, not just how to make graphs.</li>
 </ul>
 </section>
 <section id="ggplot2-is-powerful" class="slide level2">
 <h2><code>ggplot2</code> is powerful</h2>
 <ul>
-<li>Because it’s declarative it’s also <strong>flexible</strong></li>
-<li>You can make pretty pretty much <strong>any type</strong> of (static) graph you want! (No fancy interactive web graphics though, sorry)</li>
-<li>This is very powerful! You can make <strong>publication</strong> (or social media) quality graphs</li>
+<li>Because it’s declarative it’s also <em>flexible</em></li>
+<li>You can make pretty pretty much <em>any type</em> of (static) graph you want! (No fancy interactive web graphics though, sorry)</li>
+<li>This is very powerful! You can make <em>publication</em> (or social media) quality graphs</li>
 </ul>
 </section>
 <section id="ggplot2-is-popular" class="slide level2">
@@ -186,11 +178,12 @@
 <li>There is a large community of users who use <code>ggplot2</code> to communicate with very different audiences</li>
 <li><code>ggplot2</code> is used by data journalists at major outlets <a href="https://bbc.github.io/rcookbook/">BBC</a> and <a href="https://johnburnmurdoch.github.io/slides/r-ggplot/#/">Financial Times</a></li>
 <li>As well as technical users who have <a href="https://exts.ggplot2.tidyverse.org/">extended</a> <code>ggplot2</code>’s core functions for specific use cases</li>
-<li>You can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often <strong>post their code online</strong> you learn from these many users!</li>
+<li>You can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often <em>post their code online</em> you learn from these many users (for example, the online community around the <a href="https://github.com/rfordatascience/tidytuesday">#TidyTuesday</a> weekly challenges)</li>
+<li>Take advantage of <a href="https://speakerdeck.com/hadley/should-all-statistics-students-be-programmers">Ctrl + C &amp; Ctrl + V</a></li>
 </ul>
 </section>
 <section>
-<section id="one-more-thing-before-we-begin" class="title-slide slide level1 center">
+<section id="one-more-thing-before-we-begin" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
 <h1>One more thing before we begin…</h1>
 
 </section>
@@ -199,36 +192,18 @@
 <ul>
 <li><code>ggplot2</code> is a world unto itself (technically, it’s a <a href="http://adv-r.had.co.nz/dsl.html">domain specific language</a>)</li>
 <li>It’s also a world with <a href="https://www.youtube.com/watch?v=vYwXMnC03I4">quirks</a></li>
-<li>.. so when learning how to use <code>ggplot2</code>, mistakes are gonna happen - even for existing <code>R</code> users - and that’s <strong>fine!</strong></li>
+<li>.. so when learning how to use <code>ggplot2</code>, mistakes are gonna happen - even for existing <code>R</code> users - and that’s <em>fine!</em></li>
 <li>Every error is a learning opportunity - we’re all building up better mental models of how <code>ggplot2</code> works, and finding things that don’t work as expected (or at all!) help us do this too</li>
-<li>We’ll talk about common ‘gotchas’ later on</li>
 </ul>
+</section>
+<section id="concepts-in-the-grammar-of-graphics" class="slide level2">
+<h2>Concepts in the grammar of graphics</h2>
+<p><em>Dataset</em> +</p>
+<p><em>mapping</em> variables in the dataset to <code>aes</code>thetics +</p>
+<p><em>Layers</em> of <code>geom</code>s (symbols to represent data) =</p>
+<p><em>Plot</em></p>
 </section></section>
-<section id="concepts-in-the-grammar-of-graphics" class="title-slide slide level1 center">
-<h1>Concepts in the grammar of graphics</h1>
-<p><strong>Dataset</strong> + <strong>mapping</strong> variables in the dataset to <code>aes</code>thetics + <strong>Layers</strong> of <code>geom</code>s (symbols to represent data) = <strong>Plot</strong></p>
-</section>
-
-<section id="dataset" class="title-slide slide level1 center">
-<h1><strong>Dataset</strong> +</h1>
-
-</section>
-
-<section id="mapping-variables-in-the-dataset-to-aesthetics" class="title-slide slide level1 center">
-<h1>Mapping variables in the dataset to <code>aes</code>thetics +</h1>
-
-</section>
-
-<section id="layers-of-geoms-symbols-to-represent-data" class="title-slide slide level1 center">
-<h1>Layers of <code>geom</code>s (symbols to represent data) =</h1>
-
-</section>
-
-<section id="plot" class="title-slide slide level1 center">
-<h1>Plot</h1>
-<p>{demo call here}</p>
-</section>
-
+<section>
 <section id="data" class="title-slide slide level1 center">
 <h1>Data</h1>
 <ul>
@@ -240,168 +215,99 @@
 <li>Each value must have its own cell.</li>
 </ol></li>
 <li>From <em>R for Data Science</em>: <img data-src="images/tidy-1.png"></li>
-<li>Don’t worry about this during the course - the datasets we’re using have been tidied already</li>
 </ul>
 </section>
-
-<section id="dataset-1" class="title-slide slide level1 center">
-<h1>Dataset +</h1>
-
-</section>
-
-<section id="mapping-variables-in-the-dataset-to-aesthetics-1" class="title-slide slide level1 center">
-<h1><strong>Mapping</strong> variables in the dataset to <code>aes</code>thetics +</h1>
-
-</section>
-
-<section id="layers-of-geoms-symbols-to-represent-data-1" class="title-slide slide level1 center">
-<h1>Layers of <code>geom</code>s (symbols to represent data) =</h1>
-
-</section>
-
-<section id="plot-1" class="title-slide slide level1 center">
-<h1>Plot</h1>
-
-</section>
-
-<section id="mapping-variables-to-aesthetics" class="title-slide slide level1 center">
-<h1>Mapping variables to <code>aes()</code>thetics</h1>
+<section id="mapping-variables-to-aesthetics" class="slide level2">
+<h2>Mapping variables to <code>aes()</code>thetics</h2>
 <ul>
-<li><p><strong>Which variables</strong> in your dataset you want to represent in the plot and <strong>how</strong></p></li>
-<li><p>Most of the time you’ll want at least <code>x</code> and <code>y</code> (these are <strong>position</strong> <code>aes</code>thetics)</p></li>
-<li><p>Includes <strong>other visual encodings</strong> like: colour/fill, shape, linetype, alpha (transparency), size…</p></li>
-<li><p><strong>Key point</strong> - if you want <code>ggplot</code> know about something <strong>inside your dataset you have to reference it within</strong> <code>aes</code>!</p></li>
-<li><p>Insert examples here of same dataset with different mappings</p></li>
+<li><em>Which variables</em> in your dataset you want to represent in the plot and <em>how</em></li>
+<li>Most of the time you’ll want at least <code>x</code> and <code>y</code> (these are <em>position</em> <code>aes</code>thetics)</li>
+<li>Includes <em>other visual encodings</em> like: colour/fill, shape, linetype, alpha (transparency), size…</li>
+<li><em>Key point</em> - if you want <code>ggplot</code> know about something <em>inside your dataset you have to reference it within</em> <code>aes</code>!</li>
 </ul>
-<p>{demo call here}</p>
-</section>
+</section></section>
+<section>
+<section id="live-demo" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
+<h1>Live demo</h1>
 
-<section id="mapping-helps-thinking" class="title-slide slide level1 center">
-<h1>Mapping helps thinking</h1>
+</section>
+<section id="mapping-helps-thinking" class="slide level2">
+<h2>Mapping helps thinking</h2>
 <ul>
-<li>This is part of what makes <code>ggplot</code> so helpful for thinking about data visualization - you get to choose how you want to map variables to aesthetics and how to represent them in layers in a <strong>declarative</strong> way.</li>
-<li>Decide <strong>what to emphasise</strong> in your plot based on what you’re interested in; the same data mapped to different <code>aes()</code>thetics can have different emphasis</li>
-<li>(Obviously you can do this with other plotting programs too, but I think it’s more <strong>explicit</strong> in <code>ggplot</code>)</li>
+<li>This is part of what makes <code>ggplot</code> so helpful for thinking about data visualization - you get to choose how you want to map variables to aesthetics and how to represent them in layers in a <em>declarative</em> way.</li>
+<li>Decide <em>what to emphasise</em> in your plot based on what you’re interested in; the same data mapped to different <code>aes()</code>thetics can have different emphasis</li>
+<li>(Obviously you can do this with other plotting programs too, but I think it’s more <em>explicit</em> in <code>ggplot</code>)</li>
 </ul>
 </section>
-
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
-<p>Dataset + Mapping variables in the dataset to <code>aes</code>thetics + <strong>Layers</strong> of <code>geom</code>s (symbols to represent data) = Plot</p>
-</section>
-
-<section id="geometric-symbols-to-represent-data" class="title-slide slide level1 center">
-<h1><code>geom</code>etric symbols to represent data</h1>
+<section id="geometric-symbols-to-represent-data" class="slide level2">
+<h2><code>geom</code>etric symbols to represent data</h2>
 <ul>
-<li><strong>What</strong> symbols you want <code>ggplot</code> to draw to represent the data; lines, points, errorbars, ribbons, contours…</li>
-<li>You add these to the plot in <strong>layers</strong></li>
+<li><em>What</em> symbols you want <code>ggplot</code> to draw to represent the data; lines, points, errorbars, ribbons, contours…</li>
+<li>You add these to the plot in <em>layers</em></li>
 <li>You can have exactly the same mapping of variables to <code>aes</code>thetics, but different <code>geom</code>s</li>
 </ul>
-<p>{demo call here}</p>
-</section>
+</section></section>
+<section>
+<section id="live-demo-1" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
+<h1>Live demo</h1>
 
-<section id="layers-and-geoms" class="title-slide slide level1 center">
-<h1>Layers and <code>geom</code>s</h1>
+</section>
+<section id="layers-and-geoms" class="slide level2">
+<h2>Layers and <code>geom</code>s</h2>
 <ul>
-<li><code>ggplot2</code> builds plots out of <strong>layers</strong></li>
-<li>This makes it suuuuuuper flexible - you can just <strong>stack layers on top of each other</strong>!</li>
-<li><code>geom</code>s only add <strong>one layer at a time</strong></li>
-<li><strong>Add</strong> layers together_ with <code>+</code> <strong>operator</strong></li>
-<li><strong>Order matters!</strong></li>
+<li><code>ggplot2</code> builds plots out of <em>layers</em></li>
+<li>This makes it super flexible - you can just <em>stack layers on top of each other</em>!</li>
+<li><code>geom</code>s only add <em>one layer at a time</em></li>
+<li><em>Add</em> layers together_ with <code>+</code> <em>operator</em></li>
+<li><em>Order matters!</em></li>
 </ul>
-<p>{demo call here}</p>
-</section>
+</section></section>
+<section>
+<section id="live-demo-2" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
+<h1>Live demo</h1>
 
-<section id="geoms-and-aesthetics" class="title-slide slide level1 center">
-<h1><code>geom</code>s and <code>aes</code>thetics</h1>
+</section>
+<section id="geoms-and-aesthetics" class="slide level2">
+<h2><code>geom</code>s and <code>aes</code>thetics</h2>
 <ul>
-<li><strong>Every</strong> <code>geom</code> <strong>needs</strong> a dataset and a mapping of variables to <code>aes</code>thetics</li>
-<li>Layers (silently!) <strong>inherit</strong> data and <code>aes</code> mappings that you set <strong>for the whole plot</strong>…</li>
-<li>… but you can set data and aesthetics for whole plot and for each layer <strong>separately</strong>, so you can override this default behaviour</li>
-<li>This is often very helpful but also a big source of pain - <strong>THERE BE DRAGONS</strong> 🐉</li>
+<li><em>Every</em> <code>geom</code> <em>needs</em> a dataset and a mapping of variables to <code>aes</code>thetics</li>
+<li>Layers (silently!) <em>inherit</em> data and <code>aes</code> mappings that you set <em>for the whole plot</em>…</li>
+<li>… but you can set data and aesthetics for whole plot and for each layer <em>separately</em>, so you can override this default behaviour</li>
+<li>This is often very helpful but also a big source of pain - <em>THERE BE DRAGONS</em> 🐉</li>
 <li>Again, if you want a layer to reference something in your dataset you need to tell it with <code>aes</code></li>
 </ul>
-<p>{demo call here}</p>
-</section>
-
-<section id="set-geom-parameters-with-aes-or-with-a-fixed-value" class="title-slide slide level1 center">
-<h1>Set <code>geom</code> parameters with <code>aes</code> or with a fixed value?</h1>
-<ul>
-<li>You use <code>geom</code>s to visually represent values of the <strong>variables in your dataset</strong></li>
-<li>But sometimes you also want to change how a <code>geom</code> looks to a <strong>fixed value</strong> (i.e.&nbsp;one that <strong>doesn’t</strong> come from a variable) in your dataset - like making all the points in a scatterplot red</li>
-<li>If it’s within the call to <code>aes</code>, <code>ggplot2</code> will look for it in your dataset</li>
-<li>If it’s outside the call to <code>aes</code>, <code>ggplot2</code> will apply the value you supply directly</li>
-<li>size = 2, colour = “red”</li>
-<li><code>aes(size = 2, colour = "red")</code></li>
-<li>For technical reasons we won’t go into now <strong>quotation marks matter</strong> here (if you want you can read all about why <a href="https://adv-r.hadley.nz/metaprogramming.html">here</a>)</li>
-<li>This was a common source of errors for me when learning <code>ggplot2</code> (and still is!) and my own mental model of when and why to use quote marks is pretty crude even now. So it’s natural that this feels weird or arbitrary right now</li>
-</ul>
-<p>{demo call here}</p>
-<p>class: center, middle, inverse</p>
-</section>
-
-<section id="dataset-2" class="title-slide slide level1 center">
-<h1><strong>Dataset</strong> +</h1>
+</section></section>
+<section id="live-demo-3" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
+<h1>Live demo</h1>
 
 </section>
 
-<section id="mapping-variables-in-the-dataset-to-aesthetics-2" class="title-slide slide level1 center">
-<h1><strong>Mapping</strong> variables in the dataset to <code>aes</code>thetics +</h1>
-
-</section>
-
-<section id="layers-of-geoms-symbols-to-represent-data-2" class="title-slide slide level1 center">
-<h1><strong>Layers</strong> of <code>geom</code>s (symbols to represent data) =</h1>
-
-</section>
-
-<section id="plot-2" class="title-slide slide level1 center">
-<h1><strong>Plot</strong></h1>
-
-</section>
-
-<section id="things-to-look-out-for" class="title-slide slide level1 center">
-<h1>Things to look out for</h1>
-<ul>
-<li>If you want <code>ggplot</code> to know about something in your dataset, use <code>aes()</code></li>
-<li>Order matters in the <code>ggplot</code> call</li>
-</ul>
-</section>
-
-<section id="types-of-geom" class="title-slide slide level1 center">
+<section>
+<section id="types-of-geom" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
 <h1>Types of geom</h1>
 
 </section>
-
-<section id="three-types-of-geom-layer" class="title-slide slide level1 center">
-<h1>Three types of <code>geom</code> layer</h1>
-
-</section>
-
-<section id="three-types-of-geom" class="title-slide slide level1 center">
-<h1>Three types of <code>geom</code></h1>
+<section id="three-types-of-geom" class="slide level2">
+<h2>Three types of <code>geom</code></h2>
 <ul>
 <li>I like to think of <code>geom</code>s as being one of three types:</li>
 <li><code>geom</code>s that plot each datum for you</li>
 <li><code>geom</code>s that plot summaries of your dataset for you</li>
-<li><code>geom</code>s that plot things that aren’t in your dataset (like reference lines and such)</li>
+<li><code>geom</code>s that plot things that aren’t in your dataset (like reference lines and such). We won’t discuss these</li>
 </ul>
 </section>
-
-<section id="plot-my-data-please" class="title-slide slide level1 center">
-<h1>Plot my data please</h1>
+<section id="plot-my-data-please" class="slide level2">
+<h2>Plot my data please</h2>
 <ul>
 <li><code>geom_point</code></li>
 <li><code>geom_line</code></li>
 <li><code>geom_bar</code> (sort of)</li>
 <li><code>geom_errorbar</code> (sort of)</li>
 <li><code>geom_tile</code></li>
-<li><code>geom_sf()</code> (we’ll come back to this in the next session)</li>
 </ul>
 </section>
-
-<section id="plot-a-summary-of-my-data" class="title-slide slide level1 center">
-<h1>Plot a summary of my data</h1>
+<section id="plot-a-summary-of-my-data" class="slide level2">
+<h2>Plot a summary of my data</h2>
 <ul>
 <li>Univariate/distributions:
 <ul>
@@ -416,71 +322,24 @@
 </ul></li>
 </ul>
 </section>
-
-<section id="ask-yourself---do-you-want-to-plot-your-data-a-summary-of-your-data" class="title-slide slide level1 center">
-<h1>Ask yourself - do you want to plot your data? A summary of your data?</h1>
-
-</section>
-
-<section id="or-both" class="title-slide slide level1 center">
-<h1>…Or both?</h1>
-
-</section>
-
-<section id="common-problems-with-ggplot2" class="title-slide slide level1 center">
-<h1>Common problems with <code>ggplot2</code></h1>
-
-</section>
-
+<section id="show-the-data" class="slide level2">
+<h2>Show the data</h2>
+<ul>
+<li>You should always plot the data before a summary of the data</li>
+<li>And it’s good practice to plot summaries on the scale of the original data too</li>
+</ul>
+</section></section>
 <section>
-<section id="sawtooth-lines" class="title-slide slide level1 center">
-<h1>1. “Sawtooth” lines</h1>
-<p>.pull-left[</p>
-<ul>
-<li><a href="https://ggplot2-book.org/collective-geoms.html">From R For Data Science</a>:</li>
-</ul>
+<section id="types-of-geom-1" class="title-slide slide level1 center" data-background-color="#006938" style="color: white;">
+<h1>Types of geom</h1>
 
-<img data-src="https://ggplot2-book.org/collective-geoms_files/figure-html/oxboys-line-bad-1.png" style="width:85.0%" class="r-stretch"><p>]</p>
-<p>.pull-right[</p>
-<ul>
-<li><strong>Diagnosis</strong>: <a href="https://www.njtierney.com/post/2020/06/14/jq-sawtooth/">“This vis problem often means there is some grouping characteristic missing from the graphic”</a></li>
-<li><strong>Prescription</strong>: Check the data for any more grouping variables you might’ve missed (e.g.&nbsp;if your dataset is values for multiple years and you haven’t included year in the plot)</li>
-</ul>
-<p>]</p>
 </section>
-<section id="error-each-group-consists-of-only-one-observation.-do-you-need-to-adjust-the-group-aesthetic" class="slide level2">
-<h2><code>Error: Each group consists of only one observation. Do you need to adjust the group aesthetic?</code></h2>
+<section id="learning-outcomes-1" class="slide level2">
+<h2>Learning outcomes</h2>
 <ul>
-<li><p><strong>Diagnosis</strong>: This happens when you try to plot a <strong>line</strong> using a factor as one of the position scales. <code>ggplot</code> then ‘guesses’ that you want the <code>x</code> variable to be the grouping variable</p></li>
-<li><p>Data types, and particularly <a href="https://r4ds.had.co.nz/factors.html">factors</a> matter to <code>ggplot</code>!</p></li>
-<li><p><strong>Prescription</strong>: Adjust the group aesthetic! Explicitly tell <code>ggplot</code> what variable you want to group by in the call to <code>aes()</code> using the <code>group =</code> parameter</p></li>
-</ul>
-</section>
-<section id="error-stat_count-can-only-have-an-x-or-y-aesthetic" class="slide level2">
-<h2><code>Error: stat_count() can only have an x or y aesthetic</code></h2>
-<ul>
-<li><p><strong>Diagnosis</strong>: This happens with summary <code>geom</code>s (usually <code>geom_bar</code>) which want to calculate a summary for you but you’ve already summarised the data outside of ggplot2</p></li>
-<li><p><strong>Prescription</strong>: You can tell <code>geom_bar</code> that you’ve summarised the data already by <a href="https://stackoverflow.com/a/39679104/10791377">specifying <code>geom_bar(stat = "identity")</code></a> (here <code>identity</code> just means “use the numbers that I gave you please and don’t calculate anything with them”)</p></li>
-</ul>
-</section>
-<section id="error-cannot-use-.gg-with-a-single-argument.-did-you-accidentally-put-on-a-new-line" class="slide level2">
-<h2><code>Error: Cannot use +.gg() with a single argument. Did you accidentally put + on a new line?</code></h2>
-<ul>
-<li><p><strong>Diagnosis</strong>: For <a href="https://community.rstudio.com/t/why-put-and-at-the-end-of-lines/1831">technical reasons I don’t understand</a> this isn’t valid R code. So you can’t do it!</p></li>
-<li><p><strong>Prescription</strong>: Move the <code>+</code> to the end of the previous line from the start of the new line</p></li>
-</ul>
-</section>
-<section id="error-in-funxi-...-object-blah-not-found" class="slide level2">
-<h2><code>Error in FUN(X[[i]], ...) : object 'blah' not found</code></h2>
-<ul>
-<li><strong>Diagnosis</strong>: <code>ggplot</code> is looking for something in your dataset but there are <strong>no variables with that name</strong>
-<ul>
-<li>See our discussion on concepts in the grammar of graphics about what goes inside the call to <code>aes</code> and what goes outside</li>
-</ul></li>
-<li><strong>Prescription</strong>: Make sure there aren’t any <strong>typos</strong>, and that what you’ve specified <strong>exists in your dataset</strong>
-<ul>
-<li>If you’re trying to set a colour you might have to move this outside the call to <code>aes()</code></li>
-</ul></li>
+<li>Understand key strengths of plotting with ggplot2</li>
+<li>Understand key concepts of mapping aesthetics and layering geoms</li>
+<li>Understand the main types of geoms (plotting data points versus plotting summaries)</li>
 </ul>
 
 
@@ -700,82 +559,6 @@
         ]
       });
     </script>
-    
-
-    <script>
-
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-      // slide changes (different for each slide format).
-
-      (function () {
-
-        // dispatch for htmlwidgets
-
-        function fireSlideEnter() {
-
-          const event = window.document.createEvent("Event");
-
-          event.initEvent("slideenter", true, true);
-
-          window.document.dispatchEvent(event);
-
-        }
-
-    
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          fireSlideEnter();
-
-    
-
-          // dispatch for shiny
-
-          if (window.jQuery) {
-
-            if (previousSlide) {
-
-              window.jQuery(previousSlide).trigger("hidden");
-
-            }
-
-            if (currentSlide) {
-
-              window.jQuery(currentSlide).trigger("shown");
-
-            }
-
-          }
-
-        }
-
-    
-
-        // hookup for slidy
-
-        if (window.w3c_slidy) {
-
-          window.w3c_slidy.add_observer(function (slide_num) {
-
-            // slide_num starts at position 1
-
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-          });
-
-        }
-
-    
-
-      })();
-
-    </script>
-
-    
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

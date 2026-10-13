@@ -22,32 +22,18 @@ bibliography: social_data_science-bibliography.bib
 ---
 
 ## Learning outcomes
-
-- Understand (some) basic principles of __data visualization__
-- Be able to visualize data with `ggplot2`; scatterplots, bar charts, fitted lines
-
-
-
-## Why plot in the first place?
-
-- It's a key part of __any data analysis__
-- Relying on __summary statistics can be misleading__:
-
-```{r datasaurus, echo = FALSE, fig.align = "center"}
-knitr::include_graphics("https://d2f99xq7vri1nk.cloudfront.net/DinoSequentialSmaller.gif")
-```
-
-The __datasaurus__ -- [Matejka and Fitzmaurice](https://www.autodeskresearch.com/publications/samestats)
-
+- Understand key strengths of plotting with ggplot2
+- Understand key concepts of mapping aesthetics and layering geoms
+- Understand the main types of geoms (plotting data points versus plotting summaries)
 
 
 ## What is `ggplot2`?
 
 - It's an `R` package that draws graphs, developed by [Hadley Wickham](http://hadley.nz/)
 
-- From the [tidyverse website](https://ggplot2.tidyverse.org/): "`ggplot2` is a system for __declaratively__ creating graphics, based on The Grammar of Graphics. You provide the data, tell `ggplot2` how to map variables to aesthetics, what [visual marks to use to represent data points], and it takes care of the details." 
+- From the [tidyverse website](https://ggplot2.tidyverse.org/): "`ggplot2` is a system for _declaratively_ creating graphics, based on The Grammar of Graphics. You provide the data, tell `ggplot2` how to map variables to aesthetics, what [visual marks to use to represent data points], and it takes care of the details." 
 
-- ... and what's the Grammar of Graphics? Our `ggplot2` [cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) says this is "the idea that you can __build every graph from the same components__: a data set, a coordinate system, and `geom`s—visual marks that represent data points." 
+- ... and what's the Grammar of Graphics? Our `ggplot2` [cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) says this is "the idea that you can _build every graph from the same components_: a data set, a coordinate system, and `geom`s—visual marks that represent data points." 
 
 
 ## Why plot with `ggplot2`?
@@ -57,16 +43,16 @@ The __datasaurus__ -- [Matejka and Fitzmaurice](https://www.autodeskresearch.com
 3. It's popular 😎
 
 ## `ggplot2` aids perception
-- Learning `ggplot2` will help you __understand how data visualization works__, how to figure out what you want your plots to look like and describe this to the computer.
-- This is because it's __declarative__. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu). You can read a whole [blog post about](http://varianceexplained.org/r/why-I-use-ggplot2/) why this is a good thing!
-- So by using `ggplot2` you learn how to make __better__ graphs, not just how to make graphs.
+- Learning `ggplot2` will help you _understand how data visualization works_, how to figure out what you want your plots to look like and describe this to the computer.
+- This is because it's _declarative_. You describe to the computer exactly what you want the plot to look like and it draws it for you (rather than, say, picking a type of plot from a menu of options). You can read a whole [blog post about](http://varianceexplained.org/r/why-I-use-ggplot2/) why this is a good thing!
+- So by using `ggplot2` you learn how to make _better_ graphs, not just how to make graphs.
 
 
 
 ## `ggplot2` is powerful
-- Because it's declarative it's also __flexible__
-- You can make pretty pretty much __any type__ of (static) graph you want! (No fancy interactive web graphics though, sorry)
-- This is very powerful! You can make __publication__ (or social media) quality graphs
+- Because it's declarative it's also _flexible_
+- You can make pretty pretty much _any type_ of (static) graph you want! (No fancy interactive web graphics though, sorry)
+- This is very powerful! You can make _publication_ (or social media) quality graphs
 
 
 ## `ggplot2` is popular
@@ -74,46 +60,31 @@ The __datasaurus__ -- [Matejka and Fitzmaurice](https://www.autodeskresearch.com
 - There is a large community of users who use `ggplot2` to communicate with very different audiences
 - `ggplot2` is used by data journalists at major outlets [BBC](https://bbc.github.io/rcookbook/) and [Financial Times](https://johnburnmurdoch.github.io/slides/r-ggplot/#/)
 - As well as technical users who have [extended](https://exts.ggplot2.tidyverse.org/) `ggplot2`'s core functions for specific use cases
-- You can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often __post their code online__ you learn from these many users (for example, the online community around the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) weekly challenges)
+- You can use the same tool to visualize data effectively for academic audiences as well as the general public (also just for ourselves), and because users often _post their code online_ you learn from these many users (for example, the online community around the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) weekly challenges)
 - Take advantage of [Ctrl + C & Ctrl + V](https://speakerdeck.com/hadley/should-all-statistics-students-be-programmers)
 
 
 
-# One more thing before we begin...
+# One more thing before we begin...{background-color="#006938" style="color: white;"}
 
 
 ## `ggplot2` is powerful and fallible
 
 - `ggplot2` is a world unto itself (technically, it's a [domain specific language](http://adv-r.had.co.nz/dsl.html))
 - It's also a world with [quirks](https://www.youtube.com/watch?v=vYwXMnC03I4)
-- .. so when learning how to use `ggplot2`, mistakes are gonna happen - even for existing `R` users - and that's __fine!__
+- .. so when learning how to use `ggplot2`, mistakes are gonna happen - even for existing `R` users - and that's _fine!_
 - Every error is a learning opportunity - we're all building up better mental models of how `ggplot2` works, and finding things that don't work as expected (or at all!) help us do this too
-- We'll talk about common 'gotchas' later on
 
 
+## Concepts in the grammar of graphics
 
-# Concepts in the grammar of graphics
+ _Dataset_ + 
 
- __Dataset__ + 
- __mapping__ variables in the dataset to `aes`thetics + 
- __Layers__ of `geom`s (symbols to represent data) = 
- __Plot__
+ _mapping_ variables in the dataset to `aes`thetics + 
 
+ _Layers_ of `geom`s (symbols to represent data) = 
 
-
-
-
-# __Dataset__ + 
-# Mapping variables in the dataset to `aes`thetics + 
-# Layers of `geom`s (symbols to represent data) = 
-# Plot
-
-
-{demo call here}
-
-
-
-
+ _Plot_
 
 # Data
 
@@ -124,146 +95,79 @@ The __datasaurus__ -- [Matejka and Fitzmaurice](https://www.autodeskresearch.com
     3. Each value must have its own cell.
 - From _R for Data Science_:
 ![](images/tidy-1.png)
-- Don't worry about this during the course - the datasets we're using have been tidied already
 
 
+## Mapping variables to `aes()`thetics
+
+- _Which variables_ in your dataset you want to represent in the plot and _how_
+- Most of the time you'll want at least `x` and `y` (these are _position_ `aes`thetics)
+- Includes _other visual encodings_ like: colour/fill, shape, linetype, alpha (transparency), size...
+- _Key point_ - if you want `ggplot` know about something _inside your dataset you have to reference it within_ `aes`!
 
 
-# Dataset + 
-# __Mapping__ variables in the dataset to `aes`thetics + 
-# Layers of `geom`s (symbols to represent data) = 
-# Plot
+# Live demo{background-color="#006938" style="color: white;"}
 
 
+## Mapping helps thinking
+
+- This is part of what makes `ggplot` so helpful for thinking about data visualization - you get to choose how you want to map variables to aesthetics and how to represent them in layers in a _declarative_ way.
+- Decide _what to emphasise_ in your plot based on what you're interested in; the same data mapped to different `aes()`thetics can have different emphasis
+- (Obviously you can do this with other plotting programs too, but I think it's more _explicit_ in `ggplot`)
 
 
+## `geom`etric symbols to represent data
 
-# Mapping variables to `aes()`thetics
-
-- __Which variables__ in your dataset you want to represent in the plot and __how__
-- Most of the time you'll want at least `x` and `y` (these are __position__ `aes`thetics)
-- Includes __other visual encodings__ like: colour/fill, shape, linetype, alpha (transparency), size...
-- __Key point__ - if you want `ggplot` know about something __inside your dataset you have to reference it within__ `aes`!
-
-- Insert examples here of same dataset with different mappings
-
-{demo call here}
-
-
-
-# Mapping helps thinking
-
-- This is part of what makes `ggplot` so helpful for thinking about data visualization - you get to choose how you want
-to map variables to aesthetics and how to represent them in layers in a __declarative__ way.
-- Decide __what to emphasise__ in your plot based on what you're interested in; the same data mapped to different `aes()`thetics can have different emphasis
-- (Obviously you can do this with other plotting programs too, but I think it's more __explicit__ in `ggplot`)
-
-
-
-#
-
-Dataset + 
-Mapping variables in the dataset to `aes`thetics + 
-__Layers__ of `geom`s (symbols to represent data) = 
-Plot
-
-
-
-
-# `geom`etric symbols to represent data
-
-- __What__ symbols you want `ggplot` to draw to represent the data; lines, points, errorbars, ribbons, contours...
-- You add these to the plot in __layers__
+- _What_ symbols you want `ggplot` to draw to represent the data; lines, points, errorbars, ribbons, contours...
+- You add these to the plot in _layers_
 - You can have exactly the same mapping of variables to `aes`thetics, but different `geom`s
 
-{demo call here}
+# Live demo{background-color="#006938" style="color: white;"}
 
 
 
-# Layers and `geom`s
+## Layers and `geom`s
 
-- `ggplot2` builds plots out of __layers__
-- This makes it suuuuuuper flexible - you can just __stack layers on top of each other__!
-- `geom`s only add __one layer at a time__
-- __Add__ layers together_ with `+` __operator__
-- __Order matters!__
+- `ggplot2` builds plots out of _layers_
+- This makes it super flexible - you can just _stack layers on top of each other_!
+- `geom`s only add _one layer at a time_
+- _Add_ layers together_ with `+` _operator_
+- _Order matters!_
 
-{demo call here}
+# Live demo{background-color="#006938" style="color: white;"}
 
 
 
-# `geom`s and `aes`thetics
+## `geom`s and `aes`thetics
 
-- __Every__ `geom` __needs__ a dataset and a mapping of variables to `aes`thetics
-- Layers (silently!) __inherit__ data and `aes` mappings that you set __for the whole plot__...
-- ... but you can set data and aesthetics for whole plot and for each layer __separately__, so you can override this default behaviour
-- This is often very helpful but also a big source of pain - __THERE BE DRAGONS__ 🐉
+- _Every_ `geom` _needs_ a dataset and a mapping of variables to `aes`thetics
+- Layers (silently!) _inherit_ data and `aes` mappings that you set _for the whole plot_...
+- ... but you can set data and aesthetics for whole plot and for each layer _separately_, so you can override this default behaviour
+- This is often very helpful but also a big source of pain - _THERE BE DRAGONS_ 🐉
 - Again, if you want a layer to reference something in your dataset you need to tell it with `aes`
 
-{demo call here}
+# Live demo{background-color="#006938" style="color: white;"}
 
 
+# Types of geom{background-color="#006938" style="color: white;"}
 
-# Set `geom` parameters with `aes` or with a fixed value?
-
-- You use `geom`s to visually represent values of the __variables in your dataset__
-- But sometimes you also want to change how a `geom` looks to a __fixed value__ (i.e. one that __doesn't__ come from a variable) in your dataset - like making all the points in a scatterplot red
-- If it's within the call to `aes`, `ggplot2` will look for it in your dataset
-- If it's outside the call to `aes`, `ggplot2` will apply the value you supply directly
-- size = 2, colour = "red"
-- `aes(size = 2, colour = "red")`
-- For technical reasons we won't go into now __quotation marks matter__ here (if you want you can read all about why [here](https://adv-r.hadley.nz/metaprogramming.html))
-- This was a common source of errors for me when learning `ggplot2` (and still is!) and my own mental model of when and why to use quote marks is pretty crude even now. So it's natural that this feels weird or arbitrary right now
-
-
-{demo call here}
-
-
-
-class: center, middle, inverse
-
-# __Dataset__ + 
-# __Mapping__ variables in the dataset to `aes`thetics + 
-# __Layers__ of `geom`s (symbols to represent data) = 
-# __Plot__
-
-
-
-
-# Things to look out for
-
-- If you want `ggplot` to know about something in your dataset, use `aes()`
-- Order matters in the `ggplot` call
-
-
-# Types of geom
-
-# Three types of `geom` layer
-
-
-
-# Three types of `geom`
+## Three types of `geom`
 
 - I like to think of `geom`s as being one of three types:
 - `geom`s that plot each datum for you
 - `geom`s that plot summaries of your dataset for you
-- `geom`s that plot things that aren't in your dataset (like reference lines and such)
+- `geom`s that plot things that aren't in your dataset (like reference lines and such). We won't discuss these
 
 
-
-# Plot my data please
+## Plot my data please
 
 - `geom_point`
 - `geom_line`
 - `geom_bar` (sort of)
 - `geom_errorbar` (sort of)
 - `geom_tile`
-- `geom_sf()` (we'll come back to this in the next session)
 
 
-
-
-# Plot a summary of my data
+## Plot a summary of my data
 
 - Univariate/distributions:
     - `geom_histogram`
@@ -273,63 +177,13 @@ class: center, middle, inverse
     - `geom_smooth`
     - `geom_contour`
     
+## Show the data
+- You should always plot the data before a summary of the data
+- And it's good practice to plot summaries on the scale of the original data too
 
+# Types of geom{background-color="#006938" style="color: white;"}
 
-
-
-# Ask yourself - do you want to plot your data? A summary of your data? 
-# ...Or both?
-
-
-# Common problems with `ggplot2`
-
-# 1. "Sawtooth" lines
-
-.pull-left[
-
-- [From R For Data Science](https://ggplot2-book.org/collective-geoms.html):
-
-```{r bad_plot, out.width = '85%', echo = FALSE}
- knitr::include_graphics("https://ggplot2-book.org/collective-geoms_files/figure-html/oxboys-line-bad-1.png")
-```
-
-]
-
-.pull-right[
-
-- __Diagnosis__: ["This vis problem often means there is some grouping characteristic missing from the graphic"](https://www.njtierney.com/post/2020/06/14/jq-sawtooth/)
-- __Prescription__: Check the data for any more grouping variables you might've missed (e.g. if your dataset is values for multiple years and you haven't included year in the plot)
-
-]
-
-
-## `Error: Each group consists of only one observation. Do you need to adjust the group aesthetic?`
-
-- __Diagnosis__: This happens when you try to plot a __line__ using a factor as one of the position scales. `ggplot` then 'guesses' that you want the `x` variable to be the grouping variable
-- Data types, and particularly [factors](https://r4ds.had.co.nz/factors.html) matter to `ggplot`!
-
-- __Prescription__: Adjust the group aesthetic! Explicitly tell `ggplot` what variable you want to group by in the call to `aes()` using the `group = ` parameter
-
-
-## `Error: stat_count() can only have an x or y aesthetic`
-
-- __Diagnosis__: This happens with summary `geom`s (usually `geom_bar`) which want to calculate a summary for you but you've already summarised the data outside of ggplot2
-
-- __Prescription__: You can tell `geom_bar` that you've summarised the data already by [specifying `geom_bar(stat = "identity")`](https://stackoverflow.com/a/39679104/10791377) (here `identity` just means "use the numbers that I gave you please and don't calculate anything with them")
-
-
-
-## `Error: Cannot use +.gg() with a single argument. Did you accidentally put + on a new line?`
-
-- __Diagnosis__: For [technical reasons I don't understand](https://community.rstudio.com/t/why-put-and-at-the-end-of-lines/1831) this isn't valid R code. So you can't do it!
-
-- __Prescription__: Move the `+` to the end of the previous line from the start of the new line
-
-
-
-## `Error in FUN(X[[i]], ...) : object 'blah' not found`
-
-- __Diagnosis__: `ggplot` is looking for something in your dataset but there are __no variables with that name__
-    - See our discussion on concepts in the grammar of graphics about what goes inside the call to `aes` and what goes outside
-- __Prescription__: Make sure there aren't any __typos__, and that what you've specified __exists in your dataset__
-    - If you're trying to set a colour you might have to move this outside the call to `aes()`
+## Learning outcomes
+- Understand key strengths of plotting with ggplot2
+- Understand key concepts of mapping aesthetics and layering geoms
+- Understand the main types of geoms (plotting data points versus plotting summaries)
